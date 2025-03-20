@@ -10,11 +10,11 @@ export default function Navbar() {
       <Button text="LOGIN ADMINISTRADORES"></Button>
 
       {/* Logo ao centro */}
-      <Image src={Logo} alt="Quali" />
+      <Image src={Logo} alt="Qualiclínica logo" />
 
       {/* Links de navegação */}
       <div className="flex space-x-6 text-gray-500 text-sm">
-        <Link href="/" className="hover:text-gray-700">
+        <Link href="/home" className="hover:text-gray-700">
           Home
         </Link>
         <Link href="/sobre" className="hover:text-gray-700">

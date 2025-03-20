@@ -2,7 +2,7 @@ import Footer from "@/components/ui/footer";
 import LoginForm from "@/components/ui/login-form";
 import Navbar from "@/components/ui/navbar";
 
-export default function Home() {
+export default function Login() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <Navbar></Navbar>
