@@ -4,7 +4,7 @@ import Navbar from "@/components/ui/navbar";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <Navbar></Navbar>
       <main className="p-10 w-full flex items-center justify-center text-black">
         <LoginForm />
