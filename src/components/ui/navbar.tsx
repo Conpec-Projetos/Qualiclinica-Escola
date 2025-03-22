@@ -5,7 +5,7 @@ import Button from "@/components/ui/button";
 
 export default function Navbar() {
   return (
-    <nav className="bg-white w-full h-[80px] flex items-center justify-between px-52 border-b">
+    <nav className="bg-white w-full h-[80px] flex items-center justify-around">
       {/* Botão à esquerda */}
       <Button text="LOGIN ADMINISTRADORES"></Button>
 
