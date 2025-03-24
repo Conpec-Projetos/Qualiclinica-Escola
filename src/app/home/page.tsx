@@ -5,6 +5,10 @@ import Image from "next/image";
 import LogoPrincipal from "../../assets/logo-principal.svg"
 import Imagem1CursosHome from "../../assets/walkyria-cursos.jpg"
 import Imagem2CursosHome from "../../assets/thais-cursos.jpg"
+import WhatsappIcon from "../../assets/whatsapp-icon.svg"
+import { Instagram } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 function ButtonHomeModel({ text }: { text: string }) {
   if (text == "Conheça-nos") {
@@ -56,9 +60,9 @@ function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-(--verde-petroleo)">{courseArea}</h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
           <ul className="text-(--text) text-[1.125rem]">
-            <li>Terapia de bomba de infusão de insulina</li>
-            <li>Seguimento seguro do paciente com Diabetes Tipo 2</li>
-            <li>Terapia de Contagem de Carboidratos</li>
+            <li className="mb-[0.5rem]">Terapia de bomba de infusão de insulina</li>
+            <li className="mb-[0.5rem]">Seguimento seguro do paciente com Diabetes Tipo 2</li>
+            <li className="mb-[0.5rem]">Terapia de Contagem de Carboidratos</li>
           </ul>
         </div>
         <SaibaMaisBtn />
@@ -70,8 +74,8 @@ function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-(--verde-petroleo)">{courseArea}</h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
           <ul className="text-(--text) text-[1.125rem]">
-            <li>Introdução ao sistema de bomba de insulina: instalação em paciente próprio, com seguimento inicial</li>
-            <li>Manejo e cuidado do paciente portador de Diabetes Tipo 1</li>
+            <li className="mb-[0.5rem]">Introdução ao sistema de bomba de insulina: instalação em paciente próprio, com seguimento inicial</li>
+            <li className="mb-[0.5rem]">Manejo e cuidado do paciente portador de Diabetes Tipo 1</li>
           </ul>
         </div>
         <SaibaMaisBtn />
@@ -83,8 +87,8 @@ function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-(--verde-petroleo)">{courseArea}</h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
           <ul className="text-(--text) text-[1.125rem]">
-            <li>Cuidados de Enfermagem em Pé Diabético</li>
-            <li>Curso de terapia de contagem de carboidratos para nutricionistas</li>
+            <li className="mb-[0.5rem]">Cuidados de Enfermagem em Pé Diabético</li>
+            <li className="mb-[0.5rem]">Curso de terapia de contagem de carboidratos para nutricionistas</li>
           </ul>
         </div>
         <SaibaMaisBtn />
@@ -96,11 +100,11 @@ function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-(--verde-petroleo)">{courseArea}</h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
           <ul className="text-(--text) text-[1.125rem]">
-            <li>Oficina de contagem de carboidratos para pacientes e famílias</li>
-            <li>Curso para Cuidadores de pessoas com diabetes</li>
-            <li>Roda de conversa para pais de pessoas com Diabetes Tipo 1</li>
-            <li>Saúde mental e diabetes: desafios da cronicidade para pacientes e seus familiares</li>
-            <li>Instalação e manejo do sensor subcutâneo de glicose</li>
+            <li className="mb-[0.5rem]">Oficina de contagem de carboidratos para pacientes e famílias</li>
+            <li className="mb-[0.5rem]">Curso para Cuidadores de pessoas com diabetes</li>
+            <li className="mb-[0.5rem]">Roda de conversa para pais de pessoas com Diabetes Tipo 1</li>
+            <li className="mb-[0.5rem]">Saúde mental e diabetes: desafios da cronicidade para pacientes e seus familiares</li>
+            <li className="mb-[0.5rem]">Instalação e manejo do sensor subcutâneo de glicose</li>
           </ul>
         </div>
         <SaibaMaisBtn />
@@ -114,7 +118,7 @@ function CursosHome() {
     <section>
       <h1 className="text-center font-semibold text-[3rem] text-(--verde-petroleo) pb-[21px]">nossos cursos</h1>
       <div className="flex flex-col flex-wrap h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
-        <p className="w-[23.75rem] text-[1.125rem] text-(--text)">Na QualiClínica Escola oferecemos uma ampla gama de cursos e mentorias relacionados ao tema do <b>diabetes</b>.</p>
+        <p className="w-[23.75rem] text-[1.125rem] text-(--text)">Na QualiClínica Escola oferecemos uma ampla gama de cursos e mentorias relacionados ao tema do <b className="font-medium">diabetes</b>.</p>
         <AreaCursoHome courseArea={"para médicos"} />
         <AreaCursoHome courseArea={"mentorias"} />
         <Image className="rounded-[5px]" src={Imagem2CursosHome} alt="Nutricionista Thais apresentando slides do curso" />
@@ -156,8 +160,20 @@ function ContatoHome() {
 
 function AdressHome() {
   return (
-    <section>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.73410215155306!2d-47.03778380613328!3d-22.8858529969182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf60929e4e9b%3A0x248fedc1733a652f!2sR.%20Pilar%20do%20Sul%2C%20364%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-757!5e0!3m2!1spt-BR!2sbr!4v1742434083835!5m2!1spt-BR!2sbr" width="381" height="288" /*allowfullscreen=""*/ loading="lazy" /*referrerpolicy="no-referrer-when-downgrade"*/></iframe>
+    <section className="flex flex-col gap-[1.5rem]">
+      <div className="flex flex-col gap-[1rem]">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.73410215155306!2d-47.03778380613328!3d-22.8858529969182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf60929e4e9b%3A0x248fedc1733a652f!2sR.%20Pilar%20do%20Sul%2C%20364%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-757!5e0!3m2!1spt-BR!2sbr!4v1742434083835!5m2!1spt-BR!2sbr" width="381" height="288" /*allowfullscreen=""*/ loading="lazy" /*referrerpolicy="no-referrer-when-downgrade"*/></iframe>
+        <p className="text-[1.125rem] text-(--text) w-[23.75rem]">Endereço: Rua Pilar do Sul 364, Chácara da Barra - Campinas (SP), CEP 13090-757</p>
+      </div>
+      <div className="flex flex-col gap-[0.75rem]">
+        <h2 className="font-semibold text-(--verde-petroleo) text-[1.69rem]">contato e redes sociais</h2>
+        <ul className="text-(--text) text-[1.125rem] leading-[2.7rem]">
+          <li><Instagram className="inline-block" color="#991871" /><p className="inline-block px-[1rem]">@qualiclinicaescola</p></li>
+          <li><Mail className="inline-block" color="#991871" /><p className="inline-block px-[1rem]">wqualiclinica@gmail.com</p></li>
+          <li><Image className="inline-block" alt="" src={WhatsappIcon} /><p className="inline-block px-[1rem]">WhatsApp: +55 (19) 99641-9210</p></li>
+          <li><Phone className="inline-block" color="#991871" /><p className="inline-block px-[1rem]">Telefone: +55 (19) 3254-5792</p></li>
+        </ul>
+      </div>
     </section>
   );
 }

@@ -49,12 +49,16 @@
     list-style: decimal;
     margin-left: 1.5rem;
   }
-  
+
   ul {
     list-style: disc;
     margin-left: 1.5rem;
   }
-  
+
+  li::marker {
+    color: var(--text);
+  }
+
   menu {
     list-style: disc;
     margin-left: 1.5rem;
