@@ -9,10 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "lucide-react": "^0.483.0",
     "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+=======
+    "@radix-ui/react-slot": "^1.1.2",
+    "@tiptap/extension-focus": "^2.11.5",
+    "@tiptap/extension-image": "^2.11.5",
+    "@tiptap/extension-placeholder": "^2.11.5",
+    "@tiptap/extension-typography": "^2.11.5",
+    "@tiptap/extension-underline": "^2.11.5",
+    "@tiptap/pm": "^2.11.5",
+    "@tiptap/react": "^2.11.5",
+    "@tiptap/starter-kit": "^2.11.5",
+    "class-variance-authority": "^0.7.1",
+    "firebase": "^11.5.0",
+    "lucide-react": "^0.483.0",
+    "next": "15.2.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2"
+>>>>>>> eee54191d2f9276582e2841ecefe031037a23b97
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
