@@ -21,9 +21,9 @@ export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b border-[#D4D4D4]">
       {/* Botão à esquerda */}
       {loggedIn ? (
-        <Button text="OLÁ, Walkyria!"></Button>
+        <Button text="Olá, (nome)!"></Button>
       ) : (
-        <Button text="LOGIN ADMINISTRADORES"></Button>
+        <Button text="Login administradores"></Button>
       )}
 
       {/* Logo ao centro */}
