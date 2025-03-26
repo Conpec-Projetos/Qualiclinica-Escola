@@ -25,7 +25,7 @@ import {
   StrikethroughIcon,
   UnderlineIcon,
 } from "lucide-react";
-import Button from "./ui/button";
+import Button from "./ui/button-quali";
 import {
   addDoc,
   collection,

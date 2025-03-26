@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
 import NavbarAdmin from "@/components/ui/navbar-admin";
 

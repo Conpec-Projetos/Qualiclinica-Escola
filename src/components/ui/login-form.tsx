@@ -4,7 +4,7 @@ import { useState } from "react";
 import EyeDefault from "@/assets/eye-default.svg";
 import EyeSlash from "@/assets/eye-slash.svg";
 import Image from "next/image";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-quali";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/firebase-config";
 import { FirebaseError } from "firebase/app";

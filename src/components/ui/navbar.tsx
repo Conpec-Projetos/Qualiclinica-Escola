@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/logo-navbar.svg";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-quali";
 import DropdownMenuNavbar from "@/components/ui/dropdown-menu-navbar";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
