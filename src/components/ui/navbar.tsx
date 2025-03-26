@@ -18,11 +18,7 @@ export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
   };
 
   return (
-<<<<<<< HEAD
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-b-[#D4D4D4]">
-=======
-    <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b border-[#D4D4D4]">
->>>>>>> eee54191d2f9276582e2841ecefe031037a23b97
       {/* Botão à esquerda */}
       {loggedIn ? (
         <Button text="Olá, (nome)!"></Button>

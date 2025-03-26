@@ -1,11 +1,11 @@
 import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
-import "../globals.css"
+import "@/app/globals.css"
 import Image from "next/image";
-import LogoPrincipal from "../../assets/logo-principal.svg"
-import Imagem1CursosHome from "../../assets/walkyria-cursos.jpg"
-import Imagem2CursosHome from "../../assets/thais-cursos.jpg"
-import WhatsappIcon from "../../assets/whatsapp-icon.svg"
+import LogoPrincipal from "@/assets/logo-principal.svg"
+import Imagem1CursosHome from "@/assets/walkyria-cursos.jpg"
+import Imagem2CursosHome from "@/assets/thais-cursos.jpg"
+import WhatsappIcon from "@/assets/whatsapp-icon.svg"
 import { Instagram } from 'lucide-react';
 import { Mail } from 'lucide-react';
 import { Phone } from 'lucide-react';
