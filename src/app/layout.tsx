@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${poppins_init.variable} ${roboto_init.variable} ${robotoCondensed_init.variable}antialiased`}
+        className={`${poppins_init.variable} ${roboto_init.variable} ${robotoCondensed_init.variable} antialiased`}
       >
         {children}
       </body>
