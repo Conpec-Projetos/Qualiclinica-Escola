@@ -4,7 +4,6 @@ import "@/app/globals.css"
 import Image from "next/image";
 import NucleoEdu from "./assets-profissionais/nucleo-educacional.jpg"
 import Walkiria from "./assets-profissionais/walkiria.jpg"
-import { AppProps } from "next/app";
 
 function HeroProfissionais() {
   return (
