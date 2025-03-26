@@ -5,12 +5,18 @@ import Image from "next/image";
 import NavbarAdmin from "@/components/ui/navbar-admin";
 import Footer from "@/components/ui/footer";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { UploadIcon } from "lucide-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
 
-export default function Editor() {
+export default function EditorPage() {
+  <Suspense fallback={<div>Carregando...</div>}>
+    <Editor />
+  </Suspense>;
+}
+
+const Editor = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const postId = searchParams.get("postId");
