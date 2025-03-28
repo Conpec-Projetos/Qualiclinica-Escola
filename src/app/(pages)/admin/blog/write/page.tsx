@@ -86,10 +86,11 @@ const Editor = () => {
             className={`relative flex flex-col w-full h-[380px] max-h-[380px] max-w-full bg-(--ciano-escuro) rounded-t-[5px] overflow-hidden items-center justify-center text-5xl text-(--menta-claro1)`}
           >
             {imageUrl != "" ? (
-              <img
+              <Image
                 alt="imagem de banner"
                 src={imageUrl}
-                className="object-cover w-full h-full max-w-full max-h-full"
+                objectFit="cover"
+                layout="fill"
               />
             ) : (
               <p>imagem de banner</p>
