@@ -65,7 +65,6 @@ const Editor = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Aqui você pode tratar o upload da imagem (por exemplo, enviando para o Firebase Storage)
       const url = URL.createObjectURL(file);
       setImageUrl(url);
     }

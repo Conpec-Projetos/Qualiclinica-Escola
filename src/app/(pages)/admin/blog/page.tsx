@@ -156,6 +156,7 @@ export default function PostsAdmin() {
                   <PostCard
                     key={post.id}
                     post={post}
+                    imageUrl={post.imageUrl}
                     selected={selectedPosts.includes(post.id)}
                     onCheckboxChange={handleCheckboxChange}
                   />
