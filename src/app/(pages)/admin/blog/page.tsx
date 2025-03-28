@@ -60,7 +60,7 @@ import { useEffect, useState } from "react";
 //   },
 // ];
 
-export default function CursosAdmin() {
+export default function PostsAdmin() {
   const router = useRouter();
 
   const [posts, setPosts] = useState<Post[]>([]);

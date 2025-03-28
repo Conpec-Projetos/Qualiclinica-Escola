@@ -11,9 +11,17 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
 
 export default function EditorPage() {
-  <Suspense fallback={<div>Carregando...</div>}>
-    <Editor />
-  </Suspense>;
+  return (
+    <Suspense
+      fallback={
+        <div className="flex flex-col justify-center">
+          <p className="text-2xl text-[var(--magenta)]">Carregando...</p>
+        </div>
+      }
+    >
+      <Editor />
+    </Suspense>
+  );
 }
 
 const Editor = () => {
@@ -75,12 +83,14 @@ const Editor = () => {
             src={ArrowLeft}
           />
           <div
-            className={`relative flex flex-col ${
-              !imageUrl && "h-[380px] bg-(--ciano-escuro) rounded-t-[5px]"
-            } items-center justify-center text-5xl text-(--menta-claro1)`}
+            className={`relative flex flex-col w-full h-[380px] max-h-[380px] max-w-full bg-(--ciano-escuro) rounded-t-[5px] overflow-hidden items-center justify-center text-5xl text-(--menta-claro1)`}
           >
             {imageUrl != "" ? (
-              <img alt="imagem de banner" src={imageUrl} />
+              <img
+                alt="imagem de banner"
+                src={imageUrl}
+                className="object-cover w-full h-full max-w-full max-h-full"
+              />
             ) : (
               <p>imagem de banner</p>
             )}
@@ -119,4 +129,4 @@ const Editor = () => {
       <Footer />
     </div>
   );
-}
+};
