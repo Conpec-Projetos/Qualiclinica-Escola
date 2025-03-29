@@ -17,7 +17,7 @@ export default function NavbarAdmin() {
   };
 
   return (
-    <nav className="bg-white px-45 w-full h-[80px] flex items-center justify-around border-b border-[#D4D4D4]">
+    <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-[#D4D4D4]">
       {/* Botão à esquerda */}
       <Button text={`Olá, ${currentUser?.name}!`}></Button>
 

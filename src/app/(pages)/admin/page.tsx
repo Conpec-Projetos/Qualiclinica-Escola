@@ -17,7 +17,7 @@ export default function HomeAdmin() {
   return (
     <div className="flex flex-col w-screen min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <Navbar />
-      <main className="p-10 w-full flex flex-col items-center justify-center text-black">
+      <main className="w-full flex flex-col items-center justify-center text-black">
         <div className="flex gap-8 text-(--magenta) font-semibold text-[18px] bg-(--rosa-claro) px-20 py-4 rounded-[5px]">
           <Link href="/admin/cursos">Cursos</Link>
           <Link href="/admin/profissionais">Profissionais</Link>

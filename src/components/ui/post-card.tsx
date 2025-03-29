@@ -24,7 +24,7 @@ export default function PostCard({
   post,
   selected,
   onCheckboxChange,
-  imageUrl
+  imageUrl,
 }: PostCardProps) {
   return (
     <div className="flex">
@@ -51,15 +51,14 @@ export default function PostCard({
           </p>
         </div>
         <div className="max-w-[360px] w-[300px] h-[150px] max-h-[150px] relative overflow-hidden rounded-[5px]">
-        <Image
-          className="w-[50%] select-none"
-          alt="imagem de blog"
-          src={imageUrl ? imageUrl : ImagePlaceholder}
+          <Image
+            className="w-[50%] select-none"
+            alt="imagem de blog"
+            src={imageUrl ? imageUrl : ImagePlaceholder}
             layout="fill"
             objectFit="cover"
-        />
+          />
         </div>
-        
       </div>
     </div>
   );
