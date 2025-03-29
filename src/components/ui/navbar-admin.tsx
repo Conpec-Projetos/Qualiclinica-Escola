@@ -1,21 +1,18 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/logo-navbar.svg";
 import Button from "@/components/ui/button-quali";
-import { signOut } from "firebase/auth";
-import { auth } from "@/firebase/firebase-config";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { AuthContext } from "@/contexts/auth.context";
 
 export default function NavbarAdmin() {
   const router = useRouter();
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    await signOut(auth);
+    logout();
     router.push("/");
   };
 

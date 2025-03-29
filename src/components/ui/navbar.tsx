@@ -6,17 +6,15 @@ import Logo from "@/assets/logo-navbar.svg";
 import Button from "@/components/ui/button-quali";
 import DropdownMenuNavbar from "@/components/ui/dropdown-menu-navbar";
 import { useRouter } from "next/navigation";
-import { signOut } from "firebase/auth";
-import { auth } from "@/firebase/firebase-config";
 import { useContext } from "react";
 import { AuthContext } from "@/contexts/auth.context";
 
 export default function Navbar() {
   const router = useRouter();
-  const { currentUser, isLoggedIn } = useContext(AuthContext);
+  const { currentUser, isLoggedIn, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    await signOut(auth);
+    logout()
     router.push("/");
   };
 
@@ -28,7 +26,7 @@ export default function Navbar() {
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-b-[#D4D4D4]">
       {/* Botão à esquerda */}
       {isLoggedIn ? (
-        <Button text={`Olá, ${currentUser?.name}!`}></Button>
+        <Button text={`Olá, ${currentUser?.name}!`} onClick={() => {router.push("/admin")}}></Button>
       ) : (
         <Button text="Login administradores" onClick={() => router.push("/login")}></Button>
       )}
