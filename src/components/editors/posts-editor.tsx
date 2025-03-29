@@ -25,7 +25,7 @@ import {
   StrikethroughIcon,
   UnderlineIcon,
 } from "lucide-react";
-import Button from "./ui/button-quali";
+import Button from "../ui/button-quali";
 import {
   addDoc,
   collection,
@@ -35,17 +35,17 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db, storage } from "@/firebase/firebase-config";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Post } from "./ui/post-card";
+import { Post } from "../ui/post-card";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { AuthContext } from "@/contexts/auth.context";
 
 interface PostsEditorProps {
   postId?: string;
   title: string;
   content: string;
-  author: string;
   image?: File | null;
 }
 
@@ -53,7 +53,6 @@ export default function PostsEditor({
   postId,
   title,
   content,
-  author,
   image,
 }: PostsEditorProps) {
   const editor = useEditor({
@@ -97,6 +96,8 @@ export default function PostsEditor({
     ],
     content: content,
   });
+  const [isSending, setIsSending] = useState(false);
+  const { currentUser } = useContext(AuthContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -119,6 +120,7 @@ export default function PostsEditor({
   const saveContent = async () => {
     try {
       if (postId) {
+        setIsSending(true);
         // Atualizar post existente
         const postRef = doc(db, "posts", postId);
         const postData = (await getDoc(postRef)).data() as Post;
@@ -134,12 +136,13 @@ export default function PostsEditor({
         await updateDoc(postRef, {
           title,
           content: editor.getHTML(),
-          author,
+          author: currentUser ? currentUser.name : "Sem autor",
           imageUrl: updatedImageUrl,
           publishedAt: serverTimestamp(),
         });
         toast.success("Post atualizado com sucesso!");
       } else {
+        setIsSending(true);
         // Criar novo post
         if (!image) {
           toast.warning("Selecione uma imagem para o post.");
@@ -153,18 +156,20 @@ export default function PostsEditor({
         await addDoc(collection(db, "posts"), {
           title,
           content: editor.getHTML(),
-          author,
+          author: currentUser ? currentUser.name : "Sem autor",
           imageUrl: downloadUrl,
           publishedAt: serverTimestamp(),
         });
         toast.success("Post criado com sucesso!");
       }
       setTimeout(() => {
+        setIsSending(false);
         router.back();
       }, 2000);
     } catch (error) {
       console.error("Erro ao salvar o post:", error);
       toast.error("Erro ao salvar o post. Tente novamente.");
+      setIsSending(false);
     }
   };
 
@@ -241,7 +246,7 @@ export default function PostsEditor({
           autoFocus={true}
         />
       </div>
-      <Button onClick={() => saveContent()} text="postar" />
+      <Button onClick={() => saveContent()} text="postar" disabled={isSending} />
     </div>
   );
 }

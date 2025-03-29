@@ -8,7 +8,7 @@ import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import { UploadIcon } from "lucide-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
-import PostsEditor from "@/components/posts-editor";
+import PostsEditor from "@/components/editors/posts-editor";
 import { AuthContext } from "@/contexts/auth.context";
 
 export default function EditorPage() {
@@ -41,7 +41,6 @@ const Editor = () => {
   const [imageUrl, setImageUrl] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [author, setAuthor] = useState<string>("sem autor");
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -54,7 +53,6 @@ const Editor = () => {
           const data = postSnap.data();
           setTitle(data.title);
           setContent(data.content);
-          setAuthor(data.author);
           setImageUrl(data.imageUrl);
         }
       } catch (error) {
@@ -130,7 +128,6 @@ const Editor = () => {
             <PostsEditor
               content={content}
               title={title}
-              author={author}
               image={image}
               postId={postId ? postId : undefined}
             />
