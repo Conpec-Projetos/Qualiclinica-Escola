@@ -14,7 +14,7 @@ import Focus from "@tiptap/extension-focus";
 import Typography from "@tiptap/extension-typography";
 import HorizontalRule from "@tiptap/extension-horizontal-rule";
 import Underline from "@tiptap/extension-underline";
-import { RichTextEditorButton } from "@/components/ui/rich-text-editor-button";
+import { EditorButton } from "@/components/ui/editors-button";
 import {
   BoldIcon,
   CornerUpLeft,
@@ -166,32 +166,32 @@ export default function PostsEditor({
     <div>
       <div className="p-4 mb-6 border rounded-[5px] bg-white border-(--ciano-escuro) max-w-3xl">
         <div className="text-(--menta-claro1) flex flex-wrap justify-evenly md:justify-center space-x-2 border-b border-(--verde-petroleo) pb-2">
-          <RichTextEditorButton
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().toggleBold().run()}
           >
             <BoldIcon size={16} />
-          </RichTextEditorButton>
-          <RichTextEditorButton
+          </EditorButton>
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().toggleItalic().run()}
           >
             <ItalicIcon size={16} />
-          </RichTextEditorButton>
-          <RichTextEditorButton
+          </EditorButton>
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().toggleStrike().run()}
           >
             <StrikethroughIcon size={16} />
-          </RichTextEditorButton>
-          <RichTextEditorButton
+          </EditorButton>
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().setUnderline().run()}
           >
             <UnderlineIcon size={16} />
-          </RichTextEditorButton>
+          </EditorButton>
           {([1, 2, 3, 4, 5, 6] as const).map((level) => (
-            <RichTextEditorButton
+            <EditorButton
               key={level}
               className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
               onClick={() =>
@@ -199,34 +199,34 @@ export default function PostsEditor({
               }
             >
               H{level}
-            </RichTextEditorButton>
+            </EditorButton>
           ))}
-          <RichTextEditorButton
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={addImage}
           >
             <ImageIcon size={16} />
-          </RichTextEditorButton>
-          <RichTextEditorButton
+          </EditorButton>
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
           >
             <Ruler size={16} />
-          </RichTextEditorButton>
-          <RichTextEditorButton
+          </EditorButton>
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().undo().run()}
             disabled={!editor.can().chain().focus().undo().run()}
           >
             <CornerUpLeft size={16} />
-          </RichTextEditorButton>
-          <RichTextEditorButton
+          </EditorButton>
+          <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().redo().run()}
             disabled={!editor.can().chain().focus().redo().run()}
           >
             <CornerUpRight size={16} />
-          </RichTextEditorButton>
+          </EditorButton>
         </div>
         <EditorContent
           editor={editor}

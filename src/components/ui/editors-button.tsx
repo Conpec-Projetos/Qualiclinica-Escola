@@ -40,7 +40,7 @@ export interface ButtonProps
   asChild?: boolean;
 }
 
-const RichTextEditorButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const EditorButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -52,6 +52,6 @@ const RichTextEditorButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-RichTextEditorButton.displayName = "Button";
+EditorButton.displayName = "Button";
 
-export { RichTextEditorButton, buttonVariants };
+export { EditorButton, buttonVariants };
