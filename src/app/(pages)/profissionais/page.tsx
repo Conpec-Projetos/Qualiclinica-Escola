@@ -2,8 +2,8 @@ import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css"
 import Image from "next/image";
-import NucleoEdu from "./assets-profissionais/nucleo-educacional.jpg"
-import Walkiria from "./assets-profissionais/walkiria.jpg"
+import NucleoEdu from "@assets/assets-profissionais/nucleo-educacional.jpg";
+import Walkiria from "@assets/assets-profissionais/walkiria.jpg";
 
 function HeroProfissionais() {
   return (

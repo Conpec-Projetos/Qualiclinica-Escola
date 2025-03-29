@@ -7,9 +7,12 @@ import Button from "@/components/ui/button-quali";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebase-config";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { AuthContext } from "@/contexts/auth.context";
 
-export default function NavbarAdmin({ username }: { username: string }) {
+export default function NavbarAdmin() {
   const router = useRouter();
+  const { currentUser } = useContext(AuthContext);
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -19,7 +22,7 @@ export default function NavbarAdmin({ username }: { username: string }) {
   return (
     <nav className="bg-white px-45 w-full h-[80px] flex items-center justify-around border-b border-[#D4D4D4]">
       {/* Botão à esquerda */}
-      <Button text={`Olá, ${username}!`}></Button>
+      <Button text={`Olá, ${currentUser?.name}!`}></Button>
 
       {/* Logo ao centro */}
       <Image src={Logo} alt="Qualiclínica logo" />

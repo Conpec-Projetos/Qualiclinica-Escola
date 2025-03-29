@@ -16,11 +16,18 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { deleteObject, ref } from "firebase/storage";
+import { AuthContext } from "@/contexts/auth.context";
+import { toast } from "sonner";
 
 export default function PostsAdmin() {
+  const { currentUser } = useContext(AuthContext);
   const router = useRouter();
+
+  useEffect(() => {
+    if (!currentUser) router.push("/");
+  }, [currentUser, router]);
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -62,13 +69,7 @@ export default function PostsAdmin() {
     }
   };
 
-  const handleDeleteSelected = async () => {
-    if (selectedPosts.length === 0) return;
-
-    if (!confirm("Tem certeza que deseja remover os posts selecionados?")) {
-      return;
-    }
-
+  const handleDeletePosts = async (selectedPosts: string[]) => {
     try {
       for (const postId of selectedPosts) {
         const postRef = doc(db, "posts", postId);
@@ -91,11 +92,27 @@ export default function PostsAdmin() {
     } catch (error) {
       console.error("Erro ao remover posts: ", error);
     }
+  }
+
+  const handleDeleteSelected = async () => {
+    if (selectedPosts.length === 0) return;
+
+    toast("Tem certeza que deseja remover os posts selecionados?", {
+      action: {
+        label: "Remover",
+        onClick: async () => {
+          await handleDeletePosts(selectedPosts);
+          toast.success("Posts removidos com sucesso!");
+        },
+      },
+    });
+
+ 
   };
 
   return (
     <div className="flex flex-col w-screen min-h-screen bg-white font-[family-name:var(--font-poppins)]">
-      <NavbarAdmin username="Walkyria" />
+      <NavbarAdmin />
       <main className="p-10 w-full flex items-center justify-center text-black">
         <div className="max-w-5xl mx-auto">
           {/* Título */}

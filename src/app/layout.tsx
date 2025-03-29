@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/providers/provider";
+import { Toaster } from "sonner";
 
 const poppins_init = Poppins({
   variable: "--font-poppins",
@@ -36,7 +38,10 @@ export default function RootLayout({
       <body
         className={`${poppins_init.variable} ${roboto_init.variable} ${robotoCondensed_init.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+          <Toaster position="bottom-right" richColors closeButton theme="light" />
+        </Providers>
       </body>
     </html>
   );

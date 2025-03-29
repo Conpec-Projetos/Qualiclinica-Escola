@@ -38,6 +38,8 @@ import { db, storage } from "@/firebase/firebase-config";
 import { useEffect } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Post } from "./ui/post-card";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface PostsEditorProps {
   postId?: string;
@@ -95,6 +97,7 @@ export default function PostsEditor({
     ],
     content: content,
   });
+  const router = useRouter();
 
   useEffect(() => {
     if (editor && content) {
@@ -135,11 +138,11 @@ export default function PostsEditor({
           imageUrl: updatedImageUrl,
           publishedAt: serverTimestamp(),
         });
-        alert("Post atualizado com sucesso!");
+        toast.success("Post atualizado com sucesso!");
       } else {
         // Criar novo post
         if (!image) {
-          alert("Selecione uma imagem para o post.");
+          toast.warning("Selecione uma imagem para o post.");
           return;
         }
 
@@ -154,11 +157,14 @@ export default function PostsEditor({
           imageUrl: downloadUrl,
           publishedAt: serverTimestamp(),
         });
-        alert("Post criado com sucesso!");
+        toast.success("Post criado com sucesso!");
       }
+      setTimeout(() => {
+        router.back();
+      }, 2000);
     } catch (error) {
       console.error("Erro ao salvar o post:", error);
-      alert("Erro ao salvar o post. Tente novamente.");
+      toast.error("Erro ao salvar o post. Tente novamente.");
     }
   };
 

@@ -1,46 +1,25 @@
 "use client";
-
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import EyeDefault from "@/assets/eye-default.svg";
 import EyeSlash from "@/assets/eye-slash.svg";
 import Image from "next/image";
 import Button from "@/components/ui/button-quali";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/firebase/firebase-config";
-import { FirebaseError } from "firebase/app";
+import { AuthContext } from "@/contexts/auth.context";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const authContext = useContext(AuthContext);
+  const { login, error, currentUser } = authContext;
   const router = useRouter();
-
-  const handleLogin = async () => {
-    setError(null);
-    try {
-      // Tenta fazer login com email e senha
-      await signInWithEmailAndPassword(auth, email, password);
-      setError(null);
+  
+  useEffect(() => {
+    if (currentUser) {
       router.push("/admin");
-    } catch (err: unknown) {
-      if (err instanceof FirebaseError) {
-        if (err.code === "auth/user-not-found") {
-          setError("Usuário não encontrado");
-        } else if (
-          err.code === "auth/invalid-password" ||
-          err.code === "auth/invalid-email"
-        ) {
-          setError("Email ou senha inválidos");
-        } else {
-          console.error(err.message);
-        }
-      } else {
-        setError("Ocorreu um erro inesperado");
-      }
     }
-  };
+  }, [currentUser, router]);
 
   return (
     <div className="flex items-center justify-center bg-[#194955] p-10 text-white w-[70%]">
@@ -88,7 +67,12 @@ export default function LoginForm() {
 
         {/* Botão de Enviar */}
         <div className="flex justify-center">
-          <Button text="ENVIAR" onClick={handleLogin}></Button>
+          <Button
+            text="ENVIAR"
+            onClick={() => {
+              login(email, password);
+            }}
+          ></Button>
         </div>
       </div>
     </div>

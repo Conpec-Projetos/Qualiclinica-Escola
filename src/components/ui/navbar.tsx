@@ -8,9 +8,12 @@ import DropdownMenuNavbar from "@/components/ui/dropdown-menu-navbar";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebase-config";
+import { useContext } from "react";
+import { AuthContext } from "@/contexts/auth.context";
 
-export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
+export default function Navbar() {
   const router = useRouter();
+  const { currentUser, isLoggedIn } = useContext(AuthContext);
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -24,8 +27,8 @@ export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
   return (
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-b-[#D4D4D4]">
       {/* Botão à esquerda */}
-      {loggedIn ? (
-        <Button text="Olá, (nome)!"></Button>
+      {isLoggedIn ? (
+        <Button text={`Olá, ${currentUser?.name}!`}></Button>
       ) : (
         <Button text="Login administradores" onClick={() => router.push("/login")}></Button>
       )}
@@ -48,7 +51,7 @@ export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
       </div>
 
       {/* Botão à direita */}
-      {loggedIn ? (
+      {isLoggedIn ? (
         <button
           className={`border hover:border-transparent hover:bg-[#88C8D4] hover:text-white rounded-[5px]
                   border-[#88C8D4] bg-transparent text-[#88C8D4]
