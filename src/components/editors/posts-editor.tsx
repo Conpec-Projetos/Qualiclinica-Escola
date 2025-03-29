@@ -37,10 +37,10 @@ import {
 import { db, storage } from "@/firebase/firebase-config";
 import { useContext, useEffect, useState } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Post } from "../ui/post-card";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/contexts/auth.context";
+import { Post } from "../ui/post-card";
 
 interface PostsEditorProps {
   postId?: string;
@@ -97,6 +97,7 @@ export default function PostsEditor({
     content: content,
   });
   const [isSending, setIsSending] = useState(false);
+  const [images, setImages] = useState<File[] | null>(null);
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
 
@@ -110,17 +111,30 @@ export default function PostsEditor({
     return <p>Carregando editor...</p>;
   }
 
-  const addImage = () => {
-    const url = window.prompt("URL");
-    if (url) {
-      editor.chain().focus().setImage({ src: url }).run();
+  const addImageFromFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setImages((prevImages) => [...(prevImages || []), file]);
+      const localUrl = URL.createObjectURL(file);
+      editor.chain().focus().setImage({ src: localUrl }).run();
     }
   };
 
   const saveContent = async () => {
     try {
+      setIsSending(true);
+      let updatedContent = editor.getHTML();
+
+      if (images) {
+        for (const image of images) {
+          const storageRef = ref(storage, `images/${image.name}`);
+          await uploadBytes(storageRef, image);
+          const downloadUrl = await getDownloadURL(storageRef);
+          updatedContent = updatedContent.replace(new RegExp(`src=".*?${image.name}"`, 'g'), `src="${downloadUrl}"`);
+        }
+      }
+
       if (postId) {
-        setIsSending(true);
         // Atualizar post existente
         const postRef = doc(db, "posts", postId);
         const postData = (await getDoc(postRef)).data() as Post;
@@ -131,18 +145,20 @@ export default function PostsEditor({
           await uploadBytes(storageRef, image);
           const downloadUrl = await getDownloadURL(storageRef);
           updatedImageUrl = downloadUrl;
+        } else {
+          toast.warning("Selecione uma imagem para o post.");
+          return;
         }
 
         await updateDoc(postRef, {
           title,
-          content: editor.getHTML(),
+          content: updatedContent,
           author: currentUser ? currentUser.name : "Sem autor",
-          imageUrl: updatedImageUrl,
           publishedAt: serverTimestamp(),
+          imageUrl: updatedImageUrl,
         });
         toast.success("Post atualizado com sucesso!");
       } else {
-        setIsSending(true);
         // Criar novo post
         if (!image) {
           toast.warning("Selecione uma imagem para o post.");
@@ -155,7 +171,7 @@ export default function PostsEditor({
 
         await addDoc(collection(db, "posts"), {
           title,
-          content: editor.getHTML(),
+          content: updatedContent,
           author: currentUser ? currentUser.name : "Sem autor",
           imageUrl: downloadUrl,
           publishedAt: serverTimestamp(),
@@ -212,12 +228,15 @@ export default function PostsEditor({
               H{level}
             </EditorButton>
           ))}
-          <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
-            onClick={addImage}
-          >
+          <label className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer flex items-center justify-center">
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={(event) => addImageFromFile(event)}
+            />
             <ImageIcon size={16} />
-          </EditorButton>
+          </label>
           <EditorButton
             className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
@@ -246,7 +265,7 @@ export default function PostsEditor({
           autoFocus={true}
         />
       </div>
-      <Button onClick={() => saveContent()} text="postar" disabled={isSending} />
+      <Button onClick={() => saveContent()} text={`${isSending ? 'postando...' : 'postar'}`} disabled={isSending} />
     </div>
   );
 }
