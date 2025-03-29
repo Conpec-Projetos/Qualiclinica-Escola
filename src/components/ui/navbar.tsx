@@ -17,13 +17,17 @@ export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
     router.push("/");
   };
 
+  const handleContateNos = () => {
+    router.push("/contate-nos");
+  }
+
   return (
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-b-[#D4D4D4]">
       {/* Botão à esquerda */}
       {loggedIn ? (
         <Button text="Olá, (nome)!"></Button>
       ) : (
-        <Button text="Login administradores"></Button>
+        <Button text="Login administradores" onClick={() => router.push("/login")}></Button>
       )}
 
       {/* Logo ao centro */}
@@ -54,7 +58,7 @@ export default function Navbar({ loggedIn = false }: { loggedIn?: boolean }) {
           logout
         </button>
       ) : (
-        <Button text="CONTATE-NOS"></Button>
+        <Button text="CONTATE-NOS" onClick={handleContateNos}></Button>
       )}
     </nav>
   );
