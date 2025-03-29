@@ -46,7 +46,7 @@ export default function PostCard({
           <p className="mb-1">
             Data de Publicação:{" "}
             <span className="font-light">
-              {post.publishedAt.toDate().toLocaleDateString()}
+              {post.publishedAt.toDate().toLocaleDateString("pt-BR")}
             </span>
           </p>
         </div>
