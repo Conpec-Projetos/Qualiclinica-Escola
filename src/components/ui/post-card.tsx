@@ -52,7 +52,7 @@ export default function PostCard({
         </div>
         <div className="max-w-[360px] w-[300px] h-[150px] max-h-[150px] relative overflow-hidden rounded-[5px]">
         <Image
-          className="w-[50%]"
+          className="w-[50%] select-none"
           alt="imagem de blog"
           src={imageUrl ? imageUrl : ImagePlaceholder}
             layout="fill"

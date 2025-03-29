@@ -30,18 +30,21 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "@/firebase/firebase-config";
+import { db, storage } from "@/firebase/firebase-config";
 import { useEffect } from "react";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { Post } from "./ui/post-card";
 
 interface RichTextEditorProps {
   postId?: string;
   title: string;
   content: string;
   author: string;
-  imageUrl?: string;
+  image?: File | null;
 }
 
 export default function RichTextEditor({
@@ -49,7 +52,7 @@ export default function RichTextEditor({
   title,
   content,
   author,
-  imageUrl,
+  image,
 }: RichTextEditorProps) {
   const editor = useEditor({
     extensions: [
@@ -115,21 +118,40 @@ export default function RichTextEditor({
       if (postId) {
         // Atualizar post existente
         const postRef = doc(db, "posts", postId);
+        const postData = (await getDoc(postRef)).data() as Post;
+        let updatedImageUrl = postData.imageUrl;
+
+        if (image) {
+          const storageRef = ref(storage, `images/${image?.name}`);
+          await uploadBytes(storageRef, image);
+          const downloadUrl = await getDownloadURL(storageRef);
+          updatedImageUrl = downloadUrl;
+        }
+
         await updateDoc(postRef, {
           title,
           content: editor.getHTML(),
           author,
-          imageUrl,
+          imageUrl: updatedImageUrl,
           publishedAt: serverTimestamp(),
         });
         alert("Post atualizado com sucesso!");
       } else {
         // Criar novo post
+        if (!image) {
+          alert("Selecione uma imagem para o post.");
+          return;
+        }
+
+        const storageRef = ref(storage, `images/${image?.name}`);
+        await uploadBytes(storageRef, image);
+        const downloadUrl = await getDownloadURL(storageRef);
+
         await addDoc(collection(db, "posts"), {
           title,
           content: editor.getHTML(),
           author,
-          imageUrl,
+          imageUrl: downloadUrl,
           publishedAt: serverTimestamp(),
         });
         alert("Post criado com sucesso!");
