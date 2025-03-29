@@ -23,22 +23,22 @@ function NucleoEducacional() {
       <div className="flex flex-wrap gap-x-[26px] gap-y-[24px] w-[51.625rem]">
         <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
           <Image src={Walkiria} alt="Diabetologista Walkiria" width={168} height={168} className="rounded-[84px]" />
-          <h2 className="w-[13.5rem] font-semibold text-[27px] text-(--magenta)">Walkyiria Mara Gonçalves Volpini</h2>
+          <h2 className="w-[13.5rem] font-semibold custom-h2 text-(--magenta)">Walkyiria Mara Gonçalves Volpini</h2>
           <p className="text-[0.9375rem] text-(--text)">Diabetologista</p>
         </div>
         <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
           <Image src={Walkiria} alt="Diabetologista Walkiria" width={168} height={168} className="rounded-[84px]" />
-          <h2 className="w-[13.5rem] font-semibold text-[27px] text-(--magenta)">Sonia Maria Cavinatto</h2>
+          <h2 className="w-[13.5rem] font-semibold custom-h2 text-(--magenta)">Sonia Maria Cavinatto</h2>
           <p className="text-[0.9375rem] text-(--text)">Enfermeira</p>
         </div>
         <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
           <Image src={Walkiria} alt="Diabetologista Walkiria" width={168} height={168} className="rounded-[84px]" />
-          <h2 className="w-[13.5rem] font-semibold text-[27px] text-(--magenta)">Sandra Mara Rosa David</h2>
+          <h2 className="w-[13.5rem] font-semibold custom-h2 text-(--magenta)">Sandra Mara Rosa David</h2>
           <p className="text-[0.9375rem] text-(--text)">Psicóloga</p>
         </div>
         <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
           <Image src={Walkiria} alt="Diabetologista Walkiria" width={168} height={168} className="rounded-[84px]" />
-          <h2 className="w-[13.5rem] font-semibold text-[27px] text-(--magenta)">Thais Barbarini Seabra Brasil</h2>
+          <h2 className="w-[13.5rem] font-semibold custom-h2 text-(--magenta)">Thais Barbarini Seabra Brasil</h2>
           <p className="text-[0.9375rem] text-(--text)">Nutricionista</p>
         </div>
       </div>
