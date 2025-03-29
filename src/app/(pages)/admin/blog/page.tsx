@@ -6,59 +6,18 @@ import PostCard, { Post } from "@/components/ui/post-card";
 import NavbarAdmin from "@/components/ui/navbar-admin";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { db } from "@/firebase/firebase-config";
+import { db, storage } from "@/firebase/firebase-config";
 import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   orderBy,
   query,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-
-// const mockPosts: Post[] = [
-//   {
-//     id: "1",
-//     title: "Post 1",
-//     content: "Conteúdo do post 1",
-//     author: "Walkyria",
-//     imageUrl: "",
-//     publishedAt: "19/03/2025",
-//   },
-//   {
-//     id: "2",
-//     title: "Post 2",
-//     content: "Conteúdo do post 2",
-//     author: "Walkyria",
-//     imageUrl: "",
-//     publishedAt: "20/03/2025",
-//   },
-//   {
-//     id: "3",
-//     title: "Post 3",
-//     content: "Conteúdo do post 3",
-//     author: "Walkyria",
-//     imageUrl: "",
-//     publishedAt: "21/03/2025",
-//   },
-//   {
-//     id: "4",
-//     title: "Post 4",
-//     content: "Conteúdo do post 4",
-//     author: "Walkyria",
-//     imageUrl: "",
-//     publishedAt: "22/03/2025",
-//   },
-//   {
-//     id: "5",
-//     title: "Post 5",
-//     content: "Conteúdo do post 5",
-//     author: "Walkyria",
-//     imageUrl: "",
-//     publishedAt: "23/03/2025",
-//   },
-// ];
+import { deleteObject, ref } from "firebase/storage";
 
 export default function PostsAdmin() {
   const router = useRouter();
@@ -112,7 +71,16 @@ export default function PostsAdmin() {
 
     try {
       for (const postId of selectedPosts) {
-        await deleteDoc(doc(db, "posts", postId));
+        const postRef = doc(db, "posts", postId);
+        const postSnapshot = await getDoc(postRef);
+        const postImageUrl = postSnapshot.data()?.imageUrl;
+
+        // Verifica se a imagem existe e, se sim, remove do Storage
+        if (postImageUrl) {
+          const imageRef = ref(storage, postImageUrl);
+          await deleteObject(imageRef);
+        }
+        await deleteDoc(postRef);
       }
 
       // Atualiza a lista de posts removendo os que foram deletados
@@ -151,6 +119,10 @@ export default function PostsAdmin() {
             <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px]">
               {loading ? (
                 <p>Carregando posts...</p>
+              ) : posts.length === 0 ? (
+                <p className="text-center text-lg text-gray-500">
+                  Nenhum post encontrado.
+                </p>
               ) : (
                 posts.map((post) => (
                   <PostCard
