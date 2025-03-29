@@ -1,5 +1,4 @@
 "use client";
-import RichTextEditor from "@/components/rich-text-editor";
 import ArrowLeft from "@/assets/arrow-left.svg";
 import Image from "next/image";
 import NavbarAdmin from "@/components/ui/navbar-admin";
@@ -9,6 +8,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { UploadIcon } from "lucide-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
+import PostsEditor from "@/components/posts-editor";
 
 export default function EditorPage() {
   return (
@@ -119,7 +119,7 @@ const Editor = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <RichTextEditor
+            <PostsEditor
               content={content}
               title={title}
               author={author}

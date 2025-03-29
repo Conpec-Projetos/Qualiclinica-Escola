@@ -39,7 +39,7 @@ import { useEffect } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Post } from "./ui/post-card";
 
-interface RichTextEditorProps {
+interface PostsEditorProps {
   postId?: string;
   title: string;
   content: string;
@@ -47,13 +47,13 @@ interface RichTextEditorProps {
   image?: File | null;
 }
 
-export default function RichTextEditor({
+export default function PostsEditor({
   postId,
   title,
   content,
   author,
   image,
-}: RichTextEditorProps) {
+}: PostsEditorProps) {
   const editor = useEditor({
     extensions: [
       StarterKit,
