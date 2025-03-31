@@ -31,14 +31,14 @@ function MVVSobreNos() {
         <div className="w-[17.5rem] flex flex-col items-start gap-y-[0.5rem]">
           <h1 className="font-semibold text-(--verde-petroleo)">valores</h1>
           <ul className="text-(--verde-petroleo) text-[0.875rem] h-[9rem] leading-[1.125rem]">
-            <li>Ensino</li>
-            <li>Cuidado</li>
-            <li>Ética</li>
-            <li>Trabalho em equipe</li>
-            <li>Conhecimento</li>
-            <li>Dedicação</li>
-            <li>Comprometimento</li>
-            <li>Família</li>
+            <li className="custom-li">Ensino</li>
+            <li className="custom-li">Cuidado</li>
+            <li className="custom-li">Ética</li>
+            <li className="custom-li">Trabalho em equipe</li>
+            <li className="custom-li">Conhecimento</li>
+            <li className="custom-li">Dedicação</li>
+            <li className="custom-li">Comprometimento</li>
+            <li className="custom-li">Família</li>
           </ul>
         </div>
       </div>

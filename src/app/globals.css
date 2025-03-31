@@ -63,6 +63,10 @@
     color: var(--text);
   }
 
+  .custom-li::marker {
+    color: var(--verde-petroleo);
+  }
+
   menu {
     list-style: disc;
     margin-left: 1.5rem;
