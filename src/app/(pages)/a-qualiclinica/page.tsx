@@ -50,12 +50,12 @@ function InfoSobreNos(){
   return(
     <section className="flex flex-row justify-center items-start gap-x-[2.4075rem]">
       <div className="flex flex-col justify-center items-center gap-y-[1.57875rem]">
-        <p className="w-[22.0538rem] h-[14.375] text-(--text) text-[0.94rem]">Nossa aptidão é a educação e o letramento em saúde que se estendem aos pacientes e famílias, especialmente com foco na atenção à cronicidade e seus desdobramentos. Temos a satisfação de manter o seguimento de centenas de pacientes que confiam no nosso trabalho há anos. Esse vínculo de confiança é motivo de orgulho para nossa equipe e é a inspiração que procuramos transmitir nos cursos que ministramos aos profissionais.</p>
+        <p className="w-[22.0538rem] text-(--text) text-[0.94rem]">Nossa aptidão é a educação e o letramento em saúde que se estendem aos pacientes e famílias, especialmente com foco na atenção à cronicidade e seus desdobramentos. Temos a satisfação de manter o seguimento de centenas de pacientes que confiam no nosso trabalho há anos. Esse vínculo de confiança é motivo de orgulho para nossa equipe e é a inspiração que procuramos transmitir nos cursos que ministramos aos profissionais.</p>
         <Image className="w-[25.25rem] h-[14.5rem] rounded-[5px]" src={NucleoEdu} alt="Imagem a ser decidida" />
       </div>
       <div className="flex flex-col justify-center items-center  gap-y-[1.57875rem]">
         <Image className="w-[25.25rem] h-[14.5rem] rounded-[5px]" src={NucleoEdu} alt="Imagem a ser decidida" />
-        <p className="w-[22.0538rem] h-[10.0625] text-(--text) text-[0.94rem] text-right">Nossa Clínica dispõe de recepcionistas especializadas no atendimento humanizado e com ampla experiência em lidar com as tecnologias avançadas para o tratamento do diabetes, sobretudo bombas de infusão contínua de insulina, sensores subcutâneos e glicosímetros.</p>
+        <p className="w-[22.0538rem] text-(--text) text-[0.94rem] text-right">Nossa Clínica dispõe de recepcionistas especializadas no atendimento humanizado e com ampla experiência em lidar com as tecnologias avançadas para o tratamento do diabetes, sobretudo bombas de infusão contínua de insulina, sensores subcutâneos e glicosímetros.</p>
       </div>
     </section>
   );
