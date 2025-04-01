@@ -37,7 +37,6 @@ const Editor = () => {
   const searchParams = useSearchParams();
   const postId = searchParams.get("postId");
 
-  const [image, setImage] = useState<File | null>();
   const [imageUrl, setImageUrl] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -72,7 +71,6 @@ const Editor = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setImage(file);
       const url = URL.createObjectURL(file);
       setImageUrl(url);
     }
@@ -128,7 +126,7 @@ const Editor = () => {
             <PostsEditor
               content={content}
               title={title}
-              image={image}
+              image={imageUrl}
               postId={postId ? postId : undefined}
             />
           </div>

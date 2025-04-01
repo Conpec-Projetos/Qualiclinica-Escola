@@ -46,7 +46,7 @@ interface PostsEditorProps {
   postId?: string;
   title: string;
   content: string;
-  image?: File | null;
+  image: File | string | null;
 }
 
 export default function PostsEditor({
@@ -100,6 +100,7 @@ export default function PostsEditor({
   const [images, setImages] = useState<File[] | null>(null);
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
+  const author = currentUser ? currentUser.name : "Sem autor";
 
   useEffect(() => {
     if (editor && content) {
@@ -116,7 +117,11 @@ export default function PostsEditor({
     if (file) {
       setImages((prevImages) => [...(prevImages || []), file]);
       const localUrl = URL.createObjectURL(file);
-      editor.chain().focus().setImage({ src: localUrl }).run();
+      
+      editor.chain().focus().insertContent([
+        { type: "image", attrs: { src: localUrl } },
+        { type: "paragraph", content: "" },
+      ]).run();
     }
   };
 
@@ -126,11 +131,11 @@ export default function PostsEditor({
       let updatedContent = editor.getHTML();
 
       if (images) {
-        for (const image of images) {
-          const storageRef = ref(storage, `images/${image.name}`);
-          await uploadBytes(storageRef, image);
+        for (const imageContent of images) {
+          const storageRef = ref(storage, `images/${imageContent.name}`);
+          await uploadBytes(storageRef, imageContent);
           const downloadUrl = await getDownloadURL(storageRef);
-          updatedContent = updatedContent.replace(new RegExp(`src=".*?${image.name}"`, 'g'), `src="${downloadUrl}"`);
+          updatedContent = updatedContent.replace(new RegExp(`src=".*?${imageContent.name}"`, 'g'), `src="${downloadUrl}"`);
         }
       }
 
@@ -140,11 +145,13 @@ export default function PostsEditor({
         const postData = (await getDoc(postRef)).data() as Post;
         let updatedImageUrl = postData.imageUrl;
 
-        if (image) {
+        if (image instanceof File) {
           const storageRef = ref(storage, `images/${image?.name}`);
           await uploadBytes(storageRef, image);
           const downloadUrl = await getDownloadURL(storageRef);
           updatedImageUrl = downloadUrl;
+        } else if (typeof image === "string") {
+          updatedImageUrl = image;
         } else {
           toast.warning("Selecione uma imagem para o post.");
           return;
@@ -153,7 +160,7 @@ export default function PostsEditor({
         await updateDoc(postRef, {
           title,
           content: updatedContent,
-          author: currentUser ? currentUser.name : "Sem autor",
+          author,
           publishedAt: serverTimestamp(),
           imageUrl: updatedImageUrl,
         });
@@ -165,6 +172,11 @@ export default function PostsEditor({
           return;
         }
 
+        if (!(image instanceof File)) {
+          toast.warning("Imagem inválida.");
+          return;
+        }
+
         const storageRef = ref(storage, `images/${image?.name}`);
         await uploadBytes(storageRef, image);
         const downloadUrl = await getDownloadURL(storageRef);
@@ -172,7 +184,7 @@ export default function PostsEditor({
         await addDoc(collection(db, "posts"), {
           title,
           content: updatedContent,
-          author: currentUser ? currentUser.name : "Sem autor",
+          author,
           imageUrl: downloadUrl,
           publishedAt: serverTimestamp(),
         });
