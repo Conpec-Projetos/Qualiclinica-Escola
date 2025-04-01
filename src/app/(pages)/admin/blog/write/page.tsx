@@ -4,20 +4,13 @@ import Image from "next/image";
 import NavbarAdmin from "@/components/ui/navbar-admin";
 import Footer from "@/components/ui/footer";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useContext, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { UploadIcon } from "lucide-react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
 import PostsEditor from "@/components/editors/posts-editor";
-import { AuthContext } from "@/contexts/auth.context";
 
 export default function EditorPage() {
-  const { currentUser } = useContext(AuthContext);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!currentUser) router.push("/");
-  }, [currentUser, router]);
   
   return (
     <Suspense

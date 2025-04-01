@@ -16,18 +16,12 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { deleteObject, ref } from "firebase/storage";
-import { AuthContext } from "@/contexts/auth.context";
 import { toast } from "sonner";
 
 export default function PostsAdmin() {
-  const { currentUser } = useContext(AuthContext);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!currentUser) router.push("/");
-  }, [currentUser, router]);
+  const router = useRouter()
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

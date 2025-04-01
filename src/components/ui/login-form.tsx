@@ -17,7 +17,7 @@ export default function LoginForm() {
   
   useEffect(() => {
     if (currentUser) {
-      router.push("/admin");
+      router.push("/admin/home");
     }
   }, [currentUser, router]);
 

@@ -1,20 +1,8 @@
-"use client";
 import Button from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
 import NavbarAdmin from "@/components/ui/navbar-admin";
-import { AuthContext } from "@/contexts/auth.context";
-import { useRouter } from "next/navigation";
-import { useContext } from "react";
-import { useEffect } from "react";
 
 export default function CursosAdmin() {
-
-    const { currentUser } = useContext(AuthContext);
-    const router = useRouter();
-  
-    useEffect(() => {
-      if (!currentUser) router.push("/");
-    }, [currentUser, router]);
 
   return (
     <div className="flex flex-col w-screen min-h-screen bg-white font-[family-name:var(--font-poppins)]">

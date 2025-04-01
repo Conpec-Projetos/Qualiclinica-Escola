@@ -1,5 +1,6 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import {
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
@@ -11,6 +12,7 @@ import { doc, getDoc } from "firebase/firestore";
 interface AuthContextData {
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  loading: boolean;
   currentUser: User | undefined;
   error: string | null;
   isLoggedIn: boolean;
@@ -25,7 +27,25 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const isLoggedIn = !!currentUser;
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userRef = doc(db, "users", user.uid);
+        const userSnapshot = await getDoc(userRef);
+        if (userSnapshot.exists()) {
+          setCurrentUser(userSnapshot.data() as User);
+        }
+      } else {
+        setCurrentUser(undefined);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const logout = async () => {
     await signOut(auth);
@@ -64,6 +84,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       value={{
         login,
         logout,
+        loading,
         currentUser,
         error,
         isLoggedIn,

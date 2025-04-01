@@ -3,16 +3,10 @@ import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import { AuthContext } from "@/contexts/auth.context";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export default function HomeAdmin() {
   const { currentUser } = useContext(AuthContext);
-  const router = useRouter();
-
-	useEffect(() => {
-		if (!currentUser) router.push("/");
-  }, [currentUser, router]);
   
   return (
     <div className="flex flex-col w-screen min-h-screen bg-white font-[family-name:var(--font-poppins)]">

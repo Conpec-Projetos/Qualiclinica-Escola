@@ -19,14 +19,14 @@ export default function NavbarAdmin() {
   return (
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-[#D4D4D4]">
       {/* Botão à esquerda */}
-      <Button text={`Olá, ${currentUser?.name}!`}></Button>
+      <Button text={currentUser ? `Olá, ${currentUser?.name}!` : 'Carregando...'}></Button>
 
       {/* Logo ao centro */}
       <Image src={Logo} alt="Qualiclínica logo" />
 
       {/* Links de navegação */}
       <div className="flex space-x-6 text-[#959595] text-[16px]">
-        <Link href="/admin" className="hover:text-gray-700">
+        <Link href="/admin/home" className="hover:text-gray-700">
           Home
         </Link>
         <Link href="/admin/cursos" className="hover:text-gray-700">
