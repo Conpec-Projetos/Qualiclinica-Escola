@@ -22,7 +22,7 @@ export default function NavbarAdmin() {
       <Button text={currentUser ? `Olá, ${currentUser?.name}!` : 'Carregando...'}></Button>
 
       {/* Logo ao centro */}
-      <Image src={Logo} alt="Qualiclínica logo" />
+      <Image src={Logo} alt="Qualiclínica logo" priority />
 
       {/* Links de navegação */}
       <div className="flex space-x-6 text-[#959595] text-[16px]">
