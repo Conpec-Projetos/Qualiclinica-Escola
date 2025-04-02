@@ -90,6 +90,7 @@ const Editor = () => {
                 alt="imagem de banner"
                 src={imageUrl}
                 fill
+                sizes="100%"
                 className="select-none"
               />
             ) : (

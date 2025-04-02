@@ -56,6 +56,7 @@ export default function PostCard({
             alt="imagem de blog"
             src={imageUrl ? imageUrl : ImagePlaceholder}
             fill
+            sizes="100%"
           />
         </div>
       </div>
