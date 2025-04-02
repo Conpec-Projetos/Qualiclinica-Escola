@@ -55,8 +55,7 @@ export default function PostCard({
             className="w-[50%] select-none"
             alt="imagem de blog"
             src={imageUrl ? imageUrl : ImagePlaceholder}
-            layout="fill"
-            objectFit="cover"
+            fill
           />
         </div>
       </div>

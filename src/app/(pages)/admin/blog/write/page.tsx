@@ -87,8 +87,7 @@ const Editor = () => {
               <Image
                 alt="imagem de banner"
                 src={imageUrl}
-                objectFit="cover"
-                layout="fill"
+                fill
                 className="select-none"
               />
             ) : (
