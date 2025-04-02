@@ -46,14 +46,16 @@ interface PostsEditorProps {
   postId?: string;
   title: string;
   content: string;
-  image: File | string | null;
+  imageUrl: string | null;
+  imageFile: File | null;
 }
 
 export default function PostsEditor({
   postId,
   title,
   content,
-  image,
+  imageUrl,
+  imageFile,
 }: PostsEditorProps) {
   const editor = useEditor({
     extensions: [
@@ -98,6 +100,7 @@ export default function PostsEditor({
   });
   const [isSending, setIsSending] = useState(false);
   const [images, setImages] = useState<File[] | null>(null);
+  const [imageMap, setImageMap] = useState(new Map<string, string>());
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
   const author = currentUser ? currentUser.name : "Sem autor";
@@ -116,12 +119,17 @@ export default function PostsEditor({
     const file = event.target.files?.[0];
     if (file) {
       setImages((prevImages) => [...(prevImages || []), file]);
-      const localUrl = URL.createObjectURL(file);
-      
-      editor.chain().focus().insertContent([
-        { type: "image", attrs: { src: localUrl } },
-        { type: "paragraph", content: "" },
-      ]).run();
+      const blobUrl = URL.createObjectURL(file);
+      setImageMap((prevMap) => new Map(prevMap.set(blobUrl, file.name)));
+
+      editor
+        .chain()
+        .focus()
+        .insertContent([
+          { type: "image", attrs: { src: blobUrl } },
+          { type: "paragraph", content: "" },
+        ])
+        .run();
     }
   };
 
@@ -130,13 +138,24 @@ export default function PostsEditor({
       setIsSending(true);
       let updatedContent = editor.getHTML();
 
-      if (images) {
-        for (const imageContent of images) {
-          const storageRef = ref(storage, `images/${imageContent.name}`);
-          await uploadBytes(storageRef, imageContent);
-          const downloadUrl = await getDownloadURL(storageRef);
-          updatedContent = updatedContent.replace(new RegExp(`src=".*?${imageContent.name}"`, 'g'), `src="${downloadUrl}"`);
-        }
+      if (imageMap.size > 0) {
+        const uploadPromises = Array.from(imageMap.entries()).map(
+          async ([blobUrl, filename]) => {
+            const file = images?.find((img) => img.name === filename);
+            if (!file) return;
+
+            const storageRef = ref(storage, `images/${file.name}`);
+            await uploadBytes(storageRef, file);
+            const downloadUrl = await getDownloadURL(storageRef);
+
+            updatedContent = updatedContent.replace(
+              new RegExp(blobUrl, "g"),
+              downloadUrl
+            );
+          }
+        );
+
+        await Promise.all(uploadPromises);
       }
 
       if (postId) {
@@ -145,13 +164,13 @@ export default function PostsEditor({
         const postData = (await getDoc(postRef)).data() as Post;
         let updatedImageUrl = postData.imageUrl;
 
-        if (image instanceof File) {
-          const storageRef = ref(storage, `images/${image?.name}`);
-          await uploadBytes(storageRef, image);
+        if (imageFile) {
+          const storageRef = ref(storage, `images/${imageFile?.name}`);
+          await uploadBytes(storageRef, imageFile);
           const downloadUrl = await getDownloadURL(storageRef);
           updatedImageUrl = downloadUrl;
-        } else if (typeof image === "string") {
-          updatedImageUrl = image;
+        } else if (imageUrl) {
+          updatedImageUrl = imageUrl;
         } else {
           toast.warning("Selecione uma imagem para o post.");
           return;
@@ -167,18 +186,18 @@ export default function PostsEditor({
         toast.success("Post atualizado com sucesso!");
       } else {
         // Criar novo post
-        if (!image) {
+        if (!imageFile) {
           toast.warning("Selecione uma imagem para o post.");
           return;
         }
 
-        if (!(image instanceof File)) {
+        if (!(imageFile instanceof File)) {
           toast.warning("Imagem inválida.");
           return;
         }
 
-        const storageRef = ref(storage, `images/${image?.name}`);
-        await uploadBytes(storageRef, image);
+        const storageRef = ref(storage, `images/${imageFile?.name}`);
+        await uploadBytes(storageRef, imageFile);
         const downloadUrl = await getDownloadURL(storageRef);
 
         await addDoc(collection(db, "posts"), {
@@ -277,7 +296,11 @@ export default function PostsEditor({
           autoFocus={true}
         />
       </div>
-      <Button onClick={() => saveContent()} text={`${isSending ? 'postando...' : 'postar'}`} disabled={isSending} />
+      <Button
+        onClick={() => saveContent()}
+        text={`${isSending ? "postando..." : "postar"}`}
+        disabled={isSending}
+      />
     </div>
   );
 }
