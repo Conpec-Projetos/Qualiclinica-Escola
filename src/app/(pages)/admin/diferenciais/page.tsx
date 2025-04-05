@@ -70,7 +70,7 @@ export default function Diferenciais() {
           {loading ? (
             <p>Carregando diferenciais...</p>
           ) : (
-            <div className="font-[family-name:var(--font-roboto)] w-[56.9375rem] bg-(--rosa) flex flex-col items-center justify-center p-[2.375rem] gap-y-[1rem]">
+            <div className="font-[family-name:var(--font-roboto)] w-[56.9375rem] bg-(--rosa) flex flex-col items-center justify-center p-[2.375rem] gap-y-[2rem]">
               <div className="flex flex-row items-center justify-center gap-x-[2rem]">
                 <div className="flex flex-col items-center justify-center gap-y-[2rem]">
                   <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white">
