@@ -5,6 +5,7 @@
   --ciano-escuro: #88C8D4;
   --verde-petroleo: #1D4C5A;
   --rosa: #FADEF1;
+  --ciano-mais-escuro: #1be914b4;
   --ciano: #C5F0F8;
   --menta: #E7F8FD;
   --rosa-claro: #FFF5FC;
@@ -16,6 +17,10 @@
     outline: none;
   }
 
+  button:hover svg path {
+    stroke: var(--ciano-escuro) !important;
+  }
+
   .custom-dropcursor {
     height: 5px !important;
     border-width: 2px !important;
@@ -24,6 +29,10 @@
   h1 {
     font-size: 2.25rem;
   }
+
+  .custom-h1 {
+    font-size: 48px;
+  }  
 
   h2 {
     font-size: 1.875rem;
