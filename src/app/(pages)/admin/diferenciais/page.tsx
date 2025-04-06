@@ -35,7 +35,7 @@ export default function Diferenciais() {
           })) as Differential[];
           setDifferentials(data);
         } catch (error) {
-          console.error("Erro ao carregar os posts: ", error);
+          console.error("Erro ao carregar os diferenciais: ", error);
         } finally {
           setLoading(false);
         }
@@ -68,12 +68,12 @@ export default function Diferenciais() {
             diferenciais
           </h1>
           {loading ? (
-            <p>Carregando diferenciais...</p>
+            <p className="text-(--text)">Carregando diferenciais...</p>
           ) : (
-            <div className="font-[family-name:var(--font-roboto)] w-[56.9375rem] bg-(--rosa) flex flex-col items-center justify-center p-[2.375rem] gap-y-[2rem]">
+            <div className="font-[family-name:var(--font-roboto)] w-[56.9375rem] bg-(--rosa) flex flex-col items-center justify-center p-[2.375rem] gap-y-[2rem] rounded-[0.3125rem]">
               <div className="flex flex-row items-center justify-center gap-x-[2rem]">
                 <div className="flex flex-col items-center justify-center gap-y-[2rem]">
-                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white">
+                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white rounded-[0.3125rem]">
                     <Button
                       counter={differentials[4].counter}
                       onClickPlus={() => handleOnClick(differentials[4].id, 1)}
@@ -86,7 +86,7 @@ export default function Diferenciais() {
                     </p>
                   </div>
 
-                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white">
+                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white rounded-[0.3125rem]">
                     <Button
                       counter={differentials[2].counter}
                       onClickPlus={() => handleOnClick(differentials[2].id, 1)}
@@ -101,7 +101,7 @@ export default function Diferenciais() {
                 </div>
 
                 <div className="flex flex-col items-center justify-center gap-y-[2rem]">
-                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white">
+                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white rounded-[0.3125rem]">
                     <Button
                       counter={differentials[0].counter}
                       onClickPlus={() => handleOnClick(differentials[0].id, 1)}
@@ -114,7 +114,7 @@ export default function Diferenciais() {
                     </p>
                   </div>
 
-                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white">
+                  <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white rounded-[0.3125rem]">
                     <Button
                       counter={differentials[3].counter}
                       onClickPlus={() => handleOnClick(differentials[3].id, 1)}
@@ -129,7 +129,7 @@ export default function Diferenciais() {
                 </div>
               </div>
 
-              <div className="flex flex-row items-center w-[32.1875rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white">
+              <div className="flex flex-row items-center w-[32.1875rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white rounded-[0.3125rem]">
                 <Button
                   counter={differentials[1].counter}
                   onClickPlus={() => handleOnClick(differentials[1].id, 1)}
