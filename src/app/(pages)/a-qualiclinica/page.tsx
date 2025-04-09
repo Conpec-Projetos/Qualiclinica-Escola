@@ -148,7 +148,7 @@ export default function SobreNos() {
                     <div className="flex items-center justify-center w-[6.625rem] h-[6.625rem] rounded-full bg-(--rosa) text-(--magenta) text-[1.5rem] font-semibold">
                       {differentials[4].counter}
                     </div>
-                    <p className="text-(--text) w-[18.75rem] text-[0.9375rem]">
+                    <p className="text-black w-[18.75rem] text-[0.9375rem]">
                       {differentials[4].description}
                     </p>
                   </div>
@@ -156,7 +156,7 @@ export default function SobreNos() {
                     <div className="flex items-center justify-center w-[6.625rem] h-[6.625rem] rounded-full bg-(--rosa) text-(--magenta) text-[1.5rem] font-semibold">
                       {differentials[0].counter}
                     </div>
-                    <p className="text-(--text) w-[18.75rem] text-[0.9375rem]">
+                    <p className="text-black w-[18.75rem] text-[0.9375rem]">
                       {differentials[0].description}
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export default function SobreNos() {
                     <div className="flex items-center justify-center w-[6.625rem] h-[6.625rem] rounded-full bg-(--rosa) text-(--magenta) text-[1.5rem] font-semibold">
                       {differentials[2].counter}
                     </div>
-                    <p className="text-(--text) w-[18.75rem] text-[0.9375rem]">
+                    <p className="text-black w-[18.75rem] text-[0.9375rem]">
                       {differentials[2].description}
                     </p>
                   </div>
@@ -174,7 +174,7 @@ export default function SobreNos() {
                     <div className="flex items-center justify-center w-[6.625rem] h-[6.625rem] rounded-full bg-(--rosa) text-(--magenta) text-[1.5rem] font-semibold">
                       {differentials[3].counter}
                     </div>
-                    <p className="text-(--text) w-[18.75rem] text-[0.9375rem]">
+                    <p className="text-black w-[18.75rem] text-[0.9375rem]">
                       {differentials[3].description}
                     </p>
                   </div>
@@ -183,7 +183,7 @@ export default function SobreNos() {
                     <div className="flex items-center justify-center w-[6.625rem] h-[6.625rem] rounded-full bg-(--rosa) text-(--magenta) text-[1.5rem] font-semibold">
                       {differentials[1].counter}
                     </div>
-                    <p className="text-(--text) w-[37.5rem] text-[0.9375rem]">
+                    <p className="text-black w-[37.5rem] text-[0.9375rem]">
                       {differentials[1].description}
                     </p>
                   </div>
