@@ -32,15 +32,18 @@ const courseSchema = z.object({
   name: z.string().min(1, "O nome é obrigatório"),
   instructors: z.string().min(1, "Os instrutores são obrigatórios"),
   description: z.string().optional(),
-  area:z
-  .string()
-  .min(1, "A área é obrigatória")
-  .refine((val) =>
-    ["doctors", "pacients-caretakers", "others", "mentorships"].includes(val),
-    {
-      message: "A área selecionada é inválida",
-    }
-  ),
+  area: z
+    .string()
+    .min(1, "A área é obrigatória")
+    .refine(
+      (val) =>
+        ["doctors", "pacients-caretakers", "others", "mentorships"].includes(
+          val
+        ),
+      {
+        message: "A área selecionada é inválida",
+      }
+    ),
 });
 
 type CourseFormData = z.infer<typeof courseSchema>;
@@ -138,7 +141,7 @@ const Editor = () => {
   return (
     <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <NavbarAdmin />
-    <Image
+      <Image
         className="cursor-pointer mt-2 ml-3"
         onClick={() => router.push("/admin/cursos/view")}
         alt="voltar"
@@ -154,55 +157,18 @@ const Editor = () => {
               editor de cursos
             </h1>
 
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nome*</FormLabel>
-                  <FormControl>
-                    <input
-                      type="text"
-                      placeholder="Nome do curso"
-                      className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="instructors"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Instrutores*</FormLabel>
-                  <FormControl>
-                    <input
-                      type="text"
-                      placeholder="Instrutores do curso"
-                      className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {isDescriptionMandatory && (
+            <div className="w-full h-full flex flex-col gap-4">
               <FormField
                 control={form.control}
-                name="description"
+                name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Descrição</FormLabel>
+                    <FormLabel>Nome*</FormLabel>
                     <FormControl>
-                      <textarea
-                        placeholder="Descrição do curso"
-                        className="w-full h-[200px] p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                      <input
+                        type="text"
+                        placeholder="Nome do curso"
+                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -210,35 +176,73 @@ const Editor = () => {
                   </FormItem>
                 )}
               />
-            )}
 
-            <FormField
-              control={form.control}
-              name="area"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Área*</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange}>
+              <FormField
+                control={form.control}
+                name="instructors"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Instrutores*</FormLabel>
                     <FormControl>
-                      <SelectTrigger className="w-full border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]">
-                        <SelectValue placeholder="Área do curso" />
-                      </SelectTrigger>
+                      <input
+                        type="text"
+                        placeholder="Instrutores do curso"
+                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        {...field}
+                      />
                     </FormControl>
-                    <SelectContent>
-                      <SelectItem value="doctors">Médicos</SelectItem>
-                      <SelectItem value="pacients-caretakers">
-                        Pacientes e Cuidadores
-                      </SelectItem>
-                      <SelectItem value="others">
-                        Demais Profissionais
-                      </SelectItem>
-                      <SelectItem value="mentorships">Mentorias</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {isDescriptionMandatory && (
+                <FormField
+                  control={form.control}
+                  name="description"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Descrição</FormLabel>
+                      <FormControl>
+                        <textarea
+                          placeholder="Descrição do curso"
+                          className="w-full h-[200px] p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               )}
-            />
+
+              <FormField
+                control={form.control}
+                name="area"
+                render={({ field }) => (
+                  <FormItem>
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <FormControl>
+                        <SelectTrigger className="w-full border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]">
+                          <SelectValue placeholder="Área do curso" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="doctors">Médicos</SelectItem>
+                        <SelectItem value="pacients-caretakers">
+                          Pacientes e Cuidadores
+                        </SelectItem>
+                        <SelectItem value="others">
+                          Demais Profissionais
+                        </SelectItem>
+                        <SelectItem value="mentorships">Mentorias</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
 
             <div className="w-full flex justify-center mt-4">
               <Button
