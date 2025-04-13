@@ -21,7 +21,7 @@ import { deleteObject, ref } from "firebase/storage";
 import { toast } from "sonner";
 
 export default function PostsAdmin() {
-  const router = useRouter()
+  const router = useRouter();
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
