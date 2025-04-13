@@ -78,7 +78,7 @@ const Editor = () => {
         <div className="mb-6">
           <Image
             className="cursor-pointer mb-2"
-            onClick={() => router.back()}
+            onClick={() => router.push("/admin/blog/view")}
             alt="voltar"
             src={ArrowLeft}
           />

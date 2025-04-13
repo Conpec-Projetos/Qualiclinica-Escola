@@ -29,13 +29,13 @@ export default function NavbarAdmin() {
         <Link href="/admin/home" className="hover:text-gray-700">
           Home
         </Link>
-        <Link href="/admin/cursos" className="hover:text-gray-700">
+        <Link href="/admin/cursos/view" className="hover:text-gray-700">
           Cursos
         </Link>
-        <Link href="/admin/profissionais" className="hover:text-gray-700">
+        <Link href="/admin/profissionais/view" className="hover:text-gray-700">
           Profissionais
         </Link>
-        <Link href="/admin/blog" className="hover:text-gray-700">
+        <Link href="/admin/blog/view" className="hover:text-gray-700">
           Blog
         </Link>
         <Link href="/admin/diferenciais" className="hover:text-gray-700">

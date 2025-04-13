@@ -13,10 +13,10 @@ export default function HomeAdmin() {
       <Navbar />
       <main className="w-full flex flex-col items-center justify-center text-black">
         <div className="flex gap-8 text-(--magenta) font-semibold text-[18px] bg-(--rosa-claro) px-20 py-4 rounded-[5px]">
-          <Link href="/admin/cursos">Cursos</Link>
-          <Link href="/admin/profissionais">Profissionais</Link>
-          <Link href="/admin/blog">Blog</Link>
-          <Link href="/admin/diferenciais">Diferenciais</Link>
+          <Link href="/admin/cursos/view">Cursos</Link>
+          <Link href="/admin/profissionais/view">Profissionais</Link>
+          <Link href="/admin/blog/view">Blog</Link>
+          <Link href="/admin/diferenciais/view">Diferenciais</Link>
         </div>
         <div
           className={`flex flex-col items-center justify-center w-[606px] h-[250px] bg-[url('/circles-home-admin.svg')] bg-no-repeat bg-cover bg-center mt-10`}
