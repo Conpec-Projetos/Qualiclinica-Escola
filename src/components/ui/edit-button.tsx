@@ -1,12 +1,14 @@
 import Link from "next/link";
 
 interface EditButtonProps {
-  postId: string;
+  id: string;
+  path: "cursos" | "blog" | "profissionais";
+  type: "course" | "post" | "professional";
 }
 
-export default function EditButton({ postId }: EditButtonProps) {
+export default function EditButton({ id, path, type }: EditButtonProps) {
   return (
-    <Link href={`/admin/blog/write?postId=${postId}`}>
+    <Link href={`/admin/${path}/write?${type}Id=${id}`}>
       <svg
         width="26"
         height="28"

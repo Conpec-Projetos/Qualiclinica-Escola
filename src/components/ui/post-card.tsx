@@ -33,7 +33,7 @@ export default function PostCard({
           checked={selected}
           onChange={(checked) => onCheckboxChange(post.id, checked)}
         />
-        <EditButton postId={post.id} />
+        <EditButton type="post" path="blog" id={post.id} />
       </div>
       <div className="flex bg-white p-6 ml-4 rounded-[5px] text-lg">
         <div className="w-[50%]">
