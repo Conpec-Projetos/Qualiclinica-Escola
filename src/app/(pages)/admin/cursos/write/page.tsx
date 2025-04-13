@@ -35,7 +35,7 @@ const courseSchema = z.object({
 
 type CourseFormData = z.infer<typeof courseSchema>;
 
-export default function EditorPage() {
+export default function CourseEditorPage() {
   return (
     <Suspense
       fallback={

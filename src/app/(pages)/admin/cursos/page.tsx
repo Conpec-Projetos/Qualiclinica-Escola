@@ -15,7 +15,7 @@ import { collection, deleteDoc, doc, getDocs, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default function PostsAdmin() {
+export default function CursosAdmin() {
   const router = useRouter();
 
   const [courses, setCourses] = useState<Course[]>([]);
@@ -110,7 +110,7 @@ export default function PostsAdmin() {
               </h1>
               {loading ? (
                 <p>Carregando cursos...</p>
-              ) : courses.length === 0 ? (
+              ) : courses.filter((course) => course.area === "doctors").length === 0 ? (
                 <p className="text-center text-lg text-gray-500">
                   Nenhum curso encontrado.
                 </p>
@@ -137,7 +137,8 @@ export default function PostsAdmin() {
               </h1>
               {loading ? (
                 <p>Carregando cursos...</p>
-              ) : courses.length === 0 ? (
+              ) : courses.filter((course) => course.area === "pacients-caretakers")
+                  .length === 0 ? (
                 <p className="text-center text-lg text-gray-500">
                   Nenhum curso encontrado.
                 </p>

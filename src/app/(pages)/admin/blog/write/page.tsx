@@ -10,7 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
 import PostsEditor from "@/components/editors/posts-editor";
 
-export default function EditorPage() {
+export default function BlogEditorPage() {
   
   return (
     <Suspense
