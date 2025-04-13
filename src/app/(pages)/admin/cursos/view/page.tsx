@@ -32,7 +32,7 @@ export default function CursosAdmin() {
         }));
         setCourses(coursesData);
       } catch (error) {
-        console.error("Erro ao carregar os posts: ", error);
+        console.error("Erro ao carregar os cursos: ", error);
       } finally {
         setLoading(false);
       }
@@ -61,7 +61,7 @@ export default function CursosAdmin() {
       );
       setSelectedCourses([]);
     } catch (error) {
-      console.error("Erro ao remover posts: ", error);
+      console.error("Erro ao remover cursos: ", error);
     }
   };
 
