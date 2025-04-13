@@ -2,10 +2,8 @@
 
 import Button from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
-import {
-  Course,
-  SmallCourseCard,
-  GeneralCourseCard,
+import CourseCard, {
+  Course
 } from "@/components/ui/course-card";
 import NavbarAdmin from "@/components/ui/navbar-admin";
 import Link from "next/link";
@@ -28,7 +26,6 @@ export default function CursosAdmin() {
       try {
         const coursesQuery = query(collection(db, "courses"));
         const querySnapshot = await getDocs(coursesQuery);
-        console.log(querySnapshot.docs);
         const coursesData: Course[] = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...(doc.data() as Omit<Course, "id">),
@@ -118,7 +115,8 @@ export default function CursosAdmin() {
                 courses.map(
                   (course) =>
                     course.area === "doctors" && (
-                      <GeneralCourseCard
+                      <CourseCard
+                        type="general"
                         key={course.id}
                         course={course}
                         selected={selectedCourses.includes(course.id)}
@@ -147,7 +145,8 @@ export default function CursosAdmin() {
                   {courses.map(
                     (course) =>
                       course.area === "pacients-caretakers" && (
-                        <SmallCourseCard
+                        <CourseCard
+                          type="small"
                           key={course.id}
                           course={course}
                           selected={selectedCourses.includes(course.id)}
@@ -179,8 +178,9 @@ export default function CursosAdmin() {
                 courses
                   .filter((course) => course.area === "others")
                   .map((course) => (
-                    <GeneralCourseCard
+                    <CourseCard
                       key={course.id}
+                      type="general"
                       course={course}
                       selected={selectedCourses.includes(course.id)}
                       onCheckboxChange={handleCheckboxChange}
@@ -205,8 +205,9 @@ export default function CursosAdmin() {
                 courses.map(
                   (course) =>
                     course.area === "mentorships" && (
-                      <GeneralCourseCard
+                      <CourseCard
                         key={course.id}
+                        type="general"
                         course={course}
                         selected={selectedCourses.includes(course.id)}
                         onCheckboxChange={handleCheckboxChange}

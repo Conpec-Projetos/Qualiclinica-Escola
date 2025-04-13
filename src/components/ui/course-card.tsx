@@ -12,16 +12,18 @@ export interface Course {
 interface CourseCardProps {
   course: Course;
   selected: boolean;
+  type?: "general" | "small";
   onCheckboxChange: (postId: string, checked: boolean) => void;
 }
 
-export function GeneralCourseCard({
+export default function CourseCard({
   course,
   selected,
   onCheckboxChange,
+  type = "general",
 }: CourseCardProps) {
   return (
-    <div className="flex">
+    <div className="flex w-full max-w-[911px]">
       <div className="flex flex-col gap-4">
         <Checkbox
           checked={selected}
@@ -37,39 +39,11 @@ export function GeneralCourseCard({
           <p className="mb-1">
             Instrutores: <span className="font-light">{course.instructors}</span>
           </p>
-          <p className="mb-1">
+          {type === "general" && (<p className="mb-1">
             Descrição: <span className="font-light">{course.description}</span>
-          </p>
+          </p>)}
         </div>
       </div>
     </div>
-  );
-}
-
-export function SmallCourseCard({
-  course,
-  selected,
-  onCheckboxChange,
-}: CourseCardProps) {
-  return (
-      <div className="flex w-full max-w-[411px]">
-        <div className="flex flex-col gap-4">
-          <Checkbox
-            checked={selected}
-            onChange={(checked) => onCheckboxChange(course.id, checked)}
-          />
-          <EditButton type="course" path="cursos" id={course.id} />
-        </div>
-        <div className="bg-white grow p-6 ml-4 rounded-[5px] text-lg">
-          <div className="w-full">
-            <p className="mb-1">
-              Nome: <span className="font-light">{course.name}</span>
-            </p>
-            <p className="mb-1">
-              Instrutores: <span className="font-light">{course.instructors}</span>
-            </p>
-          </div>
-        </div>
-      </div>
   );
 }
