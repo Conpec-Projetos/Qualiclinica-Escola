@@ -1,0 +1,242 @@
+"use client";
+import NavbarAdmin from "@/components/ui/navbar-admin";
+import Footer from "@/components/ui/footer";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "@/firebase/firebase-config";
+import Button from "@/components/ui/button-quali";
+import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const courseSchema = z.object({
+  name: z.string().min(1, "O nome é obrigatório"),
+  instructors: z.string().min(1, "Os instrutores são obrigatórios"),
+  description: z.string().optional(),
+  area: z.enum(["doctors", "pacients-caretakers", "others", "mentorships"]),
+});
+
+type CourseFormData = z.infer<typeof courseSchema>;
+
+export default function EditorPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex flex-col w-screen h-screen justify-center items-center">
+          <p className="text-2xl text-[var(--magenta)]">Carregando...</p>
+        </div>
+      }
+    >
+      <Editor />
+    </Suspense>
+  );
+}
+
+const Editor = () => {
+  const searchParams = useSearchParams();
+  const courseId = searchParams.get("courseId");
+  const [isSending, setIsSending] = useState(false);
+  const [isDescriptionMandatory, setIsDescriptionMandatory] = useState(true);
+
+  const router = useRouter();
+
+  const form = useForm<CourseFormData>({
+    resolver: zodResolver(courseSchema),
+    defaultValues: {
+      name: "",
+      instructors: "",
+      description: "",
+      area: undefined,
+    },
+    mode: "onChange",
+  });
+
+  const { reset, handleSubmit, watch } = form;
+
+  const selectedArea = watch("area");
+
+  useEffect(() => {
+    if (selectedArea === "pacients-caretakers") {
+      setIsDescriptionMandatory(false);
+      form.setValue("description", "");
+    } else {
+      setIsDescriptionMandatory(true);
+    }
+  }, [selectedArea, form]);
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      if (!courseId) return;
+      try {
+        const docRef = doc(db, "courses", courseId);
+        const courseSnap = await getDoc(docRef);
+
+        if (courseSnap.exists()) {
+          const data = courseSnap.data();
+          reset({
+            name: data.name,
+            instructors: data.instructors,
+            area: data.area,
+            description: data.description,
+          });
+        }
+      } catch (error) {
+        console.error("Erro ao carregar o curso:", error);
+      }
+    };
+
+    fetchCourse();
+  }, [courseId, reset]);
+
+  const onSubmit = async (data: CourseFormData) => {
+    setIsSending(true);
+    try {
+      if (!courseId) {
+        addDoc(collection(db, "courses"), data);
+        toast.success("Curso adicionado com sucesso!");
+      } else {
+        const docRef = doc(db, "courses", courseId);
+        await updateDoc(docRef, data);
+        toast.success("Curso atualizado com sucesso!");
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar o curso:", error);
+      toast.error("Erro ao atualizar o curso.");
+    } finally {
+      setIsSending(false);
+      router.push("/admin/cursos");
+    }
+  };
+
+  return (
+    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+      <NavbarAdmin />
+      <main className="w-full flex flex-col items-center justify-center text-black">
+        <Form {...form}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="my-6 bg-[var(--ciano)] p-6 rounded-b-[5px] max-w-[648px] mx-auto w-full"
+          >
+            <h1 className="text-[var(--verde-petroleo)] font-bold text-center mb-5">
+              editor de cursos
+            </h1>
+
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nome*</FormLabel>
+                  <FormControl>
+                    <input
+                      type="text"
+                      placeholder="Nome do curso"
+                      className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="instructors"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Instrutores*</FormLabel>
+                  <FormControl>
+                    <input
+                      type="text"
+                      placeholder="Instrutores do curso"
+                      className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {isDescriptionMandatory && (
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Descrição</FormLabel>
+                    <FormControl>
+                      <textarea
+                        placeholder="Descrição do curso"
+                        className="w-full h-[200px] p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
+            <FormField
+              control={form.control}
+              name="area"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Área*</FormLabel>
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <FormControl>
+                      <SelectTrigger className="w-full border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]">
+                        <SelectValue placeholder="Área do curso" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="doctors">Médicos</SelectItem>
+                      <SelectItem value="pacients-caretakers">
+                        Pacientes e Cuidadores
+                      </SelectItem>
+                      <SelectItem value="others">
+                        Demais Profissionais
+                      </SelectItem>
+                      <SelectItem value="mentorships">Mentorias</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <div className="w-full flex justify-center mt-4">
+              <Button
+                buttonSize="large"
+                fontSize="large"
+                text={isSending ? "ADICIONANDO..." : "ADICIONAR CURSO"}
+                disabled={isSending}
+                onClick={handleSubmit(onSubmit)}
+              />
+            </div>
+          </form>
+        </Form>
+      </main>
+      <Footer />
+    </div>
+  );
+};
