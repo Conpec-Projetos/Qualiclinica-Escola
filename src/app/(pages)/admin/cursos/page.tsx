@@ -15,7 +15,7 @@ import { collection, deleteDoc, doc, getDocs, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default function PostsAdmin() {
+export default function CursosAdmin() {
   const router = useRouter();
 
   const [courses, setCourses] = useState<Course[]>([]);
