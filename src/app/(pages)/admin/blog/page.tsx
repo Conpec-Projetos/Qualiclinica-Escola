@@ -103,7 +103,7 @@ export default function PostsAdmin() {
   };
 
   return (
-    <div className="flex flex-col w-screen min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <NavbarAdmin />
       <main className="w-full flex items-center justify-center text-black">
         <div className="max-w-5xl mx-auto">

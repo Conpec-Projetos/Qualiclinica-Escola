@@ -72,7 +72,7 @@ const Editor = () => {
   };
 
   return (
-    <div className="flex flex-col w-screen min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <NavbarAdmin />
       <main className="w-full flex flex-col items-center justify-center text-black">
         <div className="mb-6">
