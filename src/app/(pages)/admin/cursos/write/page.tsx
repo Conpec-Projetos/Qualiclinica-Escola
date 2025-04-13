@@ -1,6 +1,7 @@
 "use client";
 import NavbarAdmin from "@/components/ui/navbar-admin";
 import Footer from "@/components/ui/footer";
+import ArrowLeft from "@/assets/arrow-left.svg";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
@@ -25,12 +26,21 @@ import {
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 
 const courseSchema = z.object({
   name: z.string().min(1, "O nome é obrigatório"),
   instructors: z.string().min(1, "Os instrutores são obrigatórios"),
   description: z.string().optional(),
-  area: z.enum(["doctors", "pacients-caretakers", "others", "mentorships"]),
+  area:z
+  .string()
+  .min(1, "A área é obrigatória")
+  .refine((val) =>
+    ["doctors", "pacients-caretakers", "others", "mentorships"].includes(val),
+    {
+      message: "A área selecionada é inválida",
+    }
+  ),
 });
 
 type CourseFormData = z.infer<typeof courseSchema>;
@@ -63,7 +73,7 @@ const Editor = () => {
       name: "",
       instructors: "",
       description: "",
-      area: undefined,
+      area: "",
     },
     mode: "onChange",
   });
@@ -121,13 +131,19 @@ const Editor = () => {
       toast.error("Erro ao atualizar o curso.");
     } finally {
       setIsSending(false);
-      router.push("/admin/cursos");
+      router.push("/admin/cursos/view");
     }
   };
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
       <NavbarAdmin />
+    <Image
+        className="cursor-pointer mt-2 ml-3"
+        onClick={() => router.push("/admin/cursos/view")}
+        alt="voltar"
+        src={ArrowLeft}
+      />
       <main className="w-full flex flex-col items-center justify-center text-black">
         <Form {...form}>
           <form
