@@ -47,7 +47,7 @@ export default function SobreNos() {
       <main className="font-[family-name:var(--font-poppins)] flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
         <section className="h-[20rem] flex flex-row flex-wrap justify-center items-center m-auto gap-x-[2rem]">
           <Image
-            className="w-[30rem] h-[16.2599rem] rounded-[5px]"
+            className="w-[504px] h-[321px] rounded-[5px]"
             src={NucleoEdu}
             alt="Imagem a ser decidida"
           />
