@@ -5,7 +5,7 @@ export interface Course {
   id: string;
   name: string;
   area: string;
-  instructors: string[];
+  instructors: string;
   description: string;
 }
 
@@ -31,7 +31,7 @@ export default function CourseCard({
         />
         <EditButton path="cursos" type="course" id={course.id} />
       </div>
-      <div className="flex bg-white p-6 ml-4 rounded-[5px] text-lg">
+      <div className="flex grow bg-white p-6 ml-4 rounded-[5px] text-lg">
         <div className="w-full">
           <p className="mb-1">
             Nome: <span className="font-light">{course.name}</span>
