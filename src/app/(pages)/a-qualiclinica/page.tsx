@@ -50,6 +50,8 @@ export default function SobreNos() {
             className="w-[504px] h-[321px] rounded-[5px]"
             src={NucleoEdu}
             alt="Imagem a ser decidida"
+            placeholder="blur"
+            priority
           />
           <div className="flex flex-col gap-y-[0.75rem]">
             <h1 className="text-[2.25rem] h-fit text-(--magenta) font-semibold w-[22.4rem] inline-block leading-[2.7rem]">

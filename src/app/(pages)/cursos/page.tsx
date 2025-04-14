@@ -40,6 +40,8 @@ export default function Cursos() {
             className="w-[503px] h-[239px] rounded-[5px]"
             src={PessoalDaQuali}
             alt="Nossa vocação é educacional!"
+            priority
+            placeholder="blur"
           />
           <div className="flex flex-col gap-y-[0.75rem]">
             <h1 className="text-[2.25rem] h-fit text-(--verde-petroleo) font-semibold w-[19.5rem] inline-block leading-[2.7rem]">

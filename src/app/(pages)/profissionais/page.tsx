@@ -42,6 +42,8 @@ export default function Profissionais() {
             className="w-[504px] h-[321px] rounded-[5px]"
             src={NucleoEdu}
             alt="Nosso núcleo educacional composto por Walkíria, Sonia, Thaís e Sandra"
+            priority
+            placeholder="blur"
           />
           <div className="flex flex-col gap-y-[0.75rem]">
             <h1 className="text-[2.25rem] h-fit text-(--verde-petroleo) font-semibold w-[19.5rem] inline-block leading-[2.7rem]">
