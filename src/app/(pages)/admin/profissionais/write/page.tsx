@@ -178,11 +178,11 @@ const ProfessionalsEditor = () => {
                 name="identification"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Descrição*</FormLabel>
+                    <FormLabel>Identificação*</FormLabel>
                     <FormControl>
                       <input
                         type="text"
-                        placeholder="Descrição do profissional"
+                        placeholder="Identificação do profissional"
                         className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
