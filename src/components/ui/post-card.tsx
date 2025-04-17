@@ -10,6 +10,7 @@ export interface Post {
   author: string;
   content: string;
   imageUrl: string;
+  base64ImageUrl?: string;
   publishedAt: Timestamp;
 }
 

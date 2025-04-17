@@ -16,6 +16,7 @@ interface BlogPost {
   content: string;
   imageUrl: string;
   publishedAt: Timestamp;
+  base64ImageUrl?: string;
 }
 
 function stripHtml(html: string) {
@@ -56,6 +57,7 @@ export default function BlogPage() {
             content: d.content,
             imageUrl: d.imageUrl,
             publishedAt: d.publishedAt,
+            base64ImageUrl: d.base64ImageUrl,
           };
         });
         setPosts(data);
@@ -107,6 +109,8 @@ export default function BlogPage() {
                       width={600}
                       height={300}
                       className="object-cover w-full h-48"
+                      placeholder="blur"
+                      blurDataURL={post.base64ImageUrl}
                     />
                   </div>
 
