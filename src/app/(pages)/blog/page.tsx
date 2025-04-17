@@ -19,11 +19,6 @@ interface BlogPost {
   base64ImageUrl?: string;
 }
 
-function stripHtml(html: string) {
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  return doc.body.textContent || "";
-}
-
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -83,6 +78,15 @@ export default function BlogPage() {
     );
   }
 
+  const stripHtml = (html: string) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    doc.body.querySelectorAll("br, p, div, h1, h2, h3, h4, h5, h6").forEach((el) => {
+      const newline = doc.createTextNode("\n");
+      el.parentNode?.insertBefore(newline, el);
+    });
+    return doc.body.textContent || "";
+  }
+
   return (
     <>
       <Navbar />
@@ -97,8 +101,20 @@ export default function BlogPage() {
               const textOnly = stripHtml(post.content);
 
               // criar um trecho de texto com ~100 chars
-              const excerpt =
-                textOnly.length > 100 ? textOnly.slice(0, 100) + "…" : textOnly;
+              const lines = textOnly
+                .split("\n")
+                .filter((line) => line.trim() !== "");
+              let excerpt = "";
+              for (const line of lines) {
+                if (excerpt.length + line.length <= 100) {
+                  excerpt += (excerpt ? "\n" : "") + line;
+                } else {
+                  const remaining = 100 - excerpt.length;
+                  excerpt +=
+                    (excerpt ? "\n" : "") + line.slice(0, remaining) + "…";
+                  break;
+                }
+              }
 
               return (
                 <div key={post.id} className="flex flex-col">
@@ -118,7 +134,7 @@ export default function BlogPage() {
                     <h3 className="text-lg font-semibold text-(--verde-petroleo) mb-2">
                       {post.title}
                     </h3>
-                    <p className="text-(--text) flex-1">{excerpt}</p>
+                    <p className="text-(--text) flex-1 whitespace-pre-line">{excerpt}</p>
 
                     <div className="mt-4 flex items-center justify-between">
                       <Button
