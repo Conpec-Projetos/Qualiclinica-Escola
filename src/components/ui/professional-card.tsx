@@ -30,7 +30,7 @@ export default function CourseCard({
         />
         <EditButton path="profissionais" type="professional" id={course.id} />
       </div>
-      <div className="flex bg-white p-6 ml-4 rounded-[5px] max-h-[200px] mx-w-[738px] overflow-y-auto text-lg">
+      <div className="flex grow bg-white p-6 ml-4 rounded-[5px] max-h-[200px] mx-w-[738px] overflow-y-auto text-lg">
         <div className="w-full">
           <p className="mb-1">
             Nome: <span className="font-light">{course.name}</span>

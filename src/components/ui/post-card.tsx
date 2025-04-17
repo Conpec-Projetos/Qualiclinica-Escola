@@ -36,7 +36,7 @@ export default function PostCard({
         />
         <EditButton type="post" path="blog" id={post.id} />
       </div>
-      <div className="flex bg-white p-6 ml-4 rounded-[5px] text-lg">
+      <div className="flex grow bg-white p-6 ml-4 justify-between rounded-[5px] text-lg">
         <div className="w-[50%]">
           <p className="mb-1">
             Título: <span className="font-light">{post.title}</span>
