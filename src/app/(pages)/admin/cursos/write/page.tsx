@@ -227,15 +227,31 @@ const Editor = () => {
                           <SelectValue placeholder="Área do curso" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
-                        <SelectItem value="doctors">Médicos</SelectItem>
-                        <SelectItem value="pacients-caretakers">
+                      <SelectContent className="bg-white text-[var(--verde-petroleo)] font-semibold">
+                        <SelectItem
+                          value="doctors"
+                          className="hover:bg-(--ciano)"
+                        >
+                          Médicos
+                        </SelectItem>
+                        <SelectItem
+                          value="pacients-caretakers"
+                          className="hover:bg-(--ciano)"
+                        >
                           Pacientes e Cuidadores
                         </SelectItem>
-                        <SelectItem value="others">
+                        <SelectItem
+                          value="others"
+                          className="hover:bg-(--ciano)"
+                        >
                           Demais Profissionais
                         </SelectItem>
-                        <SelectItem value="mentorships">Mentorias</SelectItem>
+                        <SelectItem
+                          value="mentorships"
+                          className="hover:bg-(--ciano)"
+                        >
+                          Mentorias
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
