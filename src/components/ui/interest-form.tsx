@@ -1,24 +1,27 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
 import ChevronDown from "@/assets/chevron-down.svg";
 import Image from "next/image";
 import Button from "@/components/ui/button-quali";
+import { z } from "zod";
+import { db } from "@/firebase/firebase-config";
+import { getDocs, collection } from "firebase/firestore";
 
-const courses = [
-  "Terapia de Bomba de Infusão de Insulina",
-  "Seguimento seguro do paciente com Diabetes Tipo 2",
-  "Terapia de Contagem de Carboidratos",
-  "Terapia de bomba de infusão contínua de insulina",
-  "Manejo e cuidado com o paciente portador de Diabetes do Tipo 1 ",
-  "Cuidados de Enfermagem em Pé Diabético",
-  "Curso para Cuidadores de pessoas com diabetes",
-  "Curso de terapia de contagem de carboidratos para nutricionistas",
-  "Oficina de contagem de carboidratos para pacientes e famílias",
-  "Roda de conversa para pais de pessoas com Diabetes Tipo 1",
-  "Saúde mental e diabetes: desafios da cronicidade para pacientes/familiares",
-  "Instalação e manejo do sensor subcutâneo de glicose",
-];
+const interestSchema = z.object({
+  name: z.string().min(1, "Nome é obrigatório"),
+  phone: z
+    .string()
+    .regex(
+      /^\+\d{2}\s\(\d{2}\)\s9\d{4}-\d{4}$/,
+      "Telefone inválido. Use +55 (XX) 9XXXX-XXXX"
+    ),
+  email: z.string().email("Email inválido"),
+  message: z.string().min(1, "Mensagem é obrigatória"),
+  course: z.string().min(1, "É preciso escolher um curso"),
+});
+
+type InterestFormData = z.infer<typeof interestSchema>;
 
 function formatPhone(value: string) {
   const digits = value.replace(/\D/g, "").slice(0, 13);
@@ -31,152 +34,182 @@ function formatPhone(value: string) {
 }
 
 export default function InterestForm() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+55");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [course, setCourse] = useState("");
+  const [form, setForm] = useState<InterestFormData>({
+    name: "",
+    phone: "+55",
+    email: "",
+    message: "",
+    course: "",
+  });
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof InterestFormData, string>>
+  >({});
   const [submitting, setSubmitting] = useState(false);
+  const [courses, setCourses] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  function validatePhone(phone: string): boolean {
-    const re = /^\+\d{2}\s\(\d{2}\)\s9\d{4}-\d{4}$/;
-    return re.test(phone);
-  }
+  useEffect(() => {
+    const fetchCourses = async () => {
+      setIsLoading(true);
+      try {
+        const snapshot = await getDocs(collection(db, "courses"));
+        const data = snapshot.docs.map((doc) => doc.data());
+        setCourses(data.map((course) => course.name));
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchCourses();
+  }, []);
 
-  function validateEmail(email: string): boolean {
-    const re = /^\S+@\S+\.\S+$/;
-    return re.test(email);
-  }
+  const handleChange =
+    (field: keyof InterestFormData) =>
+    (
+      e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => {
+      let value = e.target.value;
+      if (field === "phone") {
+        value = formatPhone(value);
+      }
+      setForm((f) => ({ ...f, [field]: value }));
+      setErrors((errors) => ({ ...errors, [field]: undefined }));
+    };
 
-  const validate = () => {
-    if (!name.trim()) {
-      alert("Nome é obrigatório");
-      return false;
-    }
-    if (!phone.trim()) {
-      alert("Telefone é obrigatório");
-      return false;
-    } else if (!validatePhone(phone)) {
-      alert("Telefone inválido. Use +55 (XX) 9XXXX-XXXX");
-      return false;
-    }
-    if (!email.trim()) {
-      alert("Email é obrigatório");
-      return false;
-    } else if (!validateEmail(email)) {
-      alert("Formato de email inválido");
-      return false;
-    }
-    if (!message.trim()) {
-      alert("Mensagem é obrigatória");
-      return false;
-    }
-    if (!course.trim()) {
-      alert("É preciso escolher um curso");
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    setErrors({});
+
+    const result = interestSchema.safeParse(form);
+    if (!result.success) {
+      const fieldErrors: typeof errors = {};
+      const flattened = result.error.flatten().fieldErrors;
+      for (const key of Object.keys(flattened) as (keyof InterestFormData)[]) {
+        const issues = flattened[key];
+        if (issues && issues.length > 0) {
+          fieldErrors[key] = issues[0];
+        }
+      }
+      setErrors(fieldErrors);
+      return;
+    }
 
     setSubmitting(true);
     try {
-      console.log({ name, phone, email, message, course });
-      // reset
-      setName("");
-      setPhone("");
-      setEmail("");
-      setMessage("");
-      setCourse("");
+      console.log(result.data);
+      setForm({ name: "", phone: "+55", email: "", message: "", course: "" });
     } catch (err) {
-      console.error("Erro ao enviar contato:", err);
-      alert("Falha no envio. Tente novamente.");
+      console.error("Erro no submit:", err);
     } finally {
       setSubmitting(false);
     }
   };
 
-  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPhone(formatPhone(e.target.value));
-  };
-
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-(--menta-claro2) p-8 rounded-[0.3125rem] mx-auto h-full"
+      className="bg-(--menta-claro2) px-8 pb-8 pt-2 rounded-[0.3125rem] mx-auto h-full space-y-4 max-w-md"
     >
       {/* Nome */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light mb-1">
-          Nome *
+        <label className="block text-(--verde-petroleo) font-light">
+          Nome*
         </label>
         <input
           type="text"
           placeholder="Seu nome completo"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="w-full p-3 mb-2 border border-(--ciano-escuro) rounded-lg bg-white text-(--verde-petroleo) focus:outline-none focus:ring-2 focus:ring-(--ciano-escuro)"
+          value={form.name}
+          onChange={handleChange("name")}
+          className={
+            `w-full p-2 border rounded-lg bg-white text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            (errors.name
+              ? `border-red-500 focus:ring-red-300`
+              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+          }
         />
+        {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
       </div>
 
       {/* Telefone */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light mb-1">
-          Telefone *
+        <label className="block text-(--verde-petroleo) font-light">
+          Telefone*
         </label>
         <input
           type="tel"
-          placeholder="Número de telefone"
-          value={phone}
-          onChange={handlePhoneChange}
-          required
-          className="w-full p-3 mb-2 border border-(--ciano-escuro) rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 focus:ring-(--ciano-escuro)"
+          placeholder="+55 (XX) 9XXXX-XXXX"
+          value={form.phone}
+          onChange={handleChange("phone")}
+          className={
+            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            (errors.phone
+              ? `border-red-500 focus:ring-red-300`
+              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+          }
         />
+        {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
       </div>
 
       {/* Email */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light mb-1">
-          Email *
+        <label className="block text-(--verde-petroleo) font-light">
+          Email*
         </label>
         <input
           type="email"
           placeholder="usuario@provedor.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full p-3 mb-2 border border-(--ciano-escuro) rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 focus:ring-(--ciano-escuro)"
+          value={form.email}
+          onChange={handleChange("email")}
+          className={
+            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            (errors.email
+              ? `border-red-500 focus:ring-red-300`
+              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+          }
         />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
       </div>
 
       {/* Mensagem */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light mb-1">
-          No que podemos te ajudar? *
+        <label className="block text-(--verde-petroleo) font-light">
+          No que podemos te ajudar?*
         </label>
         <textarea
-          placeholder="“Gostaria de ser aluno do curso para cuidadores de pessoas com diabetes do tipo 1…”"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          className="w-full p-3 mb-2 h-32 border border-(--ciano-escuro) rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 focus:ring-(--ciano-escuro) resize-none"
+          placeholder="Gostaria de ser aluno do curso para cuidadores de pessoas com diabetes do tipo 1..."
+          value={form.message}
+          onChange={handleChange("message")}
+          className={
+            `w-full p-2 h-32 border rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 resize-none ` +
+            (errors.message
+              ? `border-red-500 focus:ring-red-300`
+              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+          }
         />
+        {errors.message && (
+          <p className="text-red-500 text-sm">{errors.message}</p>
+        )}
       </div>
 
       {/* Select de Curso */}
       <div className="relative">
+        <label className="block text-(--verde-petroleo) font-light">
+          Qual o curso de interesse?*
+        </label>
         <select
-          value={course}
-          onChange={(e) => setCourse(e.target.value)}
-          required
-          className="w-full mb-4 appearance-none p-4 pr-15 border border-(--ciano-escuro) rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 focus:ring-(--ciano-escuro)"
+          disabled={isLoading}
+          value={form.course}
+          onChange={handleChange("course")}
+          className={
+            `w-full appearance-none p-2 pr-10 border rounded-lg bg-white text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            (errors.course
+              ? `border-red-500 focus:ring-red-300`
+              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+          }
         >
           <option value="" disabled>
-            Qual o curso de interesse?
+            {isLoading ? "Carregando..." : "Selecione…"}
           </option>
           {courses.map((c, i) => (
             <option key={i} value={c}>
@@ -186,13 +219,18 @@ export default function InterestForm() {
         </select>
         <Image
           src={ChevronDown}
-          alt="seta para baixo"
-          className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-2/3 text-gray-400"
+          alt=""
+          className={`pointer-events-none absolute right-4 top-1/2 transform ${
+            errors.course ? "-translate-y-2/5" : "-translate-y-1/6"
+          }`}
         />
+        {errors.course && (
+          <p className="text-red-500 text-sm">{errors.course}</p>
+        )}
       </div>
 
       {/* Botão Enviar */}
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center pt-2">
         <Button
           text={submitting ? "enviando..." : "enviar"}
           disabled={submitting}
