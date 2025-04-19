@@ -240,19 +240,43 @@ const ProfessionalsEditor = () => {
                           <SelectValue placeholder="Área de Atuação" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-white">
-                        <SelectItem value="diabetology">
+                      <SelectContent className="bg-white text-[var(--verde-petroleo)] font-semibold">
+                        <SelectItem
+                          value="diabetology"
+                          className="hover:bg-(--ciano)"
+                        >
                           Diabetologia
                         </SelectItem>
-                        <SelectItem value="nursing">Enfermagem</SelectItem>
-                        <SelectItem value="nutrition">Nutrição</SelectItem>
-                        <SelectItem value="endocrinology">
+                        <SelectItem
+                          value="nursing"
+                          className="hover:bg-(--ciano)"
+                        >
+                          Enfermagem
+                        </SelectItem>
+                        <SelectItem
+                          value="nutrition"
+                          className="hover:bg-(--ciano)"
+                        >
+                          Nutrição
+                        </SelectItem>
+                        <SelectItem
+                          value="endocrinology"
+                          className="hover:bg-(--ciano)"
+                        >
                           Endocrinologia
                         </SelectItem>
-                        <SelectItem value="psychology/psychiatry">
+                        <SelectItem
+                          value="psychology/psychiatry"
+                          className="hover:bg-(--ciano)"
+                        >
                           Psicologia/Psiquiatria
                         </SelectItem>
-                        <SelectItem value="others">Outras áreas</SelectItem>
+                        <SelectItem
+                          value="others"
+                          className="hover:bg-(--ciano)"
+                        >
+                          Outras áreas
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
