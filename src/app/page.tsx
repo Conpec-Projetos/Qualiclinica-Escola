@@ -1,3 +1,4 @@
+"use client";
 import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
@@ -11,8 +12,10 @@ import { Mail } from "lucide-react";
 import { Phone } from "lucide-react";
 import { AreaCursoHome, ButtonHomeModel } from "@/components/home/components";
 import MeetOurTeamSvg from "@/components/home/svg-meet-our-team";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div>
       <Navbar />
@@ -22,8 +25,8 @@ export default function Home() {
             <h1 className="text-[2.25rem] h-fit text-(--magenta) font-semibold w-[24rem] inline-block">
               conhecimento que promove bem-estar
             </h1>
-            <ButtonHomeModel text="Conheça-nos"></ButtonHomeModel>
-            <ButtonHomeModel text="Nosso blog"></ButtonHomeModel>
+            <ButtonHomeModel text="Conheça-nos" onClick={() => router.push("/a-qualiclinica") } />
+            <ButtonHomeModel text="Nosso blog" onClick={() => router.push("/blog") } />
           </div>
           <Image
             alt="logo principal"
@@ -70,7 +73,7 @@ export default function Home() {
               paciente e à <b className="font-medium">formação de cada aluno</b>
               .
             </p>
-            <ButtonHomeModel text="Profissionais"></ButtonHomeModel>
+            <ButtonHomeModel onClick={() => router.push("profissionais")} text="Profissionais"></ButtonHomeModel>
           </div>
         </section>
         <section className="flex flex-col gap-[1.5rem]">

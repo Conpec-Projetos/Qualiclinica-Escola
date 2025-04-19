@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import Button from "../ui/button-quali";
 
 export default function CourseModel({
@@ -10,7 +11,8 @@ export default function CourseModel({
   instructors: string;
   description: string;
   type?: string;
-}) {
+  }) {
+  const router = useRouter();
   return (
     <section
       className={`flex flex-row bg-(--rosa-claro) rounded-[5px] p-[1.375rem] gap-y-[0.5rem] ${
@@ -25,7 +27,7 @@ export default function CourseModel({
               <b>Instrutores: </b> {instructors}
             </p>
           </div>
-          <Button text="TENHO INTERESSE" fontSize="large" />
+          <Button text="TENHO INTERESSE" fontSize="large" onClick={() => router.push("/contate-nos")} />
         </div>
       </div>
       {type === "normal" && (
