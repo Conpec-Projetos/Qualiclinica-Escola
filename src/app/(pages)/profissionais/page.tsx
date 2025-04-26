@@ -5,7 +5,7 @@ import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
 import Image from "next/image";
 import NucleoEdu from "@assets/assets-profissionais/nucleo-educacional.jpg";
-import Walkiria from "@assets/assets-profissionais/walkiria.jpg";
+import Walkyria from "@assets/assets-profissionais/walkyria.jpg";
 import ProfissionalModel from "@/components/professionals/professional-model";
 import { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase-config";
@@ -41,7 +41,7 @@ export default function Profissionais() {
           <Image
             className="w-[504px] h-[321px] rounded-[5px]"
             src={NucleoEdu}
-            alt="Nosso núcleo educacional composto por Walkíria, Sonia, Thaís e Sandra"
+            alt="Nosso núcleo educacional composto por Walkyria, Sonia, Thaís e Sandra"
             priority
             placeholder="blur"
           />
@@ -60,21 +60,21 @@ export default function Profissionais() {
           <div className="flex flex-wrap gap-x-[26px] gap-y-[24px] w-[51.625rem]">
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkiria}
-                alt="Diabetologista Walkiria"
+                src={Walkyria}
+                alt="Diabetologista Walkyria"
                 width={168}
                 height={168}
                 className="rounded-[84px]"
               />
               <h2 className="w-[13.5rem] font-semibold custom-h2 text-(--magenta)">
-                Walkyiria Mara Gonçalves Volpini
+                Walkyria Mara Gonçalves Volpini
               </h2>
               <p className="text-[0.9375rem] text-(--text)">Diabetologista</p>
             </div>
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkiria}
-                alt="Diabetologista Walkiria"
+                src={Walkyria}
+                alt="Diabetologista Walkyria"
                 width={168}
                 height={168}
                 className="rounded-[84px]"
@@ -86,8 +86,8 @@ export default function Profissionais() {
             </div>
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkiria}
-                alt="Diabetologista Walkiria"
+                src={Walkyria}
+                alt="Diabetologista Walkyria"
                 width={168}
                 height={168}
                 className="rounded-[84px]"
@@ -99,8 +99,8 @@ export default function Profissionais() {
             </div>
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkiria}
-                alt="Diabetologista Walkiria"
+                src={Walkyria}
+                alt="Diabetologista Walkyria"
                 width={168}
                 height={168}
                 className="rounded-[84px]"

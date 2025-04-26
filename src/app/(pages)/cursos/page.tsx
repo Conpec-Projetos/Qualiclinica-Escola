@@ -4,7 +4,7 @@ import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
 import Image from "next/image";
-import PessoalDaQuali from "@assets/assets-cursos/pessoal da quali.png";
+import PessoalDaQuali from "@assets/assets-cursos/pessoal-da-quali.png";
 import { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase-config";
 import { collection, getDocs } from "firebase/firestore";

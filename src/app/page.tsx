@@ -55,7 +55,7 @@ export default function Home() {
             <Image
               className="rounded-[5px]"
               src={Imagem1CursosHome}
-              alt="Diabetologista Walkiria apresentando slides do curso"
+              alt="Diabetologista Walkyria apresentando slides do curso"
             />
             <AreaCursoHome courseArea={"para outros profissionais"} />
             <AreaCursoHome courseArea={"para pacientes e cuidadores"} />
