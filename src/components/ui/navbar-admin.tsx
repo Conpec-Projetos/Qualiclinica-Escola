@@ -38,7 +38,7 @@ export default function NavbarAdmin() {
         <Link href="/admin/blog/view" className="hover:text-gray-700">
           Blog
         </Link>
-        <Link href="/admin/diferenciais" className="hover:text-gray-700">
+        <Link href="/admin/diferenciais/edit" className="hover:text-gray-700">
           Diferenciais
         </Link>
       </div>

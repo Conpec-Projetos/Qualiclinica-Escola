@@ -16,7 +16,7 @@ export default function HomeAdmin() {
           <Link href="/admin/cursos/view">Cursos</Link>
           <Link href="/admin/profissionais/view">Profissionais</Link>
           <Link href="/admin/blog/view">Blog</Link>
-          <Link href="/admin/diferenciais/view">Diferenciais</Link>
+          <Link href="/admin/diferenciais/edit">Diferenciais</Link>
         </div>
         <div
           className={`flex flex-col items-center justify-center w-[606px] h-[250px] bg-[url('/circles-home-admin.svg')] bg-no-repeat bg-cover bg-center mt-10`}
