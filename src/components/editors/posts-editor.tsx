@@ -133,12 +133,12 @@ export default function PostsEditor({
     }
   };
 
-  const generateBase64 = (file: File): Promise<string> => {
+  const generateBase64 = (file: File): Promise<ArrayBuffer> => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result as string);
+      reader.onloadend = () => resolve(reader.result as ArrayBuffer);
       reader.onerror = reject;
-      reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(file);
     });
   };
   
@@ -173,12 +173,18 @@ export default function PostsEditor({
         const postRef = doc(db, "posts", postId);
         const postData = (await getDoc(postRef)).data() as Post;
         let updatedImageUrl = postData.imageUrl;
+        let updatedBase64ImageUrl = postData.base64ImageUrl;
 
         if (imageFile) {
           const storageRef = ref(storage, `images/${imageFile?.name}`);
           await uploadBytes(storageRef, imageFile);
           const downloadUrl = await getDownloadURL(storageRef);
           updatedImageUrl = downloadUrl;
+
+          const base64Image = await generateBase64(imageFile);
+          await uploadBytes(storageRef, base64Image);
+          const downloadBase64Url = await getDownloadURL(storageRef);
+          updatedBase64ImageUrl = downloadBase64Url;
         } else if (imageUrl) {
           updatedImageUrl = imageUrl;
         } else {
@@ -192,7 +198,7 @@ export default function PostsEditor({
           author,
           publishedAt: serverTimestamp(),
           imageUrl: updatedImageUrl,
-          base64ImageUrl: imageFile ? await generateBase64(imageFile) : postData.base64ImageUrl,
+          base64ImageUrl: updatedBase64ImageUrl,
         });
         toast.success("Post atualizado com sucesso!");
       } else {
@@ -211,11 +217,16 @@ export default function PostsEditor({
         await uploadBytes(storageRef, imageFile);
         const downloadUrl = await getDownloadURL(storageRef);
 
+        const base64Image = await generateBase64(imageFile);
+        await uploadBytes(storageRef, base64Image);
+        const downloadBase64Url = await getDownloadURL(storageRef);
+
         await addDoc(collection(db, "posts"), {
           title,
           content: updatedContent,
           author,
           imageUrl: downloadUrl,
+          base64ImageUrl: downloadBase64Url,
           publishedAt: serverTimestamp(),
         });
         toast.success("Post criado com sucesso!");
