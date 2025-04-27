@@ -23,7 +23,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-b-[#D4D4D4]">
+    <nav className="w-full h-[80px] flex items-center justify-around bg-white border-b-[1px] border-b-[#D4D4D4]">
       {/* Botão à esquerda */}
       {isLoggedIn ? (
         <Button text={`Olá, ${currentUser?.name}!`} onClick={() => {router.push("/admin/home")}}></Button>

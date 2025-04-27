@@ -109,11 +109,11 @@ export default function InterestForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-(--menta-claro2) px-8 pb-8 pt-2 rounded-[0.3125rem] mx-auto h-full space-y-4 max-w-md"
+      className="bg-menta-claro2 px-8 pb-8 pt-2 rounded-[0.3125rem] mx-auto h-full space-y-4 max-w-md"
     >
       {/* Nome */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light">
+        <label className="block text-verde-petroleo font-light">
           Nome*
         </label>
         <input
@@ -122,10 +122,10 @@ export default function InterestForm() {
           value={form.name}
           onChange={handleChange("name")}
           className={
-            `w-full p-2 border rounded-lg bg-white text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            `w-full p-2 border rounded-lg bg-white text-verde-petroleo focus:outline-none focus:ring-2 ` +
             (errors.name
               ? `border-red-500 focus:ring-red-300`
-              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+              : `border-ciano-escuro focus:ring-ciano-escuro`)
           }
         />
         {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
@@ -133,7 +133,7 @@ export default function InterestForm() {
 
       {/* Telefone */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light">
+        <label className="block text-verde-petroleo font-light">
           Telefone*
         </label>
         <input
@@ -142,10 +142,10 @@ export default function InterestForm() {
           value={form.phone}
           onChange={handleChange("phone")}
           className={
-            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 ` +
             (errors.phone
               ? `border-red-500 focus:ring-red-300`
-              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+              : `border-ciano-escuro focus:ring-ciano-escuro`)
           }
         />
         {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
@@ -153,7 +153,7 @@ export default function InterestForm() {
 
       {/* Email */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light">
+        <label className="block text-verde-petroleo font-light">
           Email*
         </label>
         <input
@@ -162,10 +162,10 @@ export default function InterestForm() {
           value={form.email}
           onChange={handleChange("email")}
           className={
-            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 ` +
             (errors.email
               ? `border-red-500 focus:ring-red-300`
-              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+              : `border-ciano-escuro focus:ring-ciano-escuro`)
           }
         />
         {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
@@ -173,7 +173,7 @@ export default function InterestForm() {
 
       {/* Mensagem */}
       <div>
-        <label className="block text-(--verde-petroleo) font-light">
+        <label className="block text-verde-petroleo font-light">
           No que podemos te ajudar?*
         </label>
         <textarea
@@ -181,10 +181,10 @@ export default function InterestForm() {
           value={form.message}
           onChange={handleChange("message")}
           className={
-            `w-full p-2 h-32 border rounded-lg bg-white placeholder-[#C3C3C3] text-(--verde-petroleo) focus:outline-none focus:ring-2 resize-none ` +
+            `w-full p-2 h-32 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 resize-none ` +
             (errors.message
               ? `border-red-500 focus:ring-red-300`
-              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+              : `border-ciano-escuro focus:ring-ciano-escuro`)
           }
         />
         {errors.message && (
@@ -194,7 +194,7 @@ export default function InterestForm() {
 
       {/* Select de Curso */}
       <div className="relative">
-        <label className="block text-(--verde-petroleo) font-light">
+        <label className="block text-verde-petroleo font-light">
           Qual o curso de interesse?*
         </label>
         <select
@@ -202,10 +202,10 @@ export default function InterestForm() {
           value={form.course}
           onChange={handleChange("course")}
           className={
-            `w-full appearance-none p-2 pr-10 border rounded-lg bg-white text-(--verde-petroleo) focus:outline-none focus:ring-2 ` +
+            `w-full appearance-none p-2 pr-10 border rounded-lg bg-white text-verde-petroleo focus:outline-none focus:ring-2 ` +
             (errors.course
               ? `border-red-500 focus:ring-red-300`
-              : `border-(--ciano-escuro) focus:ring-(--ciano-escuro)`)
+              : `border-ciano-escuro focus:ring-ciano-escuro`)
           }
         >
           <option value="" disabled>

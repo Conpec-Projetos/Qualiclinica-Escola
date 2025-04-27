@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --color-magenta: #991871;
+  --color-ciano-escuro: #88C8D4;
+  --color-verde-petroleo: #1D4C5A;
+  --color-rosa: #FADEF1;
+  --color-ciano-mais-escuro: #1be914b4;
+  --color-ciano: #C5F0F8;
+  --color-menta: #E7F8FD;
+  --color-rosa-claro: #FFF5FC;
+  --color-menta-claro1: #ECFCFF;
+  --color-menta-claro2: #F6FDFF;
+  --color-text: #343434;
+
+  --font-poppins: 'Poppins', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-roboto-condensed: 'Roboto Condensed', sans-serif;
+}
+
 :root {
-  --magenta: #991871;
-  --ciano-escuro: #88C8D4;
-  --verde-petroleo: #1D4C5A;
-  --rosa: #FADEF1;
-  --ciano-mais-escuro: #1be914b4;
-  --ciano: #C5F0F8;
-  --menta: #E7F8FD;
-  --rosa-claro: #FFF5FC;
-  --menta-claro1: #ECFCFF;
-  --menta-claro2: #F6FDFF;
-  --text: #343434;
 
   .ProseMirror:focus {
     outline: none;

@@ -53,7 +53,7 @@ export default function CourseEditorPage() {
     <Suspense
       fallback={
         <div className="flex flex-col w-screen h-screen justify-center items-center">
-          <p className="text-2xl text-[var(--magenta)]">Carregando...</p>
+          <p className="text-2xl text-magenta">Carregando...</p>
         </div>
       }
     >
@@ -139,7 +139,7 @@ const Editor = () => {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-poppins">
       <NavbarAdmin />
       <Image
         className="cursor-pointer mt-2 ml-3"
@@ -151,9 +151,9 @@ const Editor = () => {
         <Form {...form}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="my-6 bg-[var(--ciano)] p-6 rounded-b-[5px] max-w-[648px] mx-auto w-full"
+            className="my-6 bg-ciano p-6 rounded-b-[5px] max-w-[648px] mx-auto w-full"
           >
-            <h1 className="text-[var(--verde-petroleo)] font-bold text-center mb-5">
+            <h1 className="text-verde-petroleo font-bold text-center mb-5">
               editor de cursos
             </h1>
 
@@ -168,7 +168,7 @@ const Editor = () => {
                       <input
                         type="text"
                         placeholder="Nome do curso"
-                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        className="w-full p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -187,7 +187,7 @@ const Editor = () => {
                       <input
                         type="text"
                         placeholder="Instrutores do curso"
-                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        className="w-full p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -206,7 +206,7 @@ const Editor = () => {
                       <FormControl>
                         <textarea
                           placeholder="Descrição do curso"
-                          className="w-full h-[200px] p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                          className="w-full h-[200px] p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                           {...field}
                         />
                       </FormControl>
@@ -223,32 +223,32 @@ const Editor = () => {
                   <FormItem>
                     <Select value={field.value} onValueChange={field.onChange}>
                       <FormControl>
-                        <SelectTrigger className="w-full border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]">
+                        <SelectTrigger className="w-full border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]">
                           <SelectValue placeholder="Área do curso" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-white text-[var(--verde-petroleo)] font-semibold">
+                      <SelectContent className="bg-white text-verde-petroleo font-semibold">
                         <SelectItem
                           value="doctors"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Médicos
                         </SelectItem>
                         <SelectItem
                           value="pacients-caretakers"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Pacientes e Cuidadores
                         </SelectItem>
                         <SelectItem
                           value="others"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Demais Profissionais
                         </SelectItem>
                         <SelectItem
                           value="mentorships"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Mentorias
                         </SelectItem>

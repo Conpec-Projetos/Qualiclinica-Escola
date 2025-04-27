@@ -34,7 +34,7 @@ export default function Cursos() {
   return (
     <div>
       <Navbar />
-      <main className="font-[family-name:var(--font-poppins)] flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
+      <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
         <section className="h-[20rem] flex flex-col flex-wrap justify-center items-center m-auto gap-x-[2rem]">
           <Image
             className="w-[503px] h-[239px] rounded-[5px]"
@@ -44,10 +44,10 @@ export default function Cursos() {
             placeholder="blur"
           />
           <div className="flex flex-col gap-y-[0.75rem]">
-            <h1 className="text-[2.25rem] h-fit text-(--verde-petroleo) font-semibold w-[19.5rem] inline-block leading-[2.7rem]">
+            <h1 className="text-[2.25rem] h-fit text-verde-petroleo font-semibold w-[19.5rem] inline-block leading-[2.7rem]">
               nosso núcleo educacional
             </h1>
-            <p className="w-[16.25rem] text-(--text) text-[0.94rem] py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
+            <p className="w-[16.25rem] text-text text-[0.94rem] py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
               Nosso núcleo educacional é composto por Sandra David, Thais
               Brasil, Sonia Cavinatto e Walkyria Volpini, principal organizadora
               das atividades educacionais.
@@ -56,7 +56,7 @@ export default function Cursos() {
         </section>
         <section className="flex flex-col gap-y-[1.5rem]">
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-(--verde-petroleo) text-[2.5rem] border-b-[1px] border-b-(--verde-petroleo)">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               cursos para médicos
             </h1>
             {courses
@@ -71,7 +71,7 @@ export default function Cursos() {
               ))}
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-(--verde-petroleo) text-[2.5rem] border-b-[1px] border-b-(--verde-petroleo)">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               cursos para pacientes e cuidadores
             </h1>
             {courses
@@ -87,7 +87,7 @@ export default function Cursos() {
               ))}
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-(--verde-petroleo) text-[2.5rem] border-b-[1px] border-b-(--verde-petroleo)">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               cursos para demais profissionais
             </h1>
             {courses
@@ -102,7 +102,7 @@ export default function Cursos() {
               ))}
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-(--verde-petroleo) text-[2.5rem] border-b-[1px] border-b-(--verde-petroleo)">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               mentorias
             </h1>
             {courses

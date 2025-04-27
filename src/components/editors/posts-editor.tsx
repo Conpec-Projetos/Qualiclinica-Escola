@@ -233,28 +233,28 @@ export default function PostsEditor({
 
   return (
     <div>
-      <div className="p-4 mb-6 border rounded-[5px] bg-white border-(--ciano-escuro) max-w-3xl">
-        <div className="text-(--menta-claro1) flex flex-wrap justify-evenly md:justify-center space-x-2 border-b border-(--verde-petroleo) pb-2">
+      <div className="p-4 mb-6 border rounded-[5px] bg-white border-ciano-escuro max-w-3xl">
+        <div className="text-menta-claro1 flex flex-wrap justify-evenly md:justify-center space-x-2 border-b border-verde-petroleo pb-2">
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().toggleBold().run()}
           >
             <BoldIcon size={16} />
           </EditorButton>
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().toggleItalic().run()}
           >
             <ItalicIcon size={16} />
           </EditorButton>
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().toggleStrike().run()}
           >
             <StrikethroughIcon size={16} />
           </EditorButton>
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().setUnderline().run()}
           >
             <UnderlineIcon size={16} />
@@ -262,7 +262,7 @@ export default function PostsEditor({
           {([1, 2, 3, 4, 5, 6] as const).map((level) => (
             <EditorButton
               key={level}
-              className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+              className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
               onClick={() =>
                 editor.chain().focus().toggleHeading({ level }).run()
               }
@@ -270,7 +270,7 @@ export default function PostsEditor({
               H{level}
             </EditorButton>
           ))}
-          <label className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer flex items-center justify-center">
+          <label className="bg-ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer flex items-center justify-center">
             <input
               type="file"
               accept="image/*"
@@ -280,20 +280,20 @@ export default function PostsEditor({
             <ImageIcon size={16} />
           </label>
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
           >
             <Ruler size={16} />
           </EditorButton>
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().undo().run()}
             disabled={!editor.can().chain().focus().undo().run()}
           >
             <CornerUpLeft size={16} />
           </EditorButton>
           <EditorButton
-            className="bg-(--ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().redo().run()}
             disabled={!editor.can().chain().focus().redo().run()}
           >
@@ -302,7 +302,7 @@ export default function PostsEditor({
         </div>
         <EditorContent
           editor={editor}
-          className="pt-4 overflow-y-auto bg-[#FCFCFC] text-(--verde-petroleo) focus:outline-none"
+          className="pt-4 overflow-y-auto bg-[#FCFCFC] text-verde-petroleo focus:outline-none"
           style={{ maxWidth: "100%" }}
           autoFocus={true}
         />

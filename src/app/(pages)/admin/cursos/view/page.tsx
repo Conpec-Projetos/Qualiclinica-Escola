@@ -80,12 +80,12 @@ export default function CursosAdmin() {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-poppins">
       <NavbarAdmin />
       <main className="w-full flex items-center justify-center text-black">
         <div className="max-w-5xl mx-auto">
           {/* Título */}
-          <h1 className="text-3xl font-bold text-center mb-4 text-(--verde-petroleo)">
+          <h1 className="text-3xl font-bold text-center mb-4 text-verde-petroleo">
             cursos
           </h1>
 
@@ -101,8 +101,8 @@ export default function CursosAdmin() {
           </div>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 para médicos
               </h1>
               {loading ? (
@@ -129,8 +129,8 @@ export default function CursosAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] max-w-[911px] mx-auto p-6 rounded-[5px]">
-              <h1 className="text-[var(--magenta)] text-center font-bold">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto max-w-[911px] mx-auto p-6 rounded-[5px]">
+              <h1 className="text-magenta text-center font-bold">
                 para pacientes e cuidadores
               </h1>
               {loading ? (
@@ -160,8 +160,8 @@ export default function CursosAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-[var(--rosa)] font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 para demais profissionais
               </h1>
 
@@ -191,8 +191,8 @@ export default function CursosAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 mentorias
               </h1>
               {loading ? (

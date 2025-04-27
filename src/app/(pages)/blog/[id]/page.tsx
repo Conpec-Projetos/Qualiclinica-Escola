@@ -111,10 +111,10 @@ export default function PostPage({
             </div>
 
             {/* Título e data */}
-            <h1 className="text-3xl font-bold text-(--verde-petroleo)">
+            <h1 className="text-3xl font-bold text-verde-petroleo">
               {post.title}
             </h1>
-            <p className="text-black italic text-sm font-[family-name:var(--font-roboto-condensed)]">
+            <p className="text-black italic text-sm font-roboto-condensed">
               Postado em {formatDate(post.publishedAt)}
             </p>
 

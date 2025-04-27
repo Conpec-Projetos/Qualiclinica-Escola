@@ -27,7 +27,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`border border-transparent ${disabled ? 'bg-(--menta) text-[#88C8D4]' : 'bg-[#88C8D4] text-white'} rounded-[5px]
+      className={`border border-transparent ${disabled ? 'bg-menta text-[#88C8D4]' : 'bg-[#88C8D4] text-white'} rounded-[5px]
                 hover:border-[#88C8D4] hover:bg-transparent hover:text-[#88C8D4]
                 transition-all duration-300 text-[${fontSizes[fontSize]} uppercase cursor-pointer
                 ${buttonSizes[buttonSize]}`}

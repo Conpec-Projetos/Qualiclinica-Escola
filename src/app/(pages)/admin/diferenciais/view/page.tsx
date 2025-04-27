@@ -64,13 +64,13 @@ export default function Diferenciais() {
       <NavbarAdmin />
       <main className="flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
         <div className="max-w-5xl mx-auto">
-          <h1 className="font-[family-name:var(--font-poppins)] custom-h1 font-bold text-center mb-4 text-(--verde-petroleo)">
+          <h1 className="font-poppins custom-h1 font-bold text-center mb-4 text-verde-petroleo">
             diferenciais
           </h1>
           {loading ? (
-            <p className="text-(--text)">Carregando diferenciais...</p>
+            <p className="text-text">Carregando diferenciais...</p>
           ) : (
-            <div className="font-[family-name:var(--font-roboto)] w-[56.9375rem] bg-(--rosa) flex flex-col items-center justify-center p-[2.375rem] gap-y-[2rem] rounded-[0.3125rem]">
+            <div className="font-roboto w-[56.9375rem] bg-rosa flex flex-col items-center justify-center p-[2.375rem] gap-y-[2rem] rounded-[0.3125rem]">
               <div className="flex flex-row items-center justify-center gap-x-[2rem]">
                 <div className="flex flex-col items-center justify-center gap-y-[2rem]">
                   <div className="flex flex-row items-center w-[25rem] h-[5rem] gap-x-[1rem] px-[1rem] bg-white rounded-[0.3125rem]">
@@ -81,7 +81,7 @@ export default function Diferenciais() {
                         handleOnClick(differentials[4].id, -1)
                       }
                     />
-                    <p className="w-[16rem] text-[0.9375rem] text-(--text) font-normal">
+                    <p className="w-[16rem] text-[0.9375rem] text-text font-normal">
                       {differentials[4].description}
                     </p>
                   </div>
@@ -94,7 +94,7 @@ export default function Diferenciais() {
                         handleOnClick(differentials[2].id, -1)
                       }
                     />
-                    <p className="w-[16rem] text-[0.9375rem] text-(--text) font-normal">
+                    <p className="w-[16rem] text-[0.9375rem] text-text font-normal">
                       {differentials[2].description}
                     </p>
                   </div>
@@ -109,7 +109,7 @@ export default function Diferenciais() {
                         handleOnClick(differentials[0].id, -1)
                       }
                     />
-                    <p className="w-[16rem] text-[0.9375rem] text-(--text) font-normal">
+                    <p className="w-[16rem] text-[0.9375rem] text-text font-normal">
                       {differentials[0].description}
                     </p>
                   </div>
@@ -122,7 +122,7 @@ export default function Diferenciais() {
                         handleOnClick(differentials[3].id, -1)
                       }
                     />
-                    <p className="w-[16rem] text-[0.9375rem] text-(--text) font-normal">
+                    <p className="w-[16rem] text-[0.9375rem] text-text font-normal">
                       {differentials[3].description}
                     </p>
                   </div>
@@ -135,7 +135,7 @@ export default function Diferenciais() {
                   onClickPlus={() => handleOnClick(differentials[1].id, 1)}
                   onClickMinus={() => handleOnClick(differentials[1].id, -1)}
                 />
-                <p className="w-[21.125rem] text-[0.9375rem] text-(--text) font-normal">
+                <p className="w-[21.125rem] text-[0.9375rem] text-text font-normal">
                   {differentials[1].description}
                 </p>
               </div>

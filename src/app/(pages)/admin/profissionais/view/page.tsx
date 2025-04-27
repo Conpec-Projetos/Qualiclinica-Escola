@@ -78,12 +78,12 @@ export default function ProfessionalsAdmin() {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-poppins">
       <NavbarAdmin />
       <main className="w-full flex items-center justify-center text-black">
         <div className="max-w-5xl mx-auto">
           {/* Título */}
-          <h1 className="text-3xl font-bold text-center mb-4 text-(--verde-petroleo)">
+          <h1 className="text-3xl font-bold text-center mb-4 text-verde-petroleo">
             profissionais
           </h1>
 
@@ -99,8 +99,8 @@ export default function ProfessionalsAdmin() {
           </div>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 diabetologia
               </h1>
               {loading ? (
@@ -126,8 +126,8 @@ export default function ProfessionalsAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 enfermagem
               </h1>
               {loading ? (
@@ -153,8 +153,8 @@ export default function ProfessionalsAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 endocrinologia
               </h1>
               {loading ? (
@@ -180,8 +180,8 @@ export default function ProfessionalsAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 nutrição
               </h1>
               {loading ? (
@@ -207,8 +207,8 @@ export default function ProfessionalsAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 psicologia/psiquiatria
               </h1>
               {loading ? (
@@ -234,8 +234,8 @@ export default function ProfessionalsAdmin() {
           </section>
 
           <section className="mb-8">
-            <div className="flex flex-col gap-8 bg-(--rosa) font-[family-name:var(--font-roboto)] p-6 rounded-[5px] max-w-[911px] mx-auto">
-              <h1 className="text-[var(--magenta)] font-bold text-center">
+            <div className="flex flex-col gap-8 bg-rosa font-roboto p-6 rounded-[5px] max-w-[911px] mx-auto">
+              <h1 className="text-magenta font-bold text-center">
                 outras áreas
               </h1>
               {loading ? (

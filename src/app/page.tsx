@@ -17,12 +17,12 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   return (
-    <div>
+    <>
       <Navbar />
-      <main className="font-[family-name:var(--font-poppins)] flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
-        <section className="flex justify-center items-center bg-[var(--rosa-claro)] h-[23.125rem] w-[67.25rem] m-auto gap-x-[4rem]">
+      <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
+        <section className="flex justify-center items-center bg-rosa-claro w-full h-[23.125rem] m-auto gap-x-[4rem]">
           <div className="flex flex-wrap w-[24rem] gap-x-[1rem] gap-y-[1.5rem]">
-            <h1 className="text-[2.25rem] h-fit text-(--magenta) font-semibold w-[24rem] inline-block">
+            <h1 className="text-[2.25rem] h-fit text-magenta font-semibold w-[24rem] inline-block">
               conhecimento que promove bem-estar
             </h1>
             <ButtonHomeModel text="Conheça-nos" onClick={() => router.push("/a-qualiclinica") } />
@@ -36,11 +36,11 @@ export default function Home() {
           />
         </section>
         <section>
-          <h1 className="text-center font-semibold text-[3rem] text-(--verde-petroleo) pb-[21px]">
+          <h1 className="text-center font-semibold text-[3rem] text-verde-petroleo pb-[21px]">
             nossos cursos
           </h1>
           <div className="flex flex-col flex-wrap h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
-            <p className="w-[23.75rem] text-[1.125rem] text-(--text)">
+            <p className="w-[23.75rem] text-[1.125rem] text-text">
               Na QualiClínica Escola oferecemos uma ampla gama de cursos e
               mentorias relacionados ao tema do{" "}
               <b className="font-medium">diabetes</b>.
@@ -61,13 +61,13 @@ export default function Home() {
             <AreaCursoHome courseArea={"para pacientes e cuidadores"} />
           </div>
         </section>
-        <section className="flex w-full h-[29.375rem] justify-center items-center py-[3.75rem] bg-(--rosa-claro) gap-x-[3.19rem]">
+        <section className="flex w-full h-[470px] justify-center items-center py-[3.75rem] bg-rosa-claro gap-x-[3.19rem]">
           <MeetOurTeamSvg />
           <div className="flex flex-col gap-[1.5rem] items-end">
-            <h1 className="font-semibold text-(--magenta) text-[3rem] text-right w-[25rem]">
+            <h1 className="font-semibold text-magenta text-[3rem] text-right w-[25rem]">
               conheça nossos profissionais
             </h1>
-            <p className="w-[24rem] text-right text-[1.125rem] text-(--text)">
+            <p className="w-[24rem] text-right text-[1.125rem] text-text">
               Nossa clínica é formada por profissionais altamente capacitados,
               que se dedicam ao <b className="font-medium">cuidado</b> de cada
               paciente e à <b className="font-medium">formação de cada aluno</b>
@@ -84,16 +84,16 @@ export default function Home() {
               height="288"
               /*allowfullscreen=""*/ loading="lazy" /*referrerpolicy="no-referrer-when-downgrade"*/
             ></iframe>
-            <p className="text-[1.125rem] text-(--text) w-[23.75rem]">
+            <p className="text-[1.125rem] text-text w-[23.75rem]">
               Endereço: Rua Pilar do Sul 364, Chácara da Barra - Campinas (SP),
               CEP 13090-757
             </p>
           </div>
           <div className="flex flex-col gap-[0.75rem]">
-            <h2 className="font-semibold text-(--verde-petroleo) text-[1.69rem]">
+            <h2 className="font-semibold text-verde-petroleo text-[1.69rem]">
               contato e redes sociais
             </h2>
-            <ul className="text-(--text) text-[1.125rem] leading-[2.7rem]">
+            <ul className="text-text text-[1.125rem] leading-[2.7rem]">
               <li>
                 <Instagram className="inline-block" color="#991871" />
                 <p className="inline-block px-[1rem]">@qualiclinicaescola</p>
@@ -121,6 +121,6 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

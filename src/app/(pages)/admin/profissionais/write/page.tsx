@@ -59,7 +59,7 @@ export default function CourseEditorPage() {
     <Suspense
       fallback={
         <div className="flex flex-col w-screen h-screen justify-center items-center">
-          <p className="text-2xl text-[var(--magenta)]">Carregando...</p>
+          <p className="text-2xl text-magenta">Carregando...</p>
         </div>
       }
     >
@@ -135,7 +135,7 @@ const ProfessionalsEditor = () => {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-poppins">
       <NavbarAdmin />
       <Image
         className="cursor-pointer mt-2 ml-3"
@@ -147,9 +147,9 @@ const ProfessionalsEditor = () => {
         <Form {...form}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="my-6 bg-[var(--ciano)] p-6 rounded-b-[5px] max-w-[648px] mx-auto w-full"
+            className="my-6 bg-ciano p-6 rounded-b-[5px] max-w-[648px] mx-auto w-full"
           >
-            <h1 className="text-[var(--verde-petroleo)] font-bold text-center mb-5">
+            <h1 className="text-verde-petroleo font-bold text-center mb-5">
               editor de profissionais
             </h1>
 
@@ -164,7 +164,7 @@ const ProfessionalsEditor = () => {
                       <input
                         type="text"
                         placeholder="Nome do profissional"
-                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        className="w-full p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -183,7 +183,7 @@ const ProfessionalsEditor = () => {
                       <input
                         type="text"
                         placeholder="Identificação do profissional"
-                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        className="w-full p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -202,7 +202,7 @@ const ProfessionalsEditor = () => {
                       <input
                         type="text"
                         placeholder="Ocupação do profissional"
-                        className="w-full p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        className="w-full p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -220,7 +220,7 @@ const ProfessionalsEditor = () => {
                     <FormControl>
                       <textarea
                         placeholder="Carreira do profissional"
-                        className="w-full h-[200px] p-2 border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        className="w-full h-[200px] p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
                         {...field}
                       />
                     </FormControl>
@@ -236,44 +236,44 @@ const ProfessionalsEditor = () => {
                   <FormItem>
                     <Select value={field.value} onValueChange={field.onChange}>
                       <FormControl>
-                        <SelectTrigger className="w-full border border-[var(--ciano-escuro)] text-[var(--verde-petroleo)] text-[18px] focus:outline-none bg-white rounded-[10px]">
+                        <SelectTrigger className="w-full border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]">
                           <SelectValue placeholder="Área de Atuação" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-white text-[var(--verde-petroleo)] font-semibold">
+                      <SelectContent className="bg-white text-verde-petroleo font-semibold">
                         <SelectItem
                           value="diabetology"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Diabetologia
                         </SelectItem>
                         <SelectItem
                           value="nursing"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Enfermagem
                         </SelectItem>
                         <SelectItem
                           value="nutrition"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Nutrição
                         </SelectItem>
                         <SelectItem
                           value="endocrinology"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Endocrinologia
                         </SelectItem>
                         <SelectItem
                           value="psychology/psychiatry"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Psicologia/Psiquiatria
                         </SelectItem>
                         <SelectItem
                           value="others"
-                          className="hover:bg-(--ciano)"
+                          className="hover:bg-ciano"
                         >
                           Outras áreas
                         </SelectItem>

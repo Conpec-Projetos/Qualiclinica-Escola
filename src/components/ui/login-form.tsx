@@ -23,18 +23,18 @@ export default function LoginForm() {
 
   return (
     <div className="flex items-center justify-center bg-[#194955] p-10 text-white w-[70%]">
-      <h2 className="w-[60%] text-5xl text-(--menta-claro2) font-semibold mr-1">
+      <h2 className="w-[60%] text-5xl text-menta-claro2 font-semibold mr-1">
         faça seu login para acessar a área de administradores
       </h2>
 
-      <div className="w-[40%] bg-(--menta-claro2) p-10 rounded-[5px]">
+      <div className="w-[40%] bg-menta-claro2 p-10 rounded-[5px]">
         {/* Campo de Email */}
         <div className="mb-4">
           <input
             type="email"
             id="email"
             placeholder="Email"
-            className="w-full border border-(--ciano-escuro) p-3 rounded-[10px] bg-white text-[#959595] focus:outline-[#88C8D4]"
+            className="w-full border border-ciano-escuro p-3 rounded-[10px] bg-white text-[#959595] focus:outline-[#88C8D4]"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -46,7 +46,7 @@ export default function LoginForm() {
             type={showPassword ? "text" : "password"}
             id="password"
             placeholder="Senha"
-            className="w-full border border-(--ciano-escuro) p-3 rounded-[10px] bg-white text-[#959595] focus:outline-[#88C8D4] pr-14"
+            className="w-full border border-ciano-escuro p-3 rounded-[10px] bg-white text-[#959595] focus:outline-[#88C8D4] pr-14"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

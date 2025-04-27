@@ -92,7 +92,7 @@ export default function BlogPage() {
       <Navbar />
       <main className="bg-white px-4 py-12">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl font-bold text-center text-(--verde-petroleo) mb-8">
+          <h1 className="text-3xl font-bold text-center text-verde-petroleo mb-8">
             blog
           </h1>
 
@@ -131,10 +131,10 @@ export default function BlogPage() {
                   </div>
 
                   <div className="mt-4 flex flex-col flex-1">
-                    <h3 className="text-lg font-semibold text-(--verde-petroleo) mb-2">
+                    <h3 className="text-lg font-semibold text-verde-petroleo mb-2">
                       {post.title}
                     </h3>
-                    <p className="text-(--text) flex-1 whitespace-pre-line">{excerpt}</p>
+                    <p className="text-text flex-1 whitespace-pre-line">{excerpt}</p>
 
                     <div className="mt-4 flex items-center justify-between">
                       <Button
@@ -143,7 +143,7 @@ export default function BlogPage() {
                           router.push(`/blog/${post.id}`);
                         }}
                       />
-                      <span className="text-black italic text-sm font-[family-name:var(--font-roboto-condensed)]">
+                      <span className="text-black italic text-sm font-roboto-condensed">
                         Postado em {formatDate(post.publishedAt)}
                       </span>
                     </div>

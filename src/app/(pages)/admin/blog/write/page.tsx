@@ -16,7 +16,7 @@ export default function BlogEditorPage() {
     <Suspense
       fallback={
         <div className="flex flex-col justify-center">
-          <p className="text-2xl text-[var(--magenta)]">Carregando...</p>
+          <p className="text-2xl text-magenta">Carregando...</p>
         </div>
       }
     >
@@ -72,7 +72,7 @@ const Editor = () => {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-white font-[family-name:var(--font-poppins)]">
+    <div className="flex flex-col w-full min-h-screen bg-white font-poppins">
       <NavbarAdmin />
       <main className="w-full flex flex-col items-center justify-center text-black">
         <div className="mb-6">
@@ -83,7 +83,7 @@ const Editor = () => {
             src={ArrowLeft}
           />
           <div
-            className={`relative flex flex-col w-full h-[380px] max-h-[380px] max-w-full bg-(--ciano-escuro) rounded-t-[5px] overflow-hidden items-center justify-center text-5xl text-(--menta-claro1)`}
+            className={`relative flex flex-col w-full h-[380px] max-h-[380px] max-w-full bg-ciano-escuro rounded-t-[5px] overflow-hidden items-center justify-center text-5xl text-menta-claro1`}
           >
             {imageUrl != "" ? (
               <Image
@@ -98,9 +98,9 @@ const Editor = () => {
             )}
             <button
               onClick={handleButtonClick}
-              className="w-14 h-14 flex items-center justify-center text-xs cursor-pointer absolute bottom-4 right-4 bg-white hover:bg-(--menta) transition-colors rounded-full"
+              className="w-14 h-14 flex items-center justify-center text-xs cursor-pointer absolute bottom-4 right-4 bg-white hover:bg-menta transition-colors rounded-full"
             >
-              <UploadIcon className="text-(--ciano-escuro) w-8 h-8" />
+              <UploadIcon className="text-ciano-escuro w-8 h-8" />
               <input
                 type="file"
                 accept="image/*"
@@ -110,11 +110,11 @@ const Editor = () => {
               />
             </button>
           </div>
-          <div className="bg-(--ciano) p-6 rounded-b-[5px]">
+          <div className="bg-ciano p-6 rounded-b-[5px]">
             <input
               type="text"
               placeholder="Título do post"
-              className="w-full p-2 mb-5 border border-(--ciano-escuro) text-(--verde-petroleo) text-[18px] focus:outline-none bg-white rounded-[10px]"
+              className="w-full p-2 mb-5 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
