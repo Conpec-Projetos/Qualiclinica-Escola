@@ -3,6 +3,7 @@ import Footer from "@/components/ui/footer";
 import ContactUsSvg from "@/assets/decoration-contact.svg";
 import Image from "next/image";
 import InterestForm from "@/components/ui/interest-form";
+import { Toaster } from "sonner";
 
 export default function ContactUs() {
   return (
@@ -28,6 +29,7 @@ export default function ContactUs() {
         </div>
       </main>
       <Footer />
+      <Toaster richColors position="bottom-right" closeButton />
     </div>
   );
 }

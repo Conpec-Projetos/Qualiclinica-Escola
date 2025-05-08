@@ -8,6 +8,9 @@ import { z } from "zod";
 import { db } from "@/firebase/firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 
+import { sendEmail } from "@/server/send-email";
+import { toast } from "sonner";
+
 const interestSchema = z.object({
   name: z.string().min(1, "Nome é obrigatório"),
   phone: z
@@ -77,7 +80,7 @@ export default function InterestForm() {
       setErrors((errors) => ({ ...errors, [field]: undefined }));
     };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setErrors({});
 
@@ -97,7 +100,8 @@ export default function InterestForm() {
 
     setSubmitting(true);
     try {
-      console.log(result.data);
+      await sendEmail(form);
+      toast.success("Email enviado com sucesso!");
       setForm({ name: "", phone: "+55", email: "", message: "", course: "" });
     } catch (err) {
       console.error("Erro no submit:", err);
