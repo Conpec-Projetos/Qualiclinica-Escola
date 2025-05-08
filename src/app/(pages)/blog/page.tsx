@@ -43,7 +43,6 @@ export default function BlogPage() {
           orderBy("publishedAt", "desc")
         );
         const snap = await getDocs(q);
-        console.log(snap);
         const data = snap.docs.map((doc) => {
           const d = doc.data() as Omit<BlogPost, "id">;
           return {

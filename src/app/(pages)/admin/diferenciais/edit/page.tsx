@@ -51,9 +51,6 @@ export default function Diferenciais() {
       await updateDoc(differentialCounter, {
         counter: increment(value),
       });
-      console.log(
-        `Contador ${value >= 0 ? "incrementado" : "decrementado"} com sucesso!`
-      );
     } catch (error) {
       console.error("Erro ao atualizar contador:", error);
     }
