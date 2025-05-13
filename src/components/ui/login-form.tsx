@@ -14,7 +14,7 @@ export default function LoginForm() {
   const authContext = useContext(AuthContext);
   const { login, error, currentUser } = authContext;
   const router = useRouter();
-  
+
   useEffect(() => {
     if (currentUser) {
       router.push("/admin/home");
@@ -22,12 +22,14 @@ export default function LoginForm() {
   }, [currentUser, router]);
 
   return (
-    <div className="flex items-center justify-center bg-[#194955] p-10 text-white w-[70%]">
-      <h2 className="w-[60%] text-5xl text-menta-claro2 font-semibold mr-1">
-        faça seu login para acessar a área de administradores
-      </h2>
+    <div className="flex flex-col sm:!flex-row items-center bg-[#194955] p-10 text-white w-[90%] sm:w-[70%]">
+      <div className="w-full flex text-center justify-center mr-1">
+        <h2 className="!text-base md:!text-2xl lg:!text-5xl text-menta-claro2 font-semibold">
+          faça seu login para acessar a área de administradores
+        </h2>
+      </div>
 
-      <div className="w-[40%] bg-menta-claro2 p-10 rounded-[5px]">
+      <div className="w-[60%] sm:!w-[80%] bg-menta-claro2 p-10 rounded-[5px]">
         {/* Campo de Email */}
         <div className="mb-4">
           <input
