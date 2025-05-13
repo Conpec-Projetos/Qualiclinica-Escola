@@ -1,9 +1,12 @@
+import clsx from "clsx";
+
 interface ButtonProps {
   text: string;
   fontSize?: keyof typeof fontSizes;
   onClick?: () => void;
   disabled?: boolean;
   buttonSize?: keyof typeof buttonSizes;
+  className?: string;
 }
 
 const buttonSizes = {
@@ -20,17 +23,26 @@ const fontSizes = {
 
 export default function Button({
   text,
-  fontSize = "normal",
+  fontSize,
   onClick,
   disabled = false,
   buttonSize = "normal",
+  className
 }: ButtonProps) {
   return (
     <button
-      className={`border border-transparent ${disabled ? 'bg-menta text-[#88C8D4]' : 'bg-[#88C8D4] text-white'} rounded-[5px]
-                hover:border-[#88C8D4] hover:bg-transparent hover:text-[#88C8D4]
-                transition-all duration-300 text-[${fontSizes[fontSize]} uppercase cursor-pointer
-                ${buttonSizes[buttonSize]}`}
+      className={clsx(
+        "border rounded-[5px] transition-all duration-300 uppercase cursor-pointer",
+        buttonSizes[buttonSize],
+        {
+          [`text-${fontSizes[fontSize!]}`]: fontSize !== undefined,
+        },
+        {
+          "bg-menta text-[#88C8D4] border-transparent": disabled,
+          "bg-[#88C8D4] text-white hover:bg-transparent hover:text-[#88C8D4] hover:border-[#88C8D4]": !disabled,
+        },
+        className
+      )}
       onClick={onClick}
       disabled={disabled}
       type="submit"
