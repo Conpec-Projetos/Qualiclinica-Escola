@@ -32,14 +32,14 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "border rounded-[5px] transition-all duration-300 uppercase cursor-pointer",
+        "border rounded-[5px] transition-all duration-300 uppercase",
         buttonSizes[buttonSize],
         {
           [`text-${fontSizes[fontSize!]}`]: fontSize !== undefined,
         },
         {
-          "bg-menta text-[#88C8D4] border-transparent": disabled,
-          "bg-[#88C8D4] text-white hover:bg-transparent hover:text-[#88C8D4] hover:border-[#88C8D4]": !disabled,
+          "bg-menta text-[#88C8D4] border-transparent cursor-not-allowed": disabled,
+          "bg-[#88C8D4] text-white hover:bg-transparent hover:text-[#88C8D4] hover:border-[#88C8D4] cursor-pointer": !disabled,
         },
         className
       )}
