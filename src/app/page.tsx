@@ -14,7 +14,6 @@ import { AreaCursoHome, ButtonHomeModel } from "@/components/home/components";
 import MeetOurTeamSvg from "@/components/home/svg-meet-our-team";
 import { useRouter } from "next/navigation";
 import InterestForm from "@/components/ui/interest-form";
-import { Toaster } from "sonner";
 
 export default function Home() {
   const router = useRouter();
@@ -145,7 +144,6 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-      <Toaster richColors position="bottom-right" closeButton />
     </>
   );
 }

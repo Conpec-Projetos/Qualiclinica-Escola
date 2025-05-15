@@ -68,7 +68,7 @@ export default function CursosAdmin() {
   const handleDeleteSelected = async () => {
     if (selectedCourses.length === 0) return;
 
-    toast("Tem certeza que deseja remover os cursos selecionados?", {
+    toast.warning("Tem certeza que deseja remover os cursos selecionados?", {
       action: {
         label: "Remover",
         onClick: async () => {

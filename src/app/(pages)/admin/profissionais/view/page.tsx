@@ -66,7 +66,7 @@ export default function ProfessionalsAdmin() {
   const handleDeleteSelected = async () => {
     if (selectedProfessionals.length === 0) return;
 
-    toast("Tem certeza que deseja remover os profissionais selecionados?", {
+    toast.warning("Tem certeza que deseja remover os profissionais selecionados?", {
       action: {
         label: "Remover",
         onClick: async () => {

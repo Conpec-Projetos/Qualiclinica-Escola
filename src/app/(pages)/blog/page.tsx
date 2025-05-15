@@ -67,13 +67,13 @@ export default function BlogPage() {
 
   if (loading) {
     return (
-      <>
+      <div className="h-screen">
         <Navbar />
-        <main className="min-h-screen flex items-center justify-center">
+        <main className="h-full flex items-center justify-center">
           <p>Carregando posts…</p>
         </main>
         <Footer />
-      </>
+      </div>
     );
   }
 
@@ -87,9 +87,9 @@ export default function BlogPage() {
   }
 
   return (
-    <>
+    <div className="h-screen">
       <Navbar />
-      <main className="bg-white px-4 py-12">
+      <main className="bg-white px-4 py-12 h-full">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl font-bold text-center text-verde-petroleo mb-8">
             blog
@@ -154,6 +154,6 @@ export default function BlogPage() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -91,7 +91,7 @@ export default function PostsAdmin() {
   const handleDeleteSelected = async () => {
     if (selectedPosts.length === 0) return;
 
-    toast("Tem certeza que deseja remover os posts selecionados?", {
+    toast.warning("Tem certeza que deseja remover os posts selecionados?", {
       action: {
         label: "Remover",
         onClick: async () => {
