@@ -27,7 +27,7 @@ export default function DropdownMenuNavbar() {
           Profissionais
         </Link>
         <Link href="/a-qualiclinica" className="hover:text-gray-700">
-          A Qualiclínica
+          A Quali Clínica
         </Link>
       </CollapsibleContent>
     </Collapsible>

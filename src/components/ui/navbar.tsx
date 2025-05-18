@@ -56,7 +56,7 @@ export default function Navbar() {
       <div className="w-[130px] md:w-[120px] lg:w-[200px]">
         <Image
           src={Logo}
-          alt="Qualiclínica logo"
+          alt="Quali Clínica logo"
           className="object-contain w-full h-auto"
           priority
         />

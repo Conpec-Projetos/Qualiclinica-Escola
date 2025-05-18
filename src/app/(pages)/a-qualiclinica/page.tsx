@@ -55,7 +55,7 @@ export default function SobreNos() {
           />
           <div className="flex flex-col gap-y-[0.75rem]">
             <h1 className="text-[2.25rem] h-fit text-magenta font-semibold w-[22.4rem] inline-block leading-[2.7rem]">
-              Qualiclínica Escola, quem somos?
+              Quali Clínica Escola, quem somos?
             </h1>
             <p className="w-[19.25rem] text-text text-[0.94rem] py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
               Somos um centro de <span className="font-medium">formação</span> e{" "}
