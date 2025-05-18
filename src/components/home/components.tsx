@@ -1,16 +1,18 @@
+"use client";
 import { useRouter } from "next/navigation";
 
 export function ButtonHomeModel({
   text,
-  onClick,
+  path
 }: {
   text: string;
-  onClick?: () => void;
+  path: string;
   }) {
+  const router = useRouter();
   if (text == "Conheça-nos") {
     return (
       <button
-        onClick={onClick}
+        onClick={() => router.push(path)}
         className="h-[3.125rem] flex gap-[4px] items-center px-[1rem] bg-white rounded-[5px] hover:cursor-pointer"
       >
         <svg
@@ -28,7 +30,7 @@ export function ButtonHomeModel({
   } else if (text == "Nosso blog") {
     return (
       <button
-        onClick={onClick}
+        onClick={() => router.push(path)}
         className="h-[3.125rem] flex gap-[3px] items-center px-[1rem] bg-white rounded-[5px] hover:cursor-pointer"
       >
         <svg
@@ -46,7 +48,7 @@ export function ButtonHomeModel({
   } else if ((text = "Profissionais")) {
     return (
       <button
-        onClick={onClick}
+        onClick={() => router.push(path)}
         className="h-[3.125rem] w-fit flex gap-[4px] items-center px-[1rem] bg-magenta rounded-[5px] hover:cursor-pointer"
       >
         <svg

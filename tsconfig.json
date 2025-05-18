@@ -26,6 +26,7 @@
       "@firebase/*": ["./src/firebase/*"],
       "@providers/*": ["./src/providers/*"],
       "@classes/*": ["./src/classes/*"],
+      "@app/*": ["./src/app/*"],
       "@lib/*": ["./src/lib/*"],
     }
   },

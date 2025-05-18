@@ -1,4 +1,3 @@
-"use client";
 import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
@@ -12,11 +11,16 @@ import { Mail } from "lucide-react";
 import { Phone } from "lucide-react";
 import { AreaCursoHome, ButtonHomeModel } from "@/components/home/components";
 import MeetOurTeamSvg from "@/components/home/svg-meet-our-team";
-import { useRouter } from "next/navigation";
 import InterestForm from "@/components/ui/interest-form";
+import { getWebMetadata } from "@/app/metadata";
+
+export const metadata = getWebMetadata({
+  title: 'Home',
+  description: 'Bem-vindo à Quali Clínica Escola',
+  url: '/',
+})
 
 export default function Home() {
-  const router = useRouter();
   return (
     <>
       <Navbar />
@@ -28,11 +32,11 @@ export default function Home() {
             </h1>
             <ButtonHomeModel
               text="Conheça-nos"
-              onClick={() => router.push("/a-qualiclinica")}
+              path="/a-qualiclinica"
             />
             <ButtonHomeModel
               text="Nosso blog"
-              onClick={() => router.push("/blog")}
+              path="/blog"
             />
           </div>
           <Image
@@ -48,7 +52,7 @@ export default function Home() {
           </h1>
           <div className="flex flex-col flex-wrap h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
             <p className="w-[23.75rem] text-[1.125rem] text-text">
-              Na QualiClínica Escola oferecemos uma ampla gama de cursos e
+              Na Quali Clínica Escola oferecemos uma ampla gama de cursos e
               mentorias relacionados ao tema do{" "}
               <b className="font-medium">diabetes</b>.
             </p>
@@ -81,7 +85,7 @@ export default function Home() {
               .
             </p>
             <ButtonHomeModel
-              onClick={() => router.push("profissionais")}
+              path="profissionais"
               text="Profissionais"
             ></ButtonHomeModel>
           </div>

@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import { Poppins, Roboto, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/providers/provider";
 import { Toaster } from "sonner";
+import { defaultMetadata } from "./metadata";
 
 const poppins_init = Poppins({
   variable: "--font-poppins",
@@ -23,10 +23,7 @@ const robotoCondensed_init = Roboto_Condensed({
   style: ["italic"],
 });
 
-export const metadata: Metadata = {
-  title: "Quali Clínica Escola",
-  description: "",
-};
+export const metadata = defaultMetadata
 
 export default function RootLayout({
   children,
