@@ -17,6 +17,7 @@
 
 import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types'
 import type { Metadata } from 'next'
+import opengraph_image from '@/app/opengraph-image.png';
 
 const title = 'Quali Clínica Escola'
 const description = 'Somos um centro de formação e treinamento para profissionais de saúde que desejam aprimorar seus conhecimentos na assistência aos pacientes crônicos, em especial aqueles que convivem com diabetes.'
@@ -28,7 +29,7 @@ export const openGraph: OpenGraph = {
   type: 'website',
   locale: 'pt_BR',
   siteName: 'Quali Clínica Escola',
-  images: [{ url: '../assets/logo-navbar.svg', width: 1200, height: 630 }],
+  images: [{ url: opengraph_image.src, width: 1200, height: 630 }],
 }
 
 export const defaultMetadata: Metadata = {
