@@ -66,7 +66,6 @@ const Editor = () => {
   const searchParams = useSearchParams();
   const courseId = searchParams.get("courseId");
   const [isSending, setIsSending] = useState(false);
-  const [isDescriptionMandatory, setIsDescriptionMandatory] = useState(true);
 
   const router = useRouter();
 
@@ -81,18 +80,7 @@ const Editor = () => {
     mode: "onChange",
   });
 
-  const { reset, handleSubmit, watch } = form;
-
-  const selectedArea = watch("area");
-
-  useEffect(() => {
-    if (selectedArea === "pacients-caretakers") {
-      setIsDescriptionMandatory(false);
-      form.setValue("description", "");
-    } else {
-      setIsDescriptionMandatory(true);
-    }
-  }, [selectedArea, form]);
+  const { reset, handleSubmit } = form;
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -195,26 +183,23 @@ const Editor = () => {
                   </FormItem>
                 )}
               />
-
-              {isDescriptionMandatory && (
-                <FormField
-                  control={form.control}
-                  name="description"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Descrição</FormLabel>
-                      <FormControl>
-                        <textarea
-                          placeholder="Descrição do curso"
-                          className="w-full h-[200px] p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              )}
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Descrição</FormLabel>
+                    <FormControl>
+                      <textarea
+                        placeholder="Descrição do curso"
+                        className="w-full h-[200px] p-2 border border-ciano-escuro text-verde-petroleo text-[18px] focus:outline-none bg-white rounded-[10px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <FormField
                 control={form.control}
@@ -228,10 +213,7 @@ const Editor = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-white text-verde-petroleo font-semibold">
-                        <SelectItem
-                          value="doctors"
-                          className="hover:bg-ciano"
-                        >
+                        <SelectItem value="doctors" className="hover:bg-ciano">
                           Médicos
                         </SelectItem>
                         <SelectItem
@@ -240,10 +222,7 @@ const Editor = () => {
                         >
                           Pacientes e Cuidadores
                         </SelectItem>
-                        <SelectItem
-                          value="others"
-                          className="hover:bg-ciano"
-                        >
+                        <SelectItem value="others" className="hover:bg-ciano">
                           Demais Profissionais
                         </SelectItem>
                         <SelectItem
