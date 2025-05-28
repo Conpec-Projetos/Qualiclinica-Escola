@@ -4,6 +4,8 @@ import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
 import Image from "next/image";
 import NucleoEdu from "@assets/assets-profissionais/nucleo-educacional.jpg";
+import Mundial from "@assets/assets-sobre-nos/mundial.png";
+import Walkirya_Grafico from "@assets/assets-sobre-nos/walkirya_graph.png";
 
 import { db } from "@/firebase/firebase-config";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -115,16 +117,16 @@ export default function SobreNos() {
               ministramos aos profissionais.
             </p>
             <Image
-              className="w-[25.25rem] h-[14.5rem] rounded-[5px]"
-              src={NucleoEdu}
-              alt="Imagem a ser decidida"
+              className="w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
+              src={Mundial}
+              alt="Equipe multiprofissional da Qualiclínica - unida no cuidado à pessoa com diabetes"
             />
           </div>
           <div className="flex flex-col justify-center items-center  gap-y-[1.57875rem]">
             <Image
-              className="w-[25.25rem] h-[14.5rem] rounded-[5px]"
-              src={NucleoEdu}
-              alt="Imagem a ser decidida"
+              className="w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
+              src={Walkirya_Grafico}
+              alt="Diabetologista Walkirya na aula inaugural da Liga de Diabetes e Metabologia da Unicamp"
             />
             <p className="w-[22.0538rem] text-text text-[0.94rem] text-right">
               Nossa Clínica dispõe de recepcionistas especializadas no

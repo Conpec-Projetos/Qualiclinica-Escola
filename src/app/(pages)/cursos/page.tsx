@@ -45,7 +45,7 @@ export default function Cursos() {
           />
           <div className="flex flex-col gap-y-[0.75rem]">
             <h1 className="text-[2.25rem] h-fit text-verde-petroleo font-semibold w-[19.5rem] inline-block leading-[2.7rem]">
-              nosso núcleo educacional
+              Nosso núcleo educacional
             </h1>
             <p className="w-[16.25rem] text-text text-[0.94rem] py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
               Nosso núcleo educacional é composto por Sandra David, Thais

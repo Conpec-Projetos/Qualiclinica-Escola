@@ -28,7 +28,7 @@ export default function Home() {
         <section className="flex justify-center items-center bg-rosa-claro w-full h-[23.125rem] m-auto gap-x-[4rem]">
           <div className="flex flex-wrap w-[24rem] gap-x-[1rem] gap-y-[1.5rem]">
             <h1 className="text-[2.25rem] h-fit text-magenta font-semibold w-[24rem] inline-block">
-              conhecimento que promove bem-estar
+              Conhecimento que promove bem-estar
             </h1>
             <ButtonHomeModel
               text="Conheça-nos"

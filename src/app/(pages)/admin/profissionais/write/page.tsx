@@ -150,7 +150,7 @@ const ProfessionalsEditor = () => {
             className="my-6 bg-ciano p-6 rounded-b-[5px] max-w-[648px] mx-auto w-full"
           >
             <h1 className="text-verde-petroleo font-bold text-center mb-5">
-              editor de profissionais
+              Editor de profissionais
             </h1>
 
             <div className="w-full h-full flex flex-col gap-4">

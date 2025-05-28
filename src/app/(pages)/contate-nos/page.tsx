@@ -16,7 +16,7 @@ export default function ContactUs() {
           <div className="flex flex-col gap-y-[1.443] justify-center text-menta-claro1 w-[19.75rem] ">
             <div className="flex flex-col gap-y-[0.5rem]">
               <h1 className="custom-h1 font-semibold h-[4.5rem]">
-                contate-nos
+                Contate-nos
               </h1>
               <p className="text-[1.3125rem] h-[11.1875rem]">
                 Comece uma jornada de ampliação dos seus conhecimentos sobre o

@@ -62,7 +62,7 @@ export default function Diferenciais() {
       <main className="flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
         <div className="max-w-5xl mx-auto">
           <h1 className="font-poppins custom-h1 font-bold text-center mb-4 text-verde-petroleo">
-            diferenciais
+            Diferenciais
           </h1>
           {loading ? (
             <p className="text-text">Carregando diferenciais...</p>

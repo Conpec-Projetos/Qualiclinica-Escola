@@ -4,8 +4,11 @@ import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
 import Image from "next/image";
-import NucleoEdu from "@assets/assets-profissionais/nucleo-educacional.jpg";
+import Time from "@assets/assets-profissionais/time.jpg";
 import Walkyria from "@assets/assets-profissionais/walkyria.jpg";
+import Sonia from "@assets/assets-profissionais/sonia.jpg";
+import Sandra from "@assets/assets-profissionais/sandra.jpg";
+import Thais from "@assets/assets-profissionais/thais.jpg";
 import ProfissionalModel from "@/components/professionals/professional-model";
 import { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase-config";
@@ -39,15 +42,15 @@ export default function Profissionais() {
       <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
         <section className="h-[20rem] flex flex-col flex-wrap justify-center items-center m-auto gap-x-[2rem]">
           <Image
-            className="w-[504px] h-[321px] rounded-[5px]"
-            src={NucleoEdu}
+            className="w-[504px] h-[321px] rounded-[5px] object-cover"
+            src={Time}
             alt="Nosso núcleo educacional composto por Walkyria, Sonia, Thaís e Sandra"
             priority
             placeholder="blur"
           />
           <div className="flex flex-col gap-y-[0.75rem]">
             <h1 className="text-[2.25rem] h-fit text-verde-petroleo font-semibold w-[19.5rem] inline-block leading-[2.7rem]">
-              nosso núcleo educacional
+              Nosso núcleo educacional
             </h1>
             <p className="w-[16.25rem] text-text text-[0.94rem] py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
               Nosso núcleo educacional é composto por Sandra David, Thais
@@ -73,8 +76,8 @@ export default function Profissionais() {
             </div>
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkyria}
-                alt="Diabetologista Walkyria"
+                src={Sonia}
+                alt="Enfermeira Sonia"
                 width={168}
                 height={168}
                 className="rounded-[84px]"
@@ -86,8 +89,8 @@ export default function Profissionais() {
             </div>
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkyria}
-                alt="Diabetologista Walkyria"
+                src={Sandra}
+                alt="Psicóloga Sandra"
                 width={168}
                 height={168}
                 className="rounded-[84px]"
@@ -99,8 +102,8 @@ export default function Profissionais() {
             </div>
             <div className="w-[25rem] h-[10.5rem] flex flex-col flex-wrap justify-center items-stretch gap-y-[0.5rem]">
               <Image
-                src={Walkyria}
-                alt="Diabetologista Walkyria"
+                src={Thais}
+                alt="Nutricionista Thais"
                 width={168}
                 height={168}
                 className="rounded-[84px]"

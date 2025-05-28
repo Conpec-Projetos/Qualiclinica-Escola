@@ -22,10 +22,10 @@ export default function HomeAdmin() {
           className={`flex flex-col items-center justify-center w-[606px] h-[250px] bg-[url('/circles-home-admin.svg')] bg-no-repeat bg-cover bg-center mt-10`}
         >
           <p className="text-7xl font-semibold text-verde-petroleo mb-6">
-            olá, { currentUser?.name }!
+            Olá, { currentUser?.name }!
           </p>
           <p className="text-[18px] w-[548px] text-center text-text">
-            Bem vindo à área dos administradores, aqui você pode{" "}
+            Bem-vindo à área dos administradores, aqui você pode{" "}
             <b>editar informações</b> sobre os{" "}
             <b>profissionais, cursos da clínica, valores dos diferenciais</b> e
             escrever <b>artigos para o blog</b>.

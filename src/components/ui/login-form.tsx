@@ -25,7 +25,7 @@ export default function LoginForm() {
     <div className="flex flex-col sm:!flex-row items-center bg-[#194955] p-10 text-white w-[90%] sm:w-[70%]">
       <div className="w-full flex text-center justify-center mr-1">
         <h2 className="!text-base md:!text-2xl lg:!text-5xl text-menta-claro2 font-semibold">
-          faça seu login para acessar a área de administradores
+          Faça seu login para acessar a área de administradores
         </h2>
       </div>
 
