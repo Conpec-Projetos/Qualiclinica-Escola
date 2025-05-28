@@ -72,7 +72,7 @@ export default function SobreNos() {
         <section className="bg-ciano flex w-full justify-center items-center h-[15.875rem]">
           <div className="flex flex-row justify-center gap-x-[1.25rem]">
             <div className="w-[17.5rem] flex flex-col items-start gap-y-[0.5rem]">
-              <h1 className="font-semibold text-verde-petroleo">missão</h1>
+              <h1 className="font-semibold text-verde-petroleo">MISSÃO</h1>
               <p className="text-[0.875rem] text-verde-petroleo self-stretch leading-[1.125rem] h-[6.75rem] px-[0.15rem]">
                 Prover cuidados e ensino integrais ao paciente/familiar, gerando
                 autonomia e bem-estar. Formar profissionais da saúde na
@@ -81,7 +81,7 @@ export default function SobreNos() {
               </p>
             </div>
             <div className="w-[17.5rem] flex flex-col items-start gap-y-[0.5rem]">
-              <h1 className="font-semibold text-verde-petroleo">visão</h1>
+              <h1 className="font-semibold text-verde-petroleo">VISÃO</h1>
               <p className="text-[0.875rem] text-verde-petroleo self-stretch leading-[1.125rem] h-[6.75rem]">
                 Ser um centro de referência para a capacitação multidisciplinar
                 de pacientes/família e profissionais, por meio de novas
@@ -90,7 +90,7 @@ export default function SobreNos() {
               </p>
             </div>
             <div className="w-[12.5rem] flex flex-col items-start gap-y-[0.5rem]">
-              <h1 className="font-semibold text-verde-petroleo">valores</h1>
+              <h1 className="font-semibold text-verde-petroleo">VALORES</h1>
               <ul className="text-verde-petroleo text-[0.875rem] h-[9rem] leading-[1.125rem]">
                 <li className="custom-li">Ensino</li>
                 <li className="custom-li">Cuidado</li>
@@ -105,9 +105,9 @@ export default function SobreNos() {
           </div>
         </section>
 
-        <section className="flex flex-row justify-center items-start gap-x-[2.4075rem]">
-          <div className="flex flex-col justify-center items-center gap-y-[1.57875rem]">
-            <p className="w-[22.0538rem] text-text text-[0.94rem]">
+        <section className="flex flex-row justify-center items-start gap-x-[2.4075rem] w-full">
+          <div className="w-[450px] flex flex-col justify-center items-center gap-y-[1.57875rem]">
+            <p className=" text-text text-lg text-left">
               Nossa aptidão é a educação e o letramento em saúde que se estendem
               aos pacientes e famílias, especialmente com foco na atenção à
               cronicidade e seus desdobramentos. Temos a satisfação de manter o
@@ -122,13 +122,13 @@ export default function SobreNos() {
               alt="Equipe multiprofissional da Qualiclínica - unida no cuidado à pessoa com diabetes"
             />
           </div>
-          <div className="flex flex-col justify-center items-center  gap-y-[1.57875rem]">
+          <div className="w-[404px] flex flex-col justify-center items-center  gap-y-[1.57875rem]">
             <Image
               className="w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
               src={Walkirya_Grafico}
               alt="Diabetologista Walkirya na aula inaugural da Liga de Diabetes e Metabologia da Unicamp"
             />
-            <p className="w-[22.0538rem] text-text text-[0.94rem] text-right">
+            <p className="w-full text-text text-lg text-right">
               Nossa Clínica dispõe de recepcionistas especializadas no
               atendimento humanizado e com ampla experiência em lidar com as
               tecnologias avançadas para o tratamento do diabetes, sobretudo
@@ -141,7 +141,7 @@ export default function SobreNos() {
         <section>
           <div className="flex flex-col gap-y-[1.5rem] justify-start">
             <h1 className="custom-h1 text-verde-petroleo font-semibold">
-              nossos diferenciais
+              Nossos diferenciais
             </h1>
             {loading ? (
               <p className="text-text text-[0.9375rem]">Carregando diferenciais...</p>

@@ -79,7 +79,7 @@ function SaibaMaisBtn() {
 }
 
 export function AreaCursoHome({ courseArea }: { courseArea: string }) {
-  if (courseArea == "para médicos") {
+  if (courseArea == "Para médicos") {
     return (
       <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
@@ -99,7 +99,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <SaibaMaisBtn />
       </div>
     );
-  } else if (courseArea == "mentorias") {
+  } else if (courseArea == "Mentorias") {
     return (
       <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
@@ -119,7 +119,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <SaibaMaisBtn />
       </div>
     );
-  } else if (courseArea == "para outros profissionais") {
+  } else if (courseArea == "Para outros profissionais") {
     return (
       <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
@@ -138,7 +138,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <SaibaMaisBtn />
       </div>
     );
-  } else if (courseArea == "para pacientes e cuidadores") {
+  } else if (courseArea == "Para pacientes e cuidadores") {
     return (
       <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">

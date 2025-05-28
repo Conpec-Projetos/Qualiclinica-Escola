@@ -118,7 +118,7 @@ export default function Profissionais() {
         <section className="flex flex-col gap-y-[1.5rem]">
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              diabetologia
+              Diabetologia
             </h1>
             {profissionais.filter((profissional) => profissional.area === "diabetology").map((profissional) => (
               <ProfissionalModel
@@ -132,7 +132,7 @@ export default function Profissionais() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              enfermagem
+              Enfermagem
             </h1>
             {profissionais.filter((profissional) => profissional.area === "nursing").map((profissional) => (
               <ProfissionalModel
@@ -146,7 +146,7 @@ export default function Profissionais() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              endocrinologia
+              Endocrinologia
             </h1>
             {profissionais.filter((profissional) => profissional.area === "endocrinology").map((profissional) => (
               <ProfissionalModel
@@ -160,7 +160,7 @@ export default function Profissionais() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              nutrição
+              Nutrição
             </h1>
             {profissionais.filter((profissional) => profissional.area === "nutrition").map((profissional) => (
               <ProfissionalModel
@@ -174,7 +174,7 @@ export default function Profissionais() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              psicologia/psiquiatria
+              Psicologia/Psiquiatria
             </h1>
             {profissionais.filter((profissional) => profissional.area === "psychology/psychiatry").map((profissional) => (
               <ProfissionalModel
@@ -188,7 +188,7 @@ export default function Profissionais() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              outras áreas
+              Outras áreas
             </h1>
             {profissionais.filter((profissional) => profissional.area === "others").map((profissional) => (
               <ProfissionalModel

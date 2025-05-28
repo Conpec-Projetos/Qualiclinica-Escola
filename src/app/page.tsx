@@ -48,7 +48,7 @@ export default function Home() {
         </section>
         <section>
           <h1 className="text-center font-semibold text-[3rem] text-verde-petroleo pb-[21px]">
-            nossos cursos
+            Nossos cursos
           </h1>
           <div className="flex flex-col flex-wrap h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
             <p className="w-[23.75rem] text-[1.125rem] text-text">
@@ -56,8 +56,8 @@ export default function Home() {
               mentorias relacionados ao tema do{" "}
               <b className="font-medium">diabetes</b>.
             </p>
-            <AreaCursoHome courseArea={"para médicos"} />
-            <AreaCursoHome courseArea={"mentorias"} />
+            <AreaCursoHome courseArea={"Para médicos"} />
+            <AreaCursoHome courseArea={"Mentorias"} />
             <Image
               className="rounded-[5px]"
               src={Imagem2CursosHome}
@@ -68,15 +68,15 @@ export default function Home() {
               src={Imagem1CursosHome}
               alt="Diabetologista Walkyria apresentando slides do curso"
             />
-            <AreaCursoHome courseArea={"para outros profissionais"} />
-            <AreaCursoHome courseArea={"para pacientes e cuidadores"} />
+            <AreaCursoHome courseArea={"Para outros profissionais"} />
+            <AreaCursoHome courseArea={"Para pacientes e cuidadores"} />
           </div>
         </section>
         <section className="flex w-full h-[470px] justify-center items-center py-[3.75rem] bg-rosa-claro gap-x-[3.19rem]">
           <MeetOurTeamSvg />
           <div className="flex flex-col gap-[1.5rem] items-end">
             <h1 className="font-semibold text-magenta text-[3rem] text-right w-[25rem]">
-              conheça nossos profissionais
+              Conheça nossos profissionais
             </h1>
             <p className="w-[24rem] text-right text-[1.125rem] text-text">
               Nossa clínica é formada por profissionais altamente capacitados,
@@ -93,7 +93,7 @@ export default function Home() {
         <section className="flex flex-row gap-[1.5rem]">
           <div className="flex flex-col items-center">
             <h1 className="font-semibold text-verde-petroleo text-[3rem]">
-              contate-nos
+              Contate-nos
             </h1>
             <InterestForm />
           </div>

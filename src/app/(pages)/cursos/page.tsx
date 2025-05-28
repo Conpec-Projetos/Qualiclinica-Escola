@@ -57,7 +57,7 @@ export default function Cursos() {
         <section className="flex flex-col gap-y-[1.5rem]">
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              cursos para médicos
+              Cursos para médicos
             </h1>
             {courses
               .filter((course) => course.area === "doctors")
@@ -72,7 +72,7 @@ export default function Cursos() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              cursos para pacientes e cuidadores
+              Cursos para pacientes e cuidadores
             </h1>
             {courses
               .filter((course) => course.area === "pacients-caretakers")
@@ -88,7 +88,7 @@ export default function Cursos() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              cursos para demais profissionais
+              Cursos para demais profissionais
             </h1>
             {courses
               .filter((course) => course.area === "others")
@@ -103,7 +103,7 @@ export default function Cursos() {
           </section>
           <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
             <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
-              mentorias
+              Mentorias
             </h1>
             {courses
               .filter((course) => course.area === "mentorships")
