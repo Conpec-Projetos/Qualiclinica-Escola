@@ -107,7 +107,7 @@ export default function SobreNos() {
 
         <section className="flex flex-row justify-center items-start gap-x-[2.4075rem] w-full">
           <div className="w-[450px] flex flex-col justify-center items-center gap-y-[1.57875rem]">
-            <p className=" text-text text-lg text-left">
+            <p className=" text-text text-lg text-center">
               Nossa aptidão é a educação e o letramento em saúde que se estendem
               aos pacientes e famílias, especialmente com foco na atenção à
               cronicidade e seus desdobramentos. Temos a satisfação de manter o
@@ -128,7 +128,7 @@ export default function SobreNos() {
               src={Walkirya_Grafico}
               alt="Diabetologista Walkirya na aula inaugural da Liga de Diabetes e Metabologia da Unicamp"
             />
-            <p className="w-full text-text text-lg text-right">
+            <p className="w-full text-text text-lg text-center">
               Nossa Clínica dispõe de recepcionistas especializadas no
               atendimento humanizado e com ampla experiência em lidar com as
               tecnologias avançadas para o tratamento do diabetes, sobretudo
