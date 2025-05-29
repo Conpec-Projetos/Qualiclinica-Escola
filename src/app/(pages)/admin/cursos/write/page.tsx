@@ -37,7 +37,7 @@ const courseSchema = z.object({
     .min(1, "A área é obrigatória")
     .refine(
       (val) =>
-        ["doctors", "pacients-caretakers", "others", "mentorships"].includes(
+        ["doctors", "patients-caregivers", "others", "mentorships"].includes(
           val
         ),
       {
@@ -217,7 +217,7 @@ const Editor = () => {
                           Médicos
                         </SelectItem>
                         <SelectItem
-                          value="pacients-caretakers"
+                          value="patients-caregivers"
                           className="hover:bg-ciano"
                         >
                           Pacientes e Cuidadores

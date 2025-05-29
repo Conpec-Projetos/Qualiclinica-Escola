@@ -135,7 +135,7 @@ export default function CursosAdmin() {
               </h1>
               {loading ? (
                 <p>Carregando cursos...</p>
-              ) : courses.filter((course) => course.area === "pacients-caretakers")
+              ) : courses.filter((course) => course.area === "patients-caregivers")
                   .length === 0 ? (
                 <p className="text-center text-lg text-gray-500">
                   Nenhum curso encontrado.
@@ -144,7 +144,7 @@ export default function CursosAdmin() {
                 <div className="w-full flex flex-wrap gap-4">
                   {courses.map(
                     (course) =>
-                      course.area === "pacients-caretakers" && (
+                      course.area === "patients-caregivers" && (
                         <CourseCard
                           type="small"
                           key={course.id}
