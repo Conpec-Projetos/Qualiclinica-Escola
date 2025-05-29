@@ -1,13 +1,22 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { db } from "@/firebase/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
+import { Skeleton } from "../ui/skeleton";
+
+interface Course {
+  name: string;
+  area: string;
+}
 
 export function ButtonHomeModel({
   text,
-  path
+  path,
 }: {
   text: string;
   path: string;
-  }) {
+}) {
   const router = useRouter();
   if (text == "Conheça-nos") {
     return (
@@ -78,91 +87,146 @@ function SaibaMaisBtn() {
   );
 }
 
+function SkeletonList() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-row items-center mb-[0.5rem] gap-2">
+        <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
+        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+      </div>
+      <div className="flex flex-row items-center mb-[0.5rem] gap-2">
+        <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
+        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+      </div>
+      <div className="flex flex-row items-center mb-[0.5rem] gap-2">
+        <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
+        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+      </div>
+      <div className="flex flex-row items-center mb-[0.5rem] gap-2">
+        <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
+        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+      </div>
+    </div>
+  );
+}
+
 export function AreaCursoHome({ courseArea }: { courseArea: string }) {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getCourses = async () => {
+      const querySnapshot = await getDocs(collection(db, "courses"));
+      const coursesData = querySnapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          name: data.name,
+          area: data.area,
+        } as Course;
+      });
+      setCourses(coursesData);
+      setIsLoading(false);
+      console.log(coursesData.map((course) => course.area));
+    };
+    getCourses();
+  }, []);
+
   if (courseArea == "Para médicos") {
+    const filteredCourses = courses.filter(
+      (course) => course.area === "doctors"
+    );
     return (
       <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
-          <ul className="text-text text-[1.125rem]">
-            <li className="mb-[0.5rem]">
-              Terapia de bomba de infusão de insulina
-            </li>
-            <li className="mb-[0.5rem]">
-              Seguimento seguro do paciente com Diabetes Tipo 2
-            </li>
-            <li className="mb-[0.5rem]">Terapia de Contagem de Carboidratos</li>
-          </ul>
+          {isLoading ? (
+            <SkeletonList />
+          ) : (
+            <ul className="text-text text-[1.125rem]">
+              {filteredCourses.map((course, index) => (
+                <li key={index} className="mb-[0.5rem]">
+                  {course.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <SaibaMaisBtn />
       </div>
     );
   } else if (courseArea == "Mentorias") {
+    const filteredCourses = courses.filter(
+      (course) => course.area === "mentorships"
+    );
     return (
       <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
-          <ul className="text-text text-[1.125rem]">
-            <li className="mb-[0.5rem]">
-              Introdução ao sistema de bomba de insulina: instalação em paciente
-              próprio, com seguimento inicial
-            </li>
-            <li className="mb-[0.5rem]">
-              Manejo e cuidado do paciente portador de Diabetes Tipo 1
-            </li>
-          </ul>
+          {isLoading ? (
+            <SkeletonList />
+          ) : (
+            <ul className="text-text text-[1.125rem]">
+              {filteredCourses.map((course, index) => (
+                <li key={index} className="mb-[0.5rem]">
+                  {course.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <SaibaMaisBtn />
       </div>
     );
   } else if (courseArea == "Para outros profissionais") {
+    const filteredCourses = courses.filter(
+      (course) => course.area === "others"
+    );
     return (
       <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
-          <ul className="text-text text-[1.125rem]">
-            <li className="mb-[0.5rem]">
-              Cuidados de Enfermagem em Pé Diabético
-            </li>
-            <li className="mb-[0.5rem]">
-              Curso de terapia de contagem de carboidratos para nutricionistas
-            </li>
-          </ul>
+          {isLoading ? (
+            <SkeletonList />
+          ) : (
+            <ul className="text-text text-[1.125rem]">
+              {filteredCourses.map((course, index) => (
+                <li key={index} className="mb-[0.5rem]">
+                  {course.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <SaibaMaisBtn />
       </div>
     );
   } else if (courseArea == "Para pacientes e cuidadores") {
+    const filteredCourses = courses.filter(
+      (course) => course.area === "patients-caregivers"
+    );
     return (
       <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
         <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
-          <ul className="text-text text-[1.125rem]">
-            <li className="mb-[0.5rem]">
-              Oficina de contagem de carboidratos para pacientes e famílias
-            </li>
-            <li className="mb-[0.5rem]">
-              Curso para Cuidadores de pessoas com diabetes
-            </li>
-            <li className="mb-[0.5rem]">
-              Roda de conversa para pais de pessoas com Diabetes Tipo 1
-            </li>
-            <li className="mb-[0.5rem]">
-              Saúde mental e diabetes: desafios da cronicidade para pacientes e
-              seus familiares
-            </li>
-            <li className="mb-[0.5rem]">
-              Instalação e manejo do sensor subcutâneo de glicose
-            </li>
-          </ul>
+          {isLoading ? (
+            <SkeletonList />
+          ) : (
+            <ul className="text-text text-[1.125rem]">
+              {filteredCourses.map((course, index) => (
+                <li key={index} className="mb-[0.5rem]">
+                  {course.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <SaibaMaisBtn />
       </div>
