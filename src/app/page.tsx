@@ -62,11 +62,13 @@ export default function Home() {
               className="rounded-[5px]"
               src={Imagem2CursosHome}
               alt="Nutricionista Thais apresentando slides do curso"
+              placeholder="blur"
             />
             <Image
               className="rounded-[5px]"
               src={Imagem1CursosHome}
               alt="Diabetologista Walkyria apresentando slides do curso"
+              placeholder="blur"
             />
             <AreaCursoHome courseArea={"Para outros profissionais"} />
             <AreaCursoHome courseArea={"Para pacientes e cuidadores"} />
@@ -130,7 +132,7 @@ export default function Home() {
                     </p>
                   </li>
                   <li>
-                    <Image className="inline-block" alt="" src={WhatsappIcon} />
+                    <Image className="inline-block" alt="Ícone de WhatsApp" src={WhatsappIcon} />
                     <p className="inline-block px-[1rem]">
                       WhatsApp: +55 (19) 99641-9210
                     </p>

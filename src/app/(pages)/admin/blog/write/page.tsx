@@ -92,6 +92,7 @@ const Editor = () => {
                 fill
                 sizes="100%"
                 className="select-none"
+                placeholder="blur"
               />
             ) : (
               <p>imagem de banner</p>

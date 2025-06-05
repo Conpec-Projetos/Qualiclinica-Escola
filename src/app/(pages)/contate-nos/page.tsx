@@ -23,7 +23,7 @@ export default function ContactUs() {
                 diabetes e as suas formas de cuidado!
               </p>
             </div>
-            <Image alt="contact-us decoration" src={ContactUsSvg}></Image>
+            <Image alt="contact-us decoration" src={ContactUsSvg} />
           </div>
         </div>
       </main>

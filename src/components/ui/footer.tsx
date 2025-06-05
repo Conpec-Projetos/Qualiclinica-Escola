@@ -9,7 +9,7 @@ export default function Footer() {
         © 2025 Quali Clínica Escola
       </p>
       <div className="w-[120px] sm:w-auto">
-        <Image alt="logo" src={Logo} className="w-full h-auto object-contain" />
+        <Image alt="logo" src={Logo} className="w-full h-auto object-contain" priority />
       </div>
     </footer>
   );

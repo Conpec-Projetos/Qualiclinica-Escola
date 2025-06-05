@@ -120,6 +120,7 @@ export default function SobreNos() {
               className="w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
               src={Mundial}
               alt="Equipe multiprofissional da Qualiclínica - unida no cuidado à pessoa com diabetes"
+              placeholder="blur"
             />
           </div>
           <div className="w-[404px] flex flex-col justify-center items-center  gap-y-[1.57875rem]">
@@ -127,6 +128,7 @@ export default function SobreNos() {
               className="w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
               src={Walkirya_Grafico}
               alt="Diabetologista Walkirya na aula inaugural da Liga de Diabetes e Metabologia da Unicamp"
+              placeholder="blur"
             />
             <p className="w-full text-text text-lg text-center">
               Nossa Clínica dispõe de recepcionistas especializadas no

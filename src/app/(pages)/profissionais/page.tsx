@@ -68,6 +68,7 @@ export default function Profissionais() {
                 width={168}
                 height={168}
                 className="rounded-[84px]"
+                placeholder="blur"
               />
               <h2 className="w-[13.5rem] font-semibold custom-h2 text-magenta">
                 Walkyria Mara Gonçalves Volpini
@@ -81,6 +82,7 @@ export default function Profissionais() {
                 width={168}
                 height={168}
                 className="rounded-[84px]"
+                placeholder="blur"
               />
               <h2 className="w-[13.5rem] font-semibold custom-h2 text-magenta">
                 Sonia Maria Cavinatto
@@ -94,6 +96,7 @@ export default function Profissionais() {
                 width={168}
                 height={168}
                 className="rounded-[84px]"
+                placeholder="blur"
               />
               <h2 className="w-[13.5rem] font-semibold custom-h2 text-magenta">
                 Sandra Mara Rosa David
@@ -107,6 +110,7 @@ export default function Profissionais() {
                 width={168}
                 height={168}
                 className="rounded-[84px]"
+                placeholder="blur"
               />
               <h2 className="w-[13.5rem] font-semibold custom-h2 text-magenta">
                 Thais Barbarini Seabra Brasil

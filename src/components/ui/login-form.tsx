@@ -61,7 +61,7 @@ export default function LoginForm() {
               alt="mostrar/esconder senha"
               title={showPassword ? "Esconder senha" : "Mostrar senha"}
               src={showPassword ? EyeDefault : EyeSlash}
-            ></Image>
+            />
           </button>
         </div>
 

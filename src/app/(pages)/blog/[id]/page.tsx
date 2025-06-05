@@ -17,6 +17,7 @@ interface BlogPost {
   title: string;
   content: string; // seu HTML
   imageUrl: string;
+  base64ImageUrl: string;
   publishedAt: Timestamp;
 }
 
@@ -76,7 +77,7 @@ export default function PostPage({
   if (!post) {
     return (
         <div className="h-screen w-screen bg-rosa-claro font-poppins flex flex-col justify-center items-center">
-            <Image alt="logo principal" src={LogoPrincipal} className="inline-block w-[23rem]" />
+            <Image alt="logo principal" src={LogoPrincipal} className="inline-block w-[23rem]" priority />
             <h1 className="text-magenta text-4xl font-bold">Erro 404</h1>
             <h2 className="text-verde-petroleo text-2xl font-bold">Artigo não encontrado</h2>
             <Button
@@ -109,7 +110,10 @@ export default function PostPage({
               <Image
                 src={post.imageUrl}
                 alt={post.title}
+                placeholder="blur"
+                blurDataURL={post.base64ImageUrl}
                 fill
+                priority
                 className="object-cover"
               />
             </div>
