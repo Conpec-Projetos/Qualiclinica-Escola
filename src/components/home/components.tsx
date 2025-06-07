@@ -126,7 +126,6 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       });
       setCourses(coursesData);
       setIsLoading(false);
-      console.log(coursesData.map((course) => course.area));
     };
     getCourses();
   }, []);
@@ -136,7 +135,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "doctors"
     );
     return (
-      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
@@ -161,7 +160,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "mentorships"
     );
     return (
-      <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
@@ -186,7 +185,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "others"
     );
     return (
-      <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
@@ -211,7 +210,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "patients-caregivers"
     );
     return (
-      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] px-[2rem] py-[1.75rem] bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>

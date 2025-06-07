@@ -15,84 +15,115 @@ import InterestForm from "@/components/ui/interest-form";
 import { getWebMetadata } from "@/app/metadata";
 
 export const metadata = getWebMetadata({
-  title: 'Home',
-  description: 'Bem-vindo à Quali Clínica Escola',
-  url: '/',
-})
+  title: "Home",
+  description: "Bem-vindo à Quali Clínica Escola",
+  url: "/",
+});
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
-        <section className="flex justify-center items-center bg-rosa-claro w-full h-[23.125rem] m-auto gap-x-[4rem]">
-          <div className="flex flex-wrap w-[24rem] gap-x-[1rem] gap-y-[1.5rem]">
+        <section className="flex flex-col sm:flex-row justify-center items-center bg-rosa-claro w-full h-fit m-auto gap-x-[4rem]">
+          <div className="flex flex-col w-[24rem] gap-x-[1rem] gap-y-[1.5rem]">
             <h1 className="text-[2.25rem] h-fit text-magenta font-semibold w-[24rem] inline-block">
               Conhecimento que promove bem-estar
             </h1>
-            <ButtonHomeModel
-              text="Conheça-nos"
-              path="/a-qualiclinica"
-            />
-            <ButtonHomeModel
-              text="Nosso blog"
-              path="/blog"
-            />
+            <div className="flex flex-row gap-x-[1.5rem]">
+              <ButtonHomeModel text="Conheça-nos" path="/a-qualiclinica" />
+              <ButtonHomeModel text="Nosso blog" path="/blog" />
+            </div>
           </div>
           <Image
             alt="logo principal"
             src={LogoPrincipal}
-            className="inline-block w-[23rem]"
+            className="inline-block w-[50%] sm:w-[30%]"
             priority
           />
         </section>
-        <section>
+        <section className="w-full">
           <h1 className="text-center font-semibold text-[3rem] text-verde-petroleo pb-[21px]">
             Nossos cursos
           </h1>
-          <div className="flex flex-col flex-wrap h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
-            <p className="w-[23.75rem] text-[1.125rem] text-text">
-              Na Quali Clínica Escola oferecemos uma ampla gama de cursos e
-              mentorias relacionados ao tema do{" "}
-              <b className="font-medium">diabetes</b>.
-            </p>
-            <AreaCursoHome courseArea={"Para médicos"} />
-            <AreaCursoHome courseArea={"Mentorias"} />
-            <Image
-              className="rounded-[5px]"
-              src={Imagem2CursosHome}
-              alt="Nutricionista Thais apresentando slides do curso"
-              placeholder="blur"
-            />
-            <Image
-              className="rounded-[5px]"
-              src={Imagem1CursosHome}
-              alt="Diabetologista Walkyria apresentando slides do curso"
-              placeholder="blur"
-            />
-            <AreaCursoHome courseArea={"Para outros profissionais"} />
-            <AreaCursoHome courseArea={"Para pacientes e cuidadores"} />
+          <div className="w-full flex flex-row justify-center">
+            <div className="flex flex-col md:flex-row justify-center items-center w-[90%] h-fit md:h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
+              <div className="flex flex-col items-center">
+                <p className="w-[380px] md:w-[350px] lg:w-[380px] text-[18px] text-text">
+                  Na Quali Clínica Escola oferecemos uma ampla gama de cursos e
+                  mentorias relacionados ao tema do{" "}
+                  <b className="font-medium">diabetes</b>.
+                </p>
+                <Image
+                  className="rounded-[5px] md:hidden"
+                  src={Imagem2CursosHome}
+                  alt="Nutricionista Thais apresentando slides do curso"
+                  placeholder="blur"
+                />
+                <AreaCursoHome courseArea={"Para médicos"} />
+                <AreaCursoHome courseArea={"Mentorias"} />
+                <div className="hidden md:block w-[20rem] lg:w-[23.75rem]">
+                  <Image
+                    className="object-contain rounded-[5px]"
+                    src={Imagem2CursosHome}
+                    alt="Nutricionista Thais apresentando slides do curso"
+                    placeholder="blur"
+                  />
+                </div>
+              </div>
+
+              <div className="w-fit flex flex-col items-center">
+                <div className="mt-2 hidden md:block w-[20rem] lg:w-[23.75rem]">
+                  <Image
+                    className="rounded-[5px] object-cover"
+                    src={Imagem1CursosHome}
+                    alt="Diabetologista Walkyria apresentando slides do curso"
+                    placeholder="blur"
+                  />
+                </div>
+                <AreaCursoHome courseArea={"Para outros profissionais"} />
+                <AreaCursoHome courseArea={"Para pacientes e cuidadores"} />
+                <Image
+                  className="rounded-[5px] md:hidden"
+                  src={Imagem1CursosHome}
+                  alt="Diabetologista Walkyria apresentando slides do curso"
+                  placeholder="blur"
+                />
+              </div>
+            </div>
           </div>
         </section>
-        <section className="flex w-full h-[470px] justify-center items-center py-[3.75rem] bg-rosa-claro gap-x-[3.19rem]">
-          <MeetOurTeamSvg />
+        <section className="flex flex-col md:flex-row w-full h-fit justify-center items-center py-[3.75rem] bg-rosa-claro gap-x-[3.19rem]">
+          <div className="hidden w-[300px] md:flex justify-center h-fit">
+            <MeetOurTeamSvg />
+          </div>
+
           <div className="flex flex-col gap-[1.5rem] items-end">
-            <h1 className="font-semibold text-magenta text-[3rem] text-right w-[25rem]">
+            <h1 className="font-semibold text-magenta text-[3rem] text-center md:text-right w-[25rem]">
               Conheça nossos profissionais
             </h1>
-            <p className="w-[24rem] text-right text-[1.125rem] text-text">
+            <p className="w-[22rem] md:w-[24rem] text-center md:text-right text-[1.125rem] text-text">
               Nossa clínica é formada por profissionais altamente capacitados,
               que se dedicam ao <b className="font-medium">cuidado</b> de cada
               paciente e à <b className="font-medium">formação de cada aluno</b>
               .
             </p>
-            <ButtonHomeModel
-              path="profissionais"
-              text="Profissionais"
-            ></ButtonHomeModel>
+            <div className="md:hidden w-full flex flex-col items-center">
+              <MeetOurTeamSvg />
+              <ButtonHomeModel
+                path="profissionais"
+                text="Profissionais"
+              ></ButtonHomeModel>
+            </div>
+            <div className="hidden md:block">
+              <ButtonHomeModel
+                path="profissionais"
+                text="Profissionais"
+              ></ButtonHomeModel>
+            </div>
           </div>
         </section>
-        <section className="flex flex-row gap-[1.5rem]">
+        <section className="flex flex-col md:flex-row gap-[1.5rem]">
           <div className="flex flex-col items-center">
             <h1 className="font-semibold text-verde-petroleo text-[3rem]">
               Contate-nos
@@ -100,7 +131,7 @@ export default function Home() {
             <InterestForm />
           </div>
 
-          <div className="flex flex-col gap-[1.5rem]">
+          <div className="flex flex-col items-center w-full md:w-fit gap-[1.5rem]">
             <div className="flex flex-col gap-[1rem]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.73410215155306!2d-47.03778380613328!3d-22.8858529969182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf60929e4e9b%3A0x248fedc1733a652f!2sR.%20Pilar%20do%20Sul%2C%20364%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-757!5e0!3m2!1spt-BR!2sbr!4v1742434083835!5m2!1spt-BR!2sbr"
@@ -113,7 +144,7 @@ export default function Home() {
                 (SP), CEP 13090-757
               </p>
             </div>
-            <section className="w-full flex flex-row">
+            <section className="w-full flex flex-row justify-center md:w-fit">
               <div className="flex flex-col gap-[0.75rem]">
                 <h2 className="font-semibold text-verde-petroleo text-[1.69rem]">
                   contato e redes sociais
@@ -132,7 +163,11 @@ export default function Home() {
                     </p>
                   </li>
                   <li>
-                    <Image className="inline-block" alt="Ícone de WhatsApp" src={WhatsappIcon} />
+                    <Image
+                      className="inline-block"
+                      alt="Ícone de WhatsApp"
+                      src={WhatsappIcon}
+                    />
                     <p className="inline-block px-[1rem]">
                       WhatsApp: +55 (19) 99641-9210
                     </p>

@@ -42,8 +42,6 @@ export default function PostsAdmin() {
           ...(doc.data() as Omit<Post, "id">),
         }));
         setPosts(postsData);
-
-        // setPosts(mockPosts);
       } catch (error) {
         console.error("Erro ao carregar os posts: ", error);
       } finally {
