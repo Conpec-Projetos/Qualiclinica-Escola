@@ -8,7 +8,7 @@ export default function Footer() {
       <p className="text-[9px] sm:text-[18px] font-medium">
         © 2025 Quali Clínica Escola
       </p>
-      <div className="w-[120px] sm:w-auto">
+      <div className="w-[220px] sm:w-auto">
         <Image alt="logo" src={Logo} className="w-full h-auto object-contain" priority />
       </div>
     </footer>
