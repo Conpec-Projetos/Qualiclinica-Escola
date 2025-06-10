@@ -21,6 +21,13 @@ export default function LoginForm() {
     }
   }, [currentUser, router]);
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      login(email, password);
+    }
+  }
+
   return (
     <div className="flex flex-col sm:!flex-row items-center bg-[#194955] p-10 text-white w-[90%] sm:w-[70%]">
       <div className="w-full flex text-center justify-center mr-1">
@@ -29,7 +36,7 @@ export default function LoginForm() {
         </h2>
       </div>
 
-      <div className="w-[60%] sm:!w-[80%] bg-menta-claro2 p-10 rounded-[5px]">
+      <div className="w-[60%] sm:!w-[80%] bg-menta-claro2 p-10 rounded-[5px]" onKeyDown={handleKeyPress}>
         {/* Campo de Email */}
         <div className="mb-4">
           <input
@@ -70,7 +77,7 @@ export default function LoginForm() {
         {/* Botão de Enviar */}
         <div className="flex justify-center">
           <Button
-            text="ENVIAR"
+            text="ENTRAR"
             onClick={() => {
               login(email, password);
             }}
