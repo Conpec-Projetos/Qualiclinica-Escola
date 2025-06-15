@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
 import CourseCard, {
   Course
@@ -92,12 +92,12 @@ export default function CursosAdmin() {
           {/* Botões de ação */}
           <div className="flex justify-center space-x-4 mb-8">
             <Link href="/admin/cursos/write">
-              <Button
+              <ButtonQuali
                 text="adicionar curso"
                 onClick={() => router.push("/admin/cursos/write")}
               />
             </Link>
-            <Button text="remover cursos" onClick={handleDeleteSelected} />
+            <ButtonQuali text="remover cursos" onClick={handleDeleteSelected} />
           </div>
 
           <section className="mb-8">

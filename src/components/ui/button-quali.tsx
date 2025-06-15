@@ -21,7 +21,7 @@ const fontSizes = {
   large: "18px",
 };
 
-export default function Button({
+export default function ButtonQuali({
   text,
   fontSize,
   onClick,

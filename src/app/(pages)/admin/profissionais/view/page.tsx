@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
 import ProfessionalCard, { Professional } from "@/components/ui/professional-card";
 import NavbarAdmin from "@/components/ui/navbar-admin";
@@ -90,12 +90,12 @@ export default function ProfessionalsAdmin() {
           {/* Botões de ação */}
           <div className="flex justify-center space-x-4 mb-8">
             <Link href="/admin/profissionais/write">
-              <Button
+              <ButtonQuali
                 text="adicionar profissional"
                 onClick={() => router.push("/admin/profissionais/write")}
               />
             </Link>
-            <Button text="remover profissionais" onClick={handleDeleteSelected} />
+            <ButtonQuali text="remover profissionais" onClick={handleDeleteSelected} />
           </div>
 
           <section className="mb-8">

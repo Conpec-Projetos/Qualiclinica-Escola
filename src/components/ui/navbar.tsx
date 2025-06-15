@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/logo-navbar.svg";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import DropdownMenuNavbar from "@/components/ui/dropdown-menu-navbar";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
@@ -32,21 +32,21 @@ export default function Navbar() {
   return (
     <nav className="w-full h-[80px] flex items-center justify-around bg-white border-b-[1px] border-b-[#D4D4D4]">
       {isLoggedIn ? (
-        <Button
+        <ButtonQuali
           text={`Olá, ${currentUser?.name}!`}
           onClick={() => {
             router.push("/admin/home");
           }}
-        ></Button>
+        ></ButtonQuali>
       ) : (
         <div>
-          <Button
+          <ButtonQuali
             className="hidden sm:flex w-auto text-xs md:text-base lg:!text-xl"
             buttonSize="small"
             text="Login administradores"
             onClick={() => router.push("/login")}
-            ></Button>
-            <div className="flex sm:hidden items-center gap-2">
+            ></ButtonQuali>
+            <div className="flex sm:hidden items-center gap-2 hover:cursor-pointer" onClick={() => router.push("/login")}>
               <User size={25} color="#88C8D4" />
               <p className="text-[#88C8D4] text-[15px]">Login</p>
             </div>
@@ -85,12 +85,12 @@ export default function Navbar() {
           logout
         </button>
       ) : (
-        <Button
+        <ButtonQuali
           className="flex w-auto text-xs md:text-base lg:!text-xl"
           buttonSize="small"
           text="CONTATE-NOS"
           onClick={handleContateNos}
-        ></Button>
+        ></ButtonQuali>
       )}
 
       <div className="sm:hidden">

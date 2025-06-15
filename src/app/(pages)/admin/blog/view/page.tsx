@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
 import PostCard, { Post } from "@/components/ui/post-card";
 import NavbarAdmin from "@/components/ui/navbar-admin";
@@ -113,12 +113,12 @@ export default function PostsAdmin() {
           {/* Botões de ação */}
           <div className="flex justify-center space-x-4 mb-8">
             <Link href="/admin/blog/write">
-              <Button
+              <ButtonQuali
                 text="adicionar post"
                 onClick={() => router.push("/admin/blog/write")}
               />
             </Link>
-            <Button text="remover posts" onClick={handleDeleteSelected} />
+            <ButtonQuali text="remover posts" onClick={handleDeleteSelected} />
           </div>
 
           {/* Posts */}

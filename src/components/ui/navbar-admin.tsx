@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/logo-navbar.svg";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { AuthContext } from "@/contexts/auth.context";
@@ -19,7 +19,7 @@ export default function NavbarAdmin() {
   return (
     <nav className="bg-white w-full h-[80px] flex items-center justify-around border-b-[1px] border-[#D4D4D4]">
       {/* Botão à esquerda */}
-      <Button text={currentUser ? `Olá, ${currentUser?.name}!` : 'Carregando...'}></Button>
+      <ButtonQuali text={currentUser ? `Olá, ${currentUser?.name}!` : 'Carregando...'}></ButtonQuali>
 
       {/* Logo ao centro */}
       <Image src={Logo} alt="Quali Clínica logo" priority />

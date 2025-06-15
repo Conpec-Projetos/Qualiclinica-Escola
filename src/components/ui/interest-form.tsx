@@ -3,7 +3,7 @@
 import { useState, FormEvent, ChangeEvent, useEffect } from "react";
 import ChevronDown from "@/assets/chevron-down.svg";
 import Image from "next/image";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import { z } from "zod";
 import { db } from "@/firebase/firebase-config";
 import { getDocs, collection } from "firebase/firestore";
@@ -235,7 +235,7 @@ export default function InterestForm() {
 
       {/* Botão Enviar */}
       <div className="w-full flex justify-center pt-2">
-        <Button
+        <ButtonQuali
           text={submitting ? "enviando..." : "enviar"}
           disabled={submitting}
         />

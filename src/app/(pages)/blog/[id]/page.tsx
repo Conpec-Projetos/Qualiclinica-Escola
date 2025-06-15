@@ -10,7 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
 import ArrowLeft from "@/assets/arrow-left.svg";
 import type { Timestamp } from "firebase/firestore";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 
 interface BlogPost {
   id: string;
@@ -80,13 +80,13 @@ export default function PostPage({
             <Image alt="logo principal" src={LogoPrincipal} className="inline-block w-[23rem]" priority />
             <h1 className="text-magenta text-4xl font-bold">Erro 404</h1>
             <h2 className="text-verde-petroleo text-2xl font-bold">Artigo não encontrado</h2>
-            <Button
+            <ButtonQuali
                 className="mt-10"
                 buttonSize="large"
                 fontSize="large"
                 onClick={() => router.push("/blog")}
                 text="Retornar para o blog"
-            ></Button>
+            ></ButtonQuali>
         </div>
     );
   }

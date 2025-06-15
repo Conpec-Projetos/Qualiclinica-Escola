@@ -1,6 +1,6 @@
 "use client";
 import LogoPrincipal from "@/assets/logo-principal.svg";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -13,13 +13,13 @@ export default function NotFound() {
             <Image alt="logo principal" src={LogoPrincipal} className="inline-block w-[23rem]" priority />
             <h1 className="text-magenta text-4xl font-bold">Erro 404</h1>
             <h2 className="text-verde-petroleo text-2xl font-bold">Página não encontrada</h2>
-            <Button
+            <ButtonQuali
                 className="mt-10"
                 buttonSize="large"
                 fontSize="large"
                 onClick={() => router.push("/")}
                 text="Retornar para a página inicial"
-            ></Button>
+            ></ButtonQuali>
         </div>
     )
 }

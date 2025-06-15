@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 import { toast } from "sonner";
 import {
   Select,
@@ -285,7 +285,7 @@ const ProfessionalsEditor = () => {
               />
             </div>
             <div className="w-full flex justify-center mt-4">
-              <Button
+              <ButtonQuali
                 buttonSize="large"
                 fontSize="large"
                 text={isSending ? "ADICIONANDO..." : "ADICIONAR PROFISSIONAL"}

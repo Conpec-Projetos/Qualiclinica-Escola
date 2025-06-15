@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import Button from "../ui/button-quali";
+import ButtonQuali from "../ui/button-quali";
 
 export default function CourseModel({
   name,
@@ -27,7 +27,7 @@ export default function CourseModel({
               <b>Instrutores: </b> {instructors}
             </p>
           </div>
-          <Button text="TENHO INTERESSE" fontSize="large" onClick={() => router.push("/contate-nos")} />
+          <ButtonQuali text="TENHO INTERESSE" fontSize="large" onClick={() => router.push("/contate-nos")} />
         </div>
       </div>
       {type === "normal" && (

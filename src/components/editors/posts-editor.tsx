@@ -25,7 +25,7 @@ import {
   StrikethroughIcon,
   UnderlineIcon,
 } from "lucide-react";
-import Button from "../ui/button-quali";
+import ButtonQuali from "../ui/button-quali";
 import {
   addDoc,
   collection,
@@ -318,7 +318,7 @@ export default function PostsEditor({
           autoFocus={true}
         />
       </div>
-      <Button
+      <ButtonQuali
         onClick={() => saveContent()}
         text={`${isSending ? "postando..." : "postar"}`}
         disabled={isSending}

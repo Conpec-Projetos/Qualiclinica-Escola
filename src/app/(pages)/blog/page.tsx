@@ -8,7 +8,7 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
 import type { Timestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-import Button from "@/components/ui/button-quali";
+import ButtonQuali from "@/components/ui/button-quali";
 
 interface BlogPost {
   id: string;
@@ -136,7 +136,7 @@ export default function BlogPage() {
                     <p className="text-text flex-1 whitespace-pre-line">{excerpt}</p>
 
                     <div className="mt-4 flex items-center justify-between">
-                      <Button
+                      <ButtonQuali
                         text="ler artigo"
                         onClick={() => {
                           router.push(`/blog/${post.id}`);
