@@ -281,7 +281,7 @@ export default function PostsEditor({
               H{level}
             </EditorButton>
           ))}
-          <label className="bg-ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer flex items-center justify-center">
+          <label className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer flex items-center justify-center">
             <input
               type="file"
               accept="image/*"
@@ -291,7 +291,7 @@ export default function PostsEditor({
             <ImageIcon size={16} />
           </label>
           <EditorButton
-            className="bg-ciano-escuro) rounded-[5px] w-10 h-10 cursor-pointer"
+            className="bg-ciano-escuro rounded-[5px] w-10 h-10 cursor-pointer"
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
           >
             <Ruler size={16} />
