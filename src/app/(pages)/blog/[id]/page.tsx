@@ -8,9 +8,9 @@ import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firebase-config";
-import ArrowLeft from "@/assets/arrow-left.svg";
 import type { Timestamp } from "firebase/firestore";
 import ButtonQuali from "@/components/ui/button-quali";
+import { ArrowLeftCircle } from "lucide-react";
 
 interface BlogPost {
   id: string;
@@ -76,18 +76,25 @@ export default function PostPage({
 
   if (!post) {
     return (
-        <div className="h-screen w-screen bg-rosa-claro font-poppins flex flex-col justify-center items-center">
-            <Image alt="logo principal" src={LogoPrincipal} className="inline-block w-[23rem]" priority />
-            <h1 className="text-magenta text-4xl font-bold">Erro 404</h1>
-            <h2 className="text-verde-petroleo text-2xl font-bold">Artigo não encontrado</h2>
-            <ButtonQuali
-                className="mt-10"
-                buttonSize="large"
-                fontSize="large"
-                onClick={() => router.push("/blog")}
-                text="Retornar para o blog"
-            ></ButtonQuali>
-        </div>
+      <div className="h-screen w-screen bg-rosa-claro font-poppins flex flex-col justify-center items-center">
+        <Image
+          alt="logo principal"
+          src={LogoPrincipal}
+          className="inline-block w-[23rem]"
+          priority
+        />
+        <h1 className="text-magenta text-4xl font-bold">Erro 404</h1>
+        <h2 className="text-verde-petroleo text-2xl font-bold">
+          Artigo não encontrado
+        </h2>
+        <ButtonQuali
+          className="mt-10"
+          buttonSize="large"
+          fontSize="large"
+          onClick={() => router.push("/blog")}
+          text="Retornar para o blog"
+        ></ButtonQuali>
+      </div>
     );
   }
 
@@ -95,18 +102,21 @@ export default function PostPage({
     <>
       <Navbar />
 
-      <main className="bg-white w-full px-4 py-12 flex justify-center items-start">
-        <div className="relative inline-block">
-          {/* Botão de voltar */}
-          <Image
-            className="absolute right-full mr-3 mt-2 cursor-pointer"
-            src={ArrowLeft}
-            alt="voltar"
+      <main className="min-h-screen">
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <button
+            className="flex items-center gap-2 mb-6 text-verde-petroleo hover:text-magenta hover:cursor-pointer transition-colors group"
             onClick={() => router.back()}
-          />
-          <div className="w-3xl flex flex-col space-y-6">
+          >
+            <ArrowLeftCircle className="w-6 h-6 md:w-10 md:h-10" />
+            <span className="text-sm md:text-xl font-medium overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">
+              Voltar
+            </span>
+          </button>
+
+          <article className="space-y-6">
             {/* Imagem de capa */}
-            <div className="w-full h-64 relative rounded overflow-hidden">
+            <div className="w-full h-64 md:h-80 relative rounded-lg overflow-hidden">
               <Image
                 src={post.imageUrl}
                 alt={post.title}
@@ -118,23 +128,21 @@ export default function PostPage({
               />
             </div>
 
-            {/* Título e data */}
-            <h1 className="text-3xl font-bold text-verde-petroleo">
+            <h1 className="text-2xl md:text-4xl font-bold text-verde-petroleo leading-tight">
               {post.title}
             </h1>
-            <p className="text-black italic text-sm font-roboto-condensed">
+
+            <p className="text-gray-800 italic text-sm font-roboto-condensed">
               Postado em {formatDate(post.publishedAt)}
             </p>
 
-            {/* Conteúdo HTML */}
-            <article
-              className="prose prose-lg max-w-none"
+            <div
+              className="prose prose-lg max-w-none [&_h1]:text-verde-petroleo [&_h2]:text-verde-petroleo [&_h3]:text-verde-petroleo [&_h4]:text-verde-petroleo [&_h5]:text-verde-petroleo [&_h6]:text-verde-petroleo [&_a]:text-magenta [&_a:hover]:text-ciano-mais-escuro"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
-          </div>
+          </article>
         </div>
       </main>
-
       <Footer />
     </>
   );
