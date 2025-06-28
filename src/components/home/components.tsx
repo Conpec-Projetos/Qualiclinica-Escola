@@ -22,7 +22,7 @@ export function ButtonHomeModel({
     return (
       <button
         onClick={() => router.push(path)}
-        className="h-[3.125rem] flex gap-[4px] items-center px-[1rem] bg-white rounded-[5px] hover:cursor-pointer"
+        className="h-12 flex sm:gap-[4px] items-center px-[6px] sm:px-[1rem] bg-white rounded-[5px] w-fit sm:w-auto hover:cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,17 +30,28 @@ export function ButtonHomeModel({
           viewBox="0 -960 960 960"
           width="36px"
           fill="#1D4C5A"
+          className="hidden sm:block"
         >
           <path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z" />
         </svg>
-        <p className="text-verde-petroleo text-[15px] uppercase">{text}</p>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#1D4C5A"
+            className="sm:hidden"
+        >
+          <path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm1e280Z" />
+          </svg>
+        <p className="text-verde-petroleo text-[10px] sm:text-base uppercase">{text}</p>
       </button>
     );
   } else if (text == "Nosso blog") {
     return (
       <button
         onClick={() => router.push(path)}
-        className="h-[3.125rem] flex gap-[3px] items-center px-[1rem] bg-white rounded-[5px] hover:cursor-pointer"
+        className="h-[3.125rem] flex sm:gap-[4px] items-center px-[6px] sm:px-[1rem] bg-white rounded-[5px] w-fit sm:w-auto hover:cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -48,10 +59,21 @@ export function ButtonHomeModel({
           viewBox="0 -960 960 960"
           width="36px"
           fill="#1D4C5A"
+          className="hidden sm:block"
         >
           <path d="M160-406.67v-66.66h293.33v66.66H160ZM160-570v-66.67h460V-570H160Zm0-163.33V-800h460v66.67H160ZM520-160v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8.67 9 12.83 20 4.17 11 4.17 22t-4.33 22.5q-4.34 11.5-13.28 20.5L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
         </svg>
-        <p className="text-verde-petroleo text-[15px] uppercase">{text}</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#1D4C5A"
+          className="sm:hidden"
+        >
+          <path d="M160-406.67v-66.66h293.33v66.66H160ZM160-570v-66.67h460V-570H160Zm0-163.33V-800h460v66.67H160ZM520-160v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8.67 9 12.83 20 4.17 11 4.17 22t-4.33 22.5q-4.34 11.5-13.28 20.5L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+        <p className="text-verde-petroleo text-[10px] sm:text-[15px] uppercase">{text}</p>
       </button>
     );
   } else if ((text = "Profissionais")) {
@@ -92,19 +114,19 @@ function SkeletonList() {
     <div className="flex flex-col gap-4">
       <div className="flex flex-row items-center mb-[0.5rem] gap-2">
         <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
-        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+        <Skeleton className="h-[1.5rem] w-40 sm:w-64 bg-gray-400" />
       </div>
       <div className="flex flex-row items-center mb-[0.5rem] gap-2">
         <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
-        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+        <Skeleton className="h-[1.5rem] w-40 sm:w-64 bg-gray-400" />
       </div>
       <div className="flex flex-row items-center mb-[0.5rem] gap-2">
         <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
-        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+        <Skeleton className="h-[1.5rem] w-40 sm:w-64 bg-gray-400" />
       </div>
       <div className="flex flex-row items-center mb-[0.5rem] gap-2">
         <Skeleton className="h-3 w-3 bg-gray-400 rounded-full" />
-        <Skeleton className="h-[1.5rem] w-64 bg-gray-400" />
+        <Skeleton className="h-[1.5rem] w-40 sm:w-64 bg-gray-400" />
       </div>
     </div>
   );
@@ -135,7 +157,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "doctors"
     );
     return (
-      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[90%] md:w-[320px] lg:w-[380px] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
@@ -160,7 +182,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "mentorships"
     );
     return (
-      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[90%] md:w-[320px] lg:w-[380px] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
@@ -185,7 +207,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "others"
     );
     return (
-      <div className="flex items-center flex-col  gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[90%] md:w-[320px] lg:w-[380px] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
@@ -210,7 +232,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
       (course) => course.area === "patients-caregivers"
     );
     return (
-      <div className="flex items-center flex-col gap-[1rem] w-[23.75rem] md:w-[20rem] lg:w-[23.75rem] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
+      <div className="flex items-center flex-col gap-[1rem] w-[90%] md:w-[320px] lg:w-[380px] px-[2rem] py-[1.75rem] my-2 bg-menta-claro1 rounded-[5px] shadow-[4px_4px_5px_0px_#f1f1f1]">
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>

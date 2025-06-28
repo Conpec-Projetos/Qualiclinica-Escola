@@ -111,135 +111,135 @@ export default function InterestForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-menta-claro2 px-8 pb-8 pt-2 rounded-[0.3125rem] mx-auto h-full space-y-4 max-w-md"
-    >
-      {/* Nome */}
-      <div>
-        <label className="block text-verde-petroleo font-light">
-          Nome*
-        </label>
-        <input
-          type="text"
-          placeholder="Seu nome completo"
-          value={form.name}
-          onChange={handleChange("name")}
-          className={
-            `w-full p-2 border rounded-lg bg-white text-verde-petroleo focus:outline-none focus:ring-2 ` +
-            (errors.name
-              ? `border-red-500 focus:ring-red-300`
-              : `border-ciano-escuro focus:ring-ciano-escuro`)
-          }
-        />
-        {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-menta-claro2 px-8 pb-8 pt-2 rounded-[5px] mx-auto h-full space-y-4 w-[90%] sm:max-w-md shadow-[4px_4px_5px_0px_#f1f1f1]"
+      >
+        {/* Nome */}
+        <div>
+          <label className="block text-verde-petroleo font-light">Nome*</label>
+          <input
+            type="text"
+            placeholder="Seu nome completo"
+            value={form.name}
+            onChange={handleChange("name")}
+            className={
+              `w-full p-2 border rounded-lg bg-white text-verde-petroleo focus:outline-none focus:ring-2 ` +
+              (errors.name
+                ? `border-red-500 focus:ring-red-300`
+                : `border-ciano-escuro focus:ring-ciano-escuro`)
+            }
+          />
+          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+        </div>
 
-      {/* Telefone */}
-      <div>
-        <label className="block text-verde-petroleo font-light">
-          Telefone*
-        </label>
-        <input
-          type="tel"
-          placeholder="+55 (XX) 9XXXX-XXXX"
-          value={form.phone}
-          onChange={handleChange("phone")}
-          className={
-            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 ` +
-            (errors.phone
-              ? `border-red-500 focus:ring-red-300`
-              : `border-ciano-escuro focus:ring-ciano-escuro`)
-          }
-        />
-        {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-      </div>
+        {/* Telefone */}
+        <div>
+          <label className="block text-verde-petroleo font-light">
+            Telefone*
+          </label>
+          <input
+            type="tel"
+            placeholder="+55 (XX) 9XXXX-XXXX"
+            value={form.phone}
+            onChange={handleChange("phone")}
+            className={
+              `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 ` +
+              (errors.phone
+                ? `border-red-500 focus:ring-red-300`
+                : `border-ciano-escuro focus:ring-ciano-escuro`)
+            }
+          />
+          {errors.phone && (
+            <p className="text-red-500 text-sm">{errors.phone}</p>
+          )}
+        </div>
 
-      {/* Email */}
-      <div>
-        <label className="block text-verde-petroleo font-light">
-          Email*
-        </label>
-        <input
-          type="email"
-          placeholder="usuario@provedor.com"
-          value={form.email}
-          onChange={handleChange("email")}
-          className={
-            `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 ` +
-            (errors.email
-              ? `border-red-500 focus:ring-red-300`
-              : `border-ciano-escuro focus:ring-ciano-escuro`)
-          }
-        />
-        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-      </div>
+        {/* Email */}
+        <div>
+          <label className="block text-verde-petroleo font-light">Email*</label>
+          <input
+            type="email"
+            placeholder="usuario@provedor.com"
+            value={form.email}
+            onChange={handleChange("email")}
+            className={
+              `w-full p-2 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 ` +
+              (errors.email
+                ? `border-red-500 focus:ring-red-300`
+                : `border-ciano-escuro focus:ring-ciano-escuro`)
+            }
+          />
+          {errors.email && (
+            <p className="text-red-500 text-sm">{errors.email}</p>
+          )}
+        </div>
 
-      {/* Mensagem */}
-      <div>
-        <label className="block text-verde-petroleo font-light">
-          No que podemos te ajudar?*
-        </label>
-        <textarea
-          placeholder="Gostaria de ser aluno do curso para cuidadores de pessoas com diabetes do tipo 1..."
-          value={form.message}
-          onChange={handleChange("message")}
-          className={
-            `w-full p-2 h-32 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 resize-none ` +
-            (errors.message
-              ? `border-red-500 focus:ring-red-300`
-              : `border-ciano-escuro focus:ring-ciano-escuro`)
-          }
-        />
-        {errors.message && (
-          <p className="text-red-500 text-sm">{errors.message}</p>
-        )}
-      </div>
+        {/* Mensagem */}
+        <div>
+          <label className="block text-verde-petroleo font-light">
+            No que podemos te ajudar?*
+          </label>
+          <textarea
+            placeholder="Gostaria de ser aluno do curso para cuidadores de pessoas com diabetes do tipo 1..."
+            value={form.message}
+            onChange={handleChange("message")}
+            className={
+              `w-full p-2 h-32 border rounded-lg bg-white placeholder-[#C3C3C3] text-verde-petroleo focus:outline-none focus:ring-2 resize-none ` +
+              (errors.message
+                ? `border-red-500 focus:ring-red-300`
+                : `border-ciano-escuro focus:ring-ciano-escuro`)
+            }
+          />
+          {errors.message && (
+            <p className="text-red-500 text-sm">{errors.message}</p>
+          )}
+        </div>
 
-      {/* Select de Curso */}
-      <div className="relative">
-        <label className="block text-verde-petroleo font-light">
-          Qual o curso de interesse?*
-        </label>
-        <select
-          disabled={isLoading}
-          value={form.course}
-          onChange={handleChange("course")}
-          className={
-            `w-full appearance-none p-2 pr-10 border rounded-lg bg-white text-verde-petroleo focus:outline-none focus:ring-2 ` +
-            (errors.course
-              ? `border-red-500 focus:ring-red-300`
-              : `border-ciano-escuro focus:ring-ciano-escuro`)
-          }
-        >
-          <option value="" disabled>
-            {isLoading ? "Carregando..." : "Selecione…"}
-          </option>
-          {courses.map((c, i) => (
-            <option key={i} value={c}>
-              {c}
+        {/* Select de Curso */}
+        <div className="relative">
+          <label className="block text-verde-petroleo font-light">
+            Qual o curso de interesse?*
+          </label>
+          <select
+            disabled={isLoading}
+            value={form.course}
+            onChange={handleChange("course")}
+            className={
+              `w-full appearance-none p-2 pr-10 border rounded-lg bg-white text-verde-petroleo focus:outline-none focus:ring-2 ` +
+              (errors.course
+                ? `border-red-500 focus:ring-red-300`
+                : `border-ciano-escuro focus:ring-ciano-escuro`)
+            }
+          >
+            <option value="" disabled>
+              {isLoading ? "Carregando..." : "Selecione…"}
             </option>
-          ))}
-        </select>
-        <Image
-          src={ChevronDown}
-          alt=""
-          className={`pointer-events-none absolute right-4 top-1/2 transform ${
-            errors.course ? "-translate-y-2/5" : "-translate-y-1/6"
-          }`}
-        />
-        {errors.course && (
-          <p className="text-red-500 text-sm">{errors.course}</p>
-        )}
-      </div>
+            {courses.map((c, i) => (
+              <option key={i} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+          <Image
+            src={ChevronDown}
+            alt=""
+            className={`pointer-events-none absolute right-4 top-1/2 transform ${
+              errors.course ? "-translate-y-2/5" : "-translate-y-1/6"
+            }`}
+          />
+          {errors.course && (
+            <p className="text-red-500 text-sm">{errors.course}</p>
+          )}
+        </div>
 
-      {/* Botão Enviar */}
-      <div className="w-full flex justify-center pt-2">
-        <ButtonQuali
-          text={submitting ? "enviando..." : "enviar"}
-          disabled={submitting}
-        />
-      </div>
-    </form>
+        {/* Botão Enviar */}
+        <div className="w-full flex justify-center pt-2">
+          <ButtonQuali
+            text={submitting ? "enviando..." : "enviar"}
+            disabled={submitting}
+          />
+        </div>
+      </form>
   );
 }
