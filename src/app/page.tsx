@@ -26,7 +26,7 @@ export default function Home() {
       <Navbar />
       <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
         <section className="flex flex-col sm:flex-row justify-center items-center bg-rosa-claro w-[90%] sm:w-full h-fit gap-x-[4rem]">
-          <div className="flex flex-col items-center w-full gap-x-[1rem] gap-y-[1.5rem]">
+          <div className="flex flex-col items-center w-fit gap-x-[1rem] gap-y-[1.5rem]">
             <h1 className="!text-2xl text-center sm:!text-4xl h-fit text-magenta font-semibold w-[90%] sm:w-[24rem] inline-block">
               Conhecimento que promove bem-estar
             </h1>
@@ -98,33 +98,34 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="flex flex-col md:flex-row w-full h-fit justify-center items-center py-[3.75rem] bg-rosa-claro gap-x-[3.19rem]">
-          <div className="hidden w-[300px] md:flex justify-center h-fit">
-            <MeetOurTeamSvg />
-          </div>
-
-          <div className="flex flex-col w-[90%] md:w-[50%] gap-[1.5rem] items-center md:items-end">
-            <h1 className="font-semibold text-magenta !text-3xl md:!text-5xl text-center md:text-right w-fit md:w-full">
-              Conheça nossos profissionais
-            </h1>
-            <p className="w-[90%] md:w-[24rem] text-center md:text-right text-[1.125rem] text-text">
-              Nossa clínica é formada por profissionais altamente capacitados,
-              que se dedicam ao <b className="font-medium">cuidado</b> de cada
-              paciente e à <b className="font-medium">formação de cada aluno</b>
-              .
-            </p>
-            <div className="md:hidden w-full flex flex-col items-center">
+        <section className="flex flex-col items-center w-full bg-rosa-claro">
+          <div className="flex flex-col md:flex-row w-full lg:max-w-[52rem] h-fit justify-center items-center py-[3.75rem] gap-x-[3.19rem]">
+            <div className="hidden w-[300px] md:flex justify-center h-fit">
               <MeetOurTeamSvg />
-              <ButtonHomeModel
-                path="profissionais"
-                text="Profissionais"
-              ></ButtonHomeModel>
             </div>
-            <div className="hidden md:block">
-              <ButtonHomeModel
-                path="profissionais"
-                text="Profissionais"
-              ></ButtonHomeModel>
+
+            <div className="flex flex-col w-[90%] md:w-fit gap-[1.5rem] items-center md:items-end">
+              <h1 className="font-semibold text-magenta !text-3xl sm:!text-4xl md:!text-5xl text-center md:text-right w-fit md:max-w-[30rem] lg:max-w-[36rem]">
+                Conheça nossos profissionais
+              </h1>
+              <p className="w-[90%] md:w-[24rem] text-center md:text-right text-[1.125rem] text-text mr-1">
+                Nossa clínica é formada por profissionais altamente capacitados,
+                que se dedicam ao <b className="font-medium">cuidado</b> de cada
+                paciente e à <b className="font-medium">formação de cada aluno</b>.
+              </p>
+              <div className="md:hidden w-full flex flex-col items-center">
+                <MeetOurTeamSvg />
+                <ButtonHomeModel
+                  path="profissionais"
+                  text="Profissionais"
+                ></ButtonHomeModel>
+              </div>
+              <div className="hidden md:block mr-1">
+                <ButtonHomeModel
+                  path="profissionais"
+                  text="Profissionais"
+                ></ButtonHomeModel>
+              </div>
             </div>
           </div>
         </section>
