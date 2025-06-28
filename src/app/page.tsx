@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
-        <section className="flex flex-col sm:flex-row justify-center items-center bg-rosa-claro w-[90%] sm:w-full h-fit gap-x-[4rem]">
+        <section className="flex flex-col sm:flex-row justify-center items-center bg-rosa-claro w-[90%] sm:w-full h-fit py-2 gap-y-2 gap-x-[4rem]">
           <div className="flex flex-col items-center w-fit gap-x-[1rem] gap-y-[1.5rem]">
             <h1 className="!text-2xl text-center sm:!text-4xl h-fit text-magenta font-semibold w-[90%] sm:w-[24rem] inline-block">
               Conhecimento que promove bem-estar
@@ -38,7 +38,7 @@ export default function Home() {
           <Image
             alt="logo principal"
             src={LogoPrincipalAdaptada}
-            className="inline-block w-[70%] sm:w-[30%]"
+            className="inline-block w-[60%] sm:w-[25%] md:w-[30%]"
             priority
           />
         </section>
