@@ -1,6 +1,6 @@
 "use client";
 
-import LogoPrincipal from "@/assets/logo-principal.svg";
+import LogoPrincipalAdaptada from "@/assets/logo-principal-adaptada.svg";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -79,7 +79,7 @@ export default function PostPage({
       <div className="h-screen w-screen bg-rosa-claro font-poppins flex flex-col justify-center items-center">
         <Image
           alt="logo principal"
-          src={LogoPrincipal}
+          src={LogoPrincipalAdaptada}
           className="inline-block w-[23rem]"
           priority
         />

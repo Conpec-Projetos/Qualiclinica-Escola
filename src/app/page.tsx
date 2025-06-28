@@ -2,7 +2,7 @@ import Footer from "@/components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
 import Image from "next/image";
-import LogoPrincipal from "@/assets/logo-principal.svg";
+import LogoPrincipalAdaptada from "@/assets/logo-principal-adaptada.svg";
 import Imagem1CursosHome from "@/assets/walkyria-cursos.jpg";
 import Imagem2CursosHome from "@/assets/thais-cursos.jpg";
 import WhatsappIcon from "@/assets/whatsapp-icon.svg";
@@ -37,8 +37,8 @@ export default function Home() {
           </div>
           <Image
             alt="logo principal"
-            src={LogoPrincipal}
-            className="inline-block w-[50%] sm:w-[30%]"
+            src={LogoPrincipalAdaptada}
+            className="inline-block w-[70%] sm:w-[30%]"
             priority
           />
         </section>
