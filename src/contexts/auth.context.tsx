@@ -27,7 +27,7 @@ export const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const isLoggedIn = !!currentUser;
 
   useEffect(() => {
@@ -41,7 +41,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       } else {
         setCurrentUser(undefined);
       }
-      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -54,6 +53,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const login = async (email: string, password: string) => {
     setError(null);
+    setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setError(null);
@@ -77,6 +77,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setError("Ocorreu um erro inesperado");
       }
     }
+    setLoading(false);
   };
 
   return (

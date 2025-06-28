@@ -11,8 +11,7 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const authContext = useContext(AuthContext);
-  const { login, error, currentUser } = authContext;
+  const { login, error, currentUser, loading } = useContext(AuthContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -78,7 +77,7 @@ export default function LoginForm() {
         {/* Botão de Enviar */}
         <div className="flex justify-center">
           <ButtonQuali
-            text="ENTRAR"
+            text={loading ? "Carregando..." : "Entrar"}
             onClick={() => {
               login(email, password);
             }}
