@@ -22,7 +22,7 @@ export default function NavbarAdmin() {
       <ButtonQuali text={currentUser ? `Olá, ${currentUser?.name}!` : 'Carregando...'}></ButtonQuali>
 
       {/* Logo ao centro */}
-      <Image src={Logo} alt="Quali Clínica logo" priority />
+      <Image src={Logo} alt="Quali Clínica logo" priority onClick={() => router.push("/admin/home")} />
 
       {/* Links de navegação */}
       <div className="flex space-x-6 text-[#959595] text-[16px]">

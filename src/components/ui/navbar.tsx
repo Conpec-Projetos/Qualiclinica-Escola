@@ -59,6 +59,7 @@ export default function Navbar() {
           alt="Quali Clínica logo"
           className="object-contain w-full h-auto"
           priority
+          onClick={() => router.push("/")}
         />
       </div>
 
