@@ -96,7 +96,17 @@ export default function NovoContato(formData: QualiFormData) {
                 lineHeight: "20px",
               }}
             >
-              contato@conpec.com.br • (19) 1234-5678
+              contato@conpec.com.br • (19) 3521-3842
+            </Text>
+            <Text
+              style={{
+                margin: "4px 0",
+                fontWeight: "600",
+                fontSize: "14px",
+                color: "#64748B",
+                lineHeight: "20px",
+              }}
+            >suporte@conpec.com.br • (19) 3521-3842
             </Text>
           </Section>
         </Container>
