@@ -55,7 +55,7 @@ export default function SobreNos() {
               <Image
                 className="rounded-md object-cover"
                 src={NucleoEdu}
-                alt="Nutricionista Thais apresentando slides do curso"
+                alt="Time da Qualiclínica Escola em frente a logo da clínica"
                 placeholder="blur"
                 fill
                 priority

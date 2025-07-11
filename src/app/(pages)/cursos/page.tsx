@@ -35,86 +35,97 @@ export default function Cursos() {
     <div>
       <Navbar />
       <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
-        <section className="h-[20rem] flex flex-col flex-wrap justify-center items-center m-auto gap-x-[2rem]">
-          <Image
-            className="w-[503px] h-[239px] rounded-[5px]"
-            src={PessoalDaQuali}
-            alt="Nossa vocação é educacional!"
-            priority
-            placeholder="blur"
-          />
-          <div className="flex flex-col gap-y-[0.75rem]">
-            <h1 className="text-[2.25rem] h-fit text-verde-petroleo font-semibold w-[19.5rem] inline-block leading-[2.7rem]">
-              Nossos Cursos
-            </h1>
-            <p className="w-[16.25rem] text-text text-[0.94rem] py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
-              Nosso núcleo educacional é composto por Sandra David, Thais
-              Brasil, Sonia Cavinatto e Walkyria Volpini, principal organizadora
-              das atividades educacionais.
-            </p>
+        <section className="h-fit w-full flex flex-row justify-center">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-center items-center gap-x-[2rem] space-y-2">
+            <div className="w-[340px] h-[230px] sm:w-[290px] sm:h-[210px] md:w-[400px] md:h-[230px] lg:w-[480px] lg:h-[260px] relative">
+              <Image
+                className="rounded-md object-cover"
+                src={PessoalDaQuali}
+                alt="Grupo de pessoas realizando atividades educacionais da Quali Clínica Escola"
+                placeholder="blur"
+                fill
+                priority
+              />
+            </div>
+
+            <div className="flex flex-col items-center lg:mt-8 sm:items-start gap-y-[0.75rem]">
+              <h1 className="!text-3xl sm:!text-2xl text-magenta font-semibold w-80 lg:w-[358px] text-center sm:text-left leading-[2.7rem]">
+                Nossa vocação é educacional
+              </h1>
+              <p className="w-[320px] sm:w-52 md:w-50 lg:w-60 text-text text-base sm:text-sm md:text-base text-center sm:text-left py-[0.5rem] bg-[url('/circle-prof.svg')] bg-contain bg-no-repeat">
+                Explore nossos cursos e mentorias especializados na área de <span className="font-medium">diabetologia!</span>
+              </p>
+            </div>
           </div>
         </section>
-        <section className="flex flex-col gap-y-[1.5rem]">
-          <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
+        <section className="flex flex-col gap-y-[1.5rem] w-full max-w-7xl px-4">
+          <section className="w-full">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-2xl md:text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               Cursos para médicos
             </h1>
-            {courses
-              .filter((course) => course.area === "doctors")
-              .map((course) => (
-                <CourseModel
-                  key={course.id}
-                  name={course.name}
-                  instructors={course.instructors}
-                  description={course.description}
-                />
-              ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-[1.375rem] mt-4">
+              {courses
+                .filter((course) => course.area === "doctors")
+                .map((course) => (
+                  <CourseModel
+                    key={course.id}
+                    name={course.name}
+                    instructors={course.instructors}
+                    description={course.description}
+                  />
+                ))}
+            </div>
           </section>
-          <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
+          <section className="w-full">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-2xl md:text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               Cursos para pacientes e cuidadores
             </h1>
-            {courses
-              .filter((course) => course.area === "patients-caregivers")
-              .map((course) => (
-                <CourseModel
-                  key={course.id}
-                      name={course.name}
-                      type="small"
-                  instructors={course.instructors}
-                  description={course.description}
-                />
-              ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-[1.375rem] mt-4">
+              {courses
+                .filter((course) => course.area === "patients-caregivers")
+                .map((course) => (
+                  <CourseModel
+                    key={course.id}
+                    name={course.name}
+                    instructors={course.instructors}
+                    description={course.description}
+                  />
+                ))}
+            </div>
           </section>
-          <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
+          <section className="w-full">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-2xl md:text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               Cursos para demais profissionais
             </h1>
-            {courses
-              .filter((course) => course.area === "others")
-              .map((course) => (
-                <CourseModel
-                  key={course.id}
-                  name={course.name}
-                  instructors={course.instructors}
-                  description={course.description}
-                />
-              ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-[1.375rem] mt-4">
+              {courses
+                .filter((course) => course.area === "others")
+                .map((course) => (
+                  <CourseModel
+                    key={course.id}
+                    name={course.name}
+                    instructors={course.instructors}
+                    description={course.description}
+                  />
+                ))}
+            </div>
           </section>
-          <section className="flex flex-wrap w-[53rem] gap-x-[1.375rem] gap-y-[1rem]">
-            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
+          <section className="w-full">
+            <h1 className="w-full mb-[0.5rem] font-semibold text-verde-petroleo text-2xl md:text-[2.5rem] border-b-[1px] border-b-verde-petroleo">
               Mentorias
             </h1>
-            {courses
-              .filter((course) => course.area === "mentorships")
-              .map((course) => (
-                <CourseModel
-                  key={course.id}
-                  name={course.name}
-                  instructors={course.instructors}
-                  description={course.description}
-                />
-              ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-[1.375rem] mt-4">
+              {courses
+                .filter((course) => course.area === "mentorships")
+                .map((course) => (
+                  <CourseModel
+                    key={course.id}
+                    name={course.name}
+                    instructors={course.instructors}
+                    description={course.description}
+                  />
+                ))}
+            </div>
           </section>
         </section>
       </main>

@@ -1,3 +1,9 @@
+"use client"
+
+import { useState } from "react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
+
 export default function ProfissionalModel({
     nome,
     profissao,
@@ -9,29 +15,62 @@ export default function ProfissionalModel({
     identificacao: string;
     carreira: string;
   }) {
+    const [isOpen, setIsOpen] = useState(false);
     return (
-      <section className="flex flex-col bg-menta-claro1 rounded-[5px] p-[1.375rem] gap-y-[0.5rem] w-[25.5rem]">
-        <h4 className="font-semibold text-verde-petroleo">{nome}</h4>
-        <div className="flex justify-between">
-          <h5 className="inline-block font-semibold text-verde-petroleo">
+      <section className="flex flex-col bg-menta-claro1 rounded-[5px] p-4 md:p-[1.375rem] gap-y-[0.5rem] w-full max-w-[25.5rem] mx-auto">
+        <h4 className="font-semibold text-verde-petroleo text-base md:text-lg">{nome}</h4>
+        <div className="flex justify-between flex-wrap gap-2">
+          <h5 className="inline-block font-semibold text-verde-petroleo text-sm md:text-base">
             {profissao}
           </h5>
-          <p className="inline-block font-light text-text text-[1rem]">
+          <p className="inline-block font-light text-text text-sm md:text-[1rem]">
             {identificacao}
           </p>
         </div>
-        <div className="w-[22.75rem] h-[11.375rem] overflow-y-auto hover:bg-white">
-          <p className="text-text text-[0.9375rem] font-light">
-            <b className="font-normal">Carreira: </b>
-            {carreira.split(";").map((paragraph, index) => {
-              return (
-                <span key={index}>
-                  {index > 0 ? <br /> : null}
-                  {paragraph.trim().replace(";", "")}
-                </span>
-              );
-            })}
-          </p>
+        
+        {/* Mobile */}
+        <div className="block sm:hidden">
+          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+            <CollapsibleTrigger className="flex items-center justify-center w-full text-verde-petroleo ">
+              <span className="font-semibold text-sm md:text-[0.9375rem]">Carreira</span>
+              <ChevronDown
+                className={`transition-transform duration-200 w-6 h-6 ${
+                  isOpen ? "rotate-180" : ""
+                  }`}
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="w-full max-h-48 overflow-y-auto hover:bg-white mt-2 p-2">
+                <p className="text-text text-sm font-light">
+                  {carreira.split(";").map((paragraph, index) => {
+                    return (
+                      <span key={index}>
+                        {index > 0 ? <br /> : null}
+                        {paragraph.trim().replace(";", "")}
+                      </span>
+                    );
+                  })}
+                </p>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        </div>
+
+        {/* Desktop */}
+        <div className="hidden sm:block">
+          <div className="w-full max-h-48 lg:h-[11.375rem] overflow-y-auto hover:bg-white">
+            <p className="text-text text-sm md:text-[0.9375rem] font-light">
+              <b className="font-normal">Carreira: </b>
+              {carreira.split(";").map((paragraph, index) => {
+                return (
+                  <span key={index}>
+                    {index > 0 ? <br /> : null}
+                    {paragraph.trim().replace(";", "")}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
         </div>
       </section>
     );
