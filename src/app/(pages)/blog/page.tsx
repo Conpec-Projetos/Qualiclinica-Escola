@@ -126,6 +126,7 @@ export default function BlogPage() {
                       className="object-cover w-full h-48"
                       placeholder="blur"
                       blurDataURL={post.base64ImageUrl}
+                      unoptimized
                     />
                   </div>
 

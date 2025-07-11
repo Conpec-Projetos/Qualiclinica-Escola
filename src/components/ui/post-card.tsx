@@ -1,7 +1,6 @@
 import Checkbox from "@/components/ui/checkbox";
 import EditButton from "@/components/ui/edit-button";
 import Image from "next/image";
-import ImagePlaceholder from "@/assets/blog-image-placeholder.png";
 import { Timestamp } from "firebase/firestore";
 
 export interface Post {
@@ -17,7 +16,6 @@ export interface Post {
 interface PostCardProps {
   post: Post;
   selected: boolean;
-  imageUrl: string;
   onCheckboxChange: (postId: string, checked: boolean) => void;
 }
 
@@ -25,7 +23,6 @@ export default function PostCard({
   post,
   selected,
   onCheckboxChange,
-  imageUrl,
 }: PostCardProps) {
   return (
     <div className="flex">
@@ -55,9 +52,11 @@ export default function PostCard({
           <Image
             className="w-[50%] select-none"
             alt="imagem de blog"
-            src={imageUrl ? imageUrl : ImagePlaceholder}
+            src={post.imageUrl}
             fill
-            sizes="100%"
+            placeholder="blur"
+            blurDataURL={post.base64ImageUrl}
+            unoptimized
           />
         </div>
       </div>
