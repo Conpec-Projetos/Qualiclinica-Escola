@@ -113,7 +113,7 @@ export default function InterestForm() {
   return (
       <form
         onSubmit={handleSubmit}
-        className="bg-menta-claro2 px-4 md:px-8 pb-6 md:pb-8 pt-2 rounded-[5px] mx-auto h-full w-full max-w-md md:max-w-none space-y-3 md:space-y-4 shadow-[4px_4px_5px_0px_#f1f1f1]"
+        className="bg-menta-claro2 px-4 md:px-8 pb-6 md:pb-8 pt-2 rounded-[5px] mx-auto h-full w-full max-w-md space-y-3 md:space-y-4 shadow-[4px_4px_5px_0px_#f1f1f1]"
       >
         {/* Nome */}
         <div>
