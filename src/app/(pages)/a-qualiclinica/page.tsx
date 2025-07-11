@@ -7,7 +7,7 @@ import NucleoEdu from "@assets/assets-profissionais/nucleo-educacional.jpg";
 import EquipeMultiprofissional from "@assets/assets-sobre-nos/equipe-multiprofissional.png";
 import BlurEquipeMultiprofissional from "@assets/assets-sobre-nos/blur-equipe-multiprofissional.jpg";
 import Walkirya_Grafico from "@assets/assets-sobre-nos/walkirya_graph.png";
-import BlurWalkyria_Grafico from "@assets/assets-sobre-nos/blur-walkirya_graph.png";
+import BlurWalkyria_Grafico from "@assets/assets-sobre-nos/blur-walkirya_graph.jpg";
 
 import { db } from "@/firebase/firebase-config";
 import { collection, onSnapshot } from "firebase/firestore";
