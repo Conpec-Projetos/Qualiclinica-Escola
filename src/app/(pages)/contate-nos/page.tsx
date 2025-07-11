@@ -26,7 +26,7 @@ export default function ContactUs() {
                   diabetes e as suas formas de cuidado!
                 </p>
                 <div className="w-32">
-                  <Image alt="contact-us decoration" src={ContactUsSvg} className="object-cover" />
+                  <Image alt="contact-us decoration" src={ContactUsSvg} className="object-cover" unoptimized />
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@ export default function ContactUs() {
               </p>
             </div>
             <div>
-              <Image alt="contact-us decoration" src={ContactUsSvg} />
+              <Image alt="contact-us decoration" src={ContactUsSvg} unoptimized />
             </div>
           </div>
         </div>

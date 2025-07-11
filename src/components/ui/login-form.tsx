@@ -68,6 +68,7 @@ export default function LoginForm() {
               title={showPassword ? "Esconder senha" : "Mostrar senha"}
               src={showPassword ? EyeDefault : EyeSlash}
               className="w-6 h-6"
+              unoptimized
             />
           </button>
         </div>

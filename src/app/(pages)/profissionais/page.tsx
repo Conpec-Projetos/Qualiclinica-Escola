@@ -46,7 +46,7 @@ export default function Profissionais() {
                 className="rounded-md object-cover"
                 src={Time}
                 alt="Time da Qualiclínica Escola sorrindo para a foto"
-                placeholder="blur"
+                unoptimized
                 fill
                 priority
               />
@@ -122,7 +122,6 @@ export default function Profissionais() {
                   src={Thais}
                   alt="Nutricionista Thais"
                   className="rounded-[84px] object-cover"
-                  placeholder="blur"
                   unoptimized
                 />
               </div>

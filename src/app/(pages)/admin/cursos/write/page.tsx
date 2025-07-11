@@ -134,6 +134,7 @@ const Editor = () => {
         onClick={() => router.push("/admin/cursos/view")}
         alt="voltar"
         src={ArrowLeft}
+        unoptimized
       />
       <main className="w-full flex flex-col items-center justify-center text-black">
         <Form {...form}>

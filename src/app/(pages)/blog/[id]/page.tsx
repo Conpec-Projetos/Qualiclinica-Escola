@@ -82,6 +82,7 @@ export default function PostPage({
           src={LogoPrincipalAdaptada}
           className="inline-block w-[23rem]"
           priority
+          unoptimized
         />
         <h1 className="text-magenta text-4xl font-bold">Erro 404</h1>
         <h2 className="text-verde-petroleo text-2xl font-bold">
@@ -125,6 +126,7 @@ export default function PostPage({
                 fill
                 priority
                 className="object-cover"
+                unoptimized
               />
             </div>
 

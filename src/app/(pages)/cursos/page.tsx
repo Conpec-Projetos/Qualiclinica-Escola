@@ -42,7 +42,7 @@ export default function Cursos() {
                 className="rounded-md object-cover"
                 src={PessoalDaQuali}
                 alt="Grupo de pessoas realizando atividades educacionais da Quali Clínica Escola"
-                placeholder="blur"
+                unoptimized
                 fill
                 priority
               />

@@ -56,7 +56,7 @@ export default function SobreNos() {
                 className="rounded-md object-cover"
                 src={NucleoEdu}
                 alt="Time da Qualiclínica Escola em frente a logo da clínica"
-                placeholder="blur"
+                unoptimized
                 fill
                 priority
               />

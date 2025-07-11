@@ -223,10 +223,11 @@ export default function InterestForm() {
           </select>
           <Image
             src={ChevronDown}
-            alt=""
+            alt="Seta para baixo"
             className={`pointer-events-none absolute right-4 top-1/2 transform w-4 h-4 md:w-5 md:h-5 ${
               errors.course ? "-translate-y-2/5" : "-translate-y-1/6"
             }`}
+            unoptimized
           />
           {errors.course && (
             <p className="text-red-500 text-xs md:text-sm">{errors.course}</p>

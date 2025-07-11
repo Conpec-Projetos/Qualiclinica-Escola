@@ -40,6 +40,7 @@ export default function Home() {
             src={LogoPrincipalAdaptada}
             className="inline-block w-[60%] sm:w-[25%] md:w-[30%]"
             priority
+            unoptimized
           />
         </section>
         <section className="w-full">
@@ -59,7 +60,7 @@ export default function Home() {
                     className="rounded-md object-contain"
                     src={Imagem1CursosHome}
                     alt="Diabetologista Walkyria apresentando slides do curso"
-                    placeholder="blur"
+                    unoptimized
                   />
                 </div>
 
@@ -70,7 +71,7 @@ export default function Home() {
                     className="object-contain rounded-md"
                     src={Imagem2CursosHome}
                     alt="Nutricionista Thais apresentando slides do curso"
-                    placeholder="blur"
+                    unoptimized
                   />
                 </div>
               </div>
@@ -81,7 +82,7 @@ export default function Home() {
                     className="rounded-md object-cover"
                     src={Imagem1CursosHome}
                     alt="Diabetologista Walkyria apresentando slides do curso"
-                    placeholder="blur"
+                    unoptimized
                   />
                 </div>
                 <AreaCursoHome courseArea={"Para outros profissionais"} />
@@ -91,7 +92,7 @@ export default function Home() {
                     className="rounded-md md:hidden"
                     src={Imagem2CursosHome}
                     alt="Nutricionista Thais apresentando slides do curso"
-                    placeholder="blur"
+                    unoptimized
                   />
                 </div>
               </div>
@@ -181,6 +182,7 @@ export default function Home() {
                       className="inline-block"
                       alt="Ícone de WhatsApp"
                       src={WhatsappIcon}
+                      unoptimized
                     />
                     <p className="inline-block px-[1rem] text-[16px]">
                       WhatsApp: +55 (19) 99641-9210

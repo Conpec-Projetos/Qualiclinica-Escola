@@ -142,6 +142,7 @@ const ProfessionalsEditor = () => {
         onClick={() => router.push("/admin/profissionais/view")}
         alt="voltar"
         src={ArrowLeft}
+        unoptimized
       />
       <main className="w-full flex flex-col items-center justify-center text-black">
         <Form {...form}>
