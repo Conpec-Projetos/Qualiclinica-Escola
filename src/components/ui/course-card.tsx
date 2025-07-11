@@ -12,15 +12,13 @@ export interface Course {
 interface CourseCardProps {
   course: Course;
   selected: boolean;
-  type?: "general" | "small";
   onCheckboxChange: (postId: string, checked: boolean) => void;
 }
 
 export default function CourseCard({
   course,
   selected,
-  onCheckboxChange,
-  type = "general",
+  onCheckboxChange
 }: CourseCardProps) {
   return (
     <div className="flex w-full max-w-[911px]">
@@ -39,9 +37,9 @@ export default function CourseCard({
           <p className="mb-1">
             Instrutores: <span className="font-light">{course.instructors}</span>
           </p>
-          {type === "general" && (<p className="mb-1">
-            Descrição: <span className="font-light">{course.description}</span>
-          </p>)}
+          <p className="mb-1">
+            Descrição: <span className="font-light whitespace-pre-wrap">{course.description}</span>
+          </p>
         </div>
       </div>
     </div>

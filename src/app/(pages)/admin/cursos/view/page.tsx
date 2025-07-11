@@ -116,7 +116,6 @@ export default function CursosAdmin() {
                   (course) =>
                     course.area === "doctors" && (
                       <CourseCard
-                        type="general"
                         key={course.id}
                         course={course}
                         selected={selectedCourses.includes(course.id)}
@@ -146,7 +145,6 @@ export default function CursosAdmin() {
                     (course) =>
                       course.area === "patients-caregivers" && (
                         <CourseCard
-                          type="small"
                           key={course.id}
                           course={course}
                           selected={selectedCourses.includes(course.id)}
@@ -180,7 +178,6 @@ export default function CursosAdmin() {
                   .map((course) => (
                     <CourseCard
                       key={course.id}
-                      type="general"
                       course={course}
                       selected={selectedCourses.includes(course.id)}
                       onCheckboxChange={handleCheckboxChange}
@@ -207,7 +204,6 @@ export default function CursosAdmin() {
                     course.area === "mentorships" && (
                       <CourseCard
                         key={course.id}
-                        type="general"
                         course={course}
                         selected={selectedCourses.includes(course.id)}
                         onCheckboxChange={handleCheckboxChange}

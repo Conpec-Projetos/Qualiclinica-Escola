@@ -92,10 +92,10 @@ const Editor = () => {
         if (courseSnap.exists()) {
           const data = courseSnap.data();
           reset({
-            name: data.name,
-            instructors: data.instructors,
-            area: data.area,
-            description: data.description,
+            name: data.name || "",
+            instructors: data.instructors || "",
+            area: data.area || "",
+            description: data.description || "",
           });
         }
       } catch (error) {

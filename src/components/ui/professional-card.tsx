@@ -42,7 +42,7 @@ export default function CourseCard({
             Ocupação: <span className="font-light">{course.occupation}</span>
           </p>
           <p className="mb-1">
-            Carreira: <span className="font-light">{course.career}</span>
+            Carreira: <span className="font-light whitespace-pre-wrap">{course.career}</span>
           </p>
         </div>
       </div>

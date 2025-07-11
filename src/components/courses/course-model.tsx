@@ -44,7 +44,7 @@ export default function CourseModel({
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <div className="w-full max-h-48 overflow-y-auto hover:bg-white mt-2 p-2">
-                  <p className="text-text text-sm font-medium">
+                  <p className="text-text text-sm font-medium whitespace-pre-wrap">
                     {description}
                   </p>
                 </div>
@@ -59,7 +59,7 @@ export default function CourseModel({
       {/* Desktop */}
       <div className="hidden lg:flex lg:w-[50%] flex-col gap-y-[0.5rem]">
         <div className="w-full h-full overflow-y-auto text-text hover:bg-white">
-          <p className="text-text text-sm md:text-[0.9375rem] font-medium">
+          <p className="text-text text-sm md:text-[0.9375rem] font-medium whitespace-pre-wrap">
             {description}
           </p>
         </div>

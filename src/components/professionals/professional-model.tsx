@@ -41,15 +41,8 @@ export default function ProfissionalModel({
             </CollapsibleTrigger>
             <CollapsibleContent>
               <div className="w-full max-h-48 overflow-y-auto hover:bg-white mt-2 p-2">
-                <p className="text-text text-sm font-light">
-                  {carreira.split(";").map((paragraph, index) => {
-                    return (
-                      <span key={index}>
-                        {index > 0 ? <br /> : null}
-                        {paragraph.trim().replace(";", "")}
-                      </span>
-                    );
-                  })}
+                <p className="text-text text-sm font-light whitespace-pre-wrap">
+                  {carreira}
                 </p>
               </div>
             </CollapsibleContent>
@@ -59,16 +52,9 @@ export default function ProfissionalModel({
         {/* Desktop */}
         <div className="hidden sm:block">
           <div className="w-full max-h-48 lg:h-[11.375rem] overflow-y-auto hover:bg-white">
-            <p className="text-text text-sm md:text-[0.9375rem] font-light">
+            <p className="text-text text-sm md:text-[0.9375rem] font-light whitespace-pre-wrap">
               <b className="font-normal">Carreira: </b>
-              {carreira.split(";").map((paragraph, index) => {
-                return (
-                  <span key={index}>
-                    {index > 0 ? <br /> : null}
-                    {paragraph.trim().replace(";", "")}
-                  </span>
-                );
-              })}
+              {carreira}
             </p>
           </div>
         </div>

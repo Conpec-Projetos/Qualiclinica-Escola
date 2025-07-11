@@ -99,11 +99,11 @@ const ProfessionalsEditor = () => {
         if (courseSnap.exists()) {
           const data = courseSnap.data();
           reset({
-            name: data.name,
-            occupation: data.occupation,
-            career: data.career,
-            identification: data.identification,
-            area: data.area,
+            name: data.name || "",
+            occupation: data.occupation || "",
+            career: data.career || "",
+            identification: data.identification || "",
+            area: data.area || "",
           });
         }
       } catch (error) {
