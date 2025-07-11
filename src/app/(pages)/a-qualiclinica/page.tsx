@@ -4,8 +4,10 @@ import Navbar from "@/components/ui/navbar";
 import "@/app/globals.css";
 import Image from "next/image";
 import NucleoEdu from "@assets/assets-profissionais/nucleo-educacional.jpg";
-import Mundial from "@assets/assets-sobre-nos/mundial.png";
+import EquipeMultiprofissional from "@assets/assets-sobre-nos/equipe-multiprofissional.png";
+import BlurEquipeMultiprofissional from "@assets/assets-sobre-nos/blur-equipe-multiprofissional.jpg";
 import Walkirya_Grafico from "@assets/assets-sobre-nos/walkirya_graph.png";
+import BlurWalkyria_Grafico from "@assets/assets-sobre-nos/blur-walkirya_graph.png";
 
 import { db } from "@/firebase/firebase-config";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -131,6 +133,9 @@ export default function SobreNos() {
               className="sm:hidden w-full max-w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
               src={Walkirya_Grafico}
               alt="Diabetologista Walkirya na aula inaugural da Liga de Diabetes e Metabologia da Unicamp"
+              placeholder="blur"
+              blurDataURL={BlurWalkyria_Grafico.src}
+              unoptimized
             />
             <p className="text-text text-lg text-center max-w-md">
               Nossa aptidão é a educação e o letramento em saúde que se estendem
@@ -143,20 +148,29 @@ export default function SobreNos() {
             </p>
             <Image
               className="hidden sm:block w-full max-w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
-              src={Mundial}
+              src={EquipeMultiprofissional}
+              placeholder="blur"
+              blurDataURL={BlurEquipeMultiprofissional.src}
               alt="Equipe multiprofissional da Qualiclínica - unida no cuidado à pessoa com diabetes"
+              unoptimized
             />
           </div>
           <div className="w-full max-w-[450px] flex flex-col justify-center items-center gap-y-[1.57875rem]">
             <Image
               className="hidden sm:block w-full max-w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
               src={Walkirya_Grafico}
+              placeholder="blur"
+              blurDataURL={BlurWalkyria_Grafico.src}
               alt="Diabetologista Walkirya na aula inaugural da Liga de Diabetes e Metabologia da Unicamp"
+              unoptimized
             />
             <Image
               className="sm:hidden block w-full max-w-[25.25rem] h-[14.5rem] rounded-[5px] object-cover"
-              src={Mundial}
+              src={EquipeMultiprofissional}
+              placeholder="blur"
+              blurDataURL={BlurEquipeMultiprofissional.src}
               alt="Equipe multiprofissional da Qualiclínica - unida no cuidado à pessoa com diabetes"
+              unoptimized
             />
             <p className="text-text text-lg text-center max-w-md">
               Nossa Clínica dispõe de recepcionistas especializadas no
