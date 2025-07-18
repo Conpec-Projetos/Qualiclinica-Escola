@@ -154,7 +154,7 @@ export default function Profissionais() {
                   Paula Maria de Pascali
                 </p>
                 <p className="text-base text-text">Enfermeira</p>
-                <p className="text-base text-text">Educadora em Diabetes</p>
+                <p className="w-40 lg:w-[216px] text-base text-text">Educadora em Diabetes</p>
               </div>
             </div>
 
