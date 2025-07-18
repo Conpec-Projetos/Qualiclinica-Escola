@@ -9,6 +9,7 @@ import Walkyria from "@assets/assets-profissionais/walkyria.jpg";
 import Sonia from "@assets/assets-profissionais/sonia.jpg";
 import Sandra from "@assets/assets-profissionais/sandra.jpg";
 import Thais from "@assets/assets-profissionais/thais.jpg";
+import Paula from "@assets/assets-profissionais/paula.jpg";
 import ProfissionalModel from "@/components/professionals/professional-model";
 import { useEffect, useState } from "react";
 import { db } from "@/firebase/firebase-config";
@@ -72,6 +73,7 @@ export default function Profissionais() {
                   src={Walkyria}
                   alt="Diabetologista Walkyria"
                   className="rounded-[84px] object-cover"
+                  fill
                   unoptimized
                 />
               </div>
@@ -89,6 +91,7 @@ export default function Profissionais() {
                   src={Sonia}
                   alt="Enfermeira Sonia"
                   className="rounded-[84px] object-cover"
+                  fill
                   unoptimized
                 />
               </div>
@@ -100,11 +103,12 @@ export default function Profissionais() {
               </div>
             </div>
             <div className="w-fit h-[10.5rem] flex flex-row flex-wrap justify-center gap-x-5">
-              <div className="h-32 w-32 lg:w-40 lg:h-40  relative">
+              <div className="h-32 w-32 lg:w-40 lg:h-40 relative">
                 <Image
                   src={Sandra}
                   alt="Psicóloga Sandra"
                   className="rounded-[84px] object-cover"
+                  fill
                   unoptimized
                 />
               </div>
@@ -122,6 +126,7 @@ export default function Profissionais() {
                   src={Thais}
                   alt="Nutricionista Thais"
                   className="rounded-[84px] object-cover"
+                  fill
                   unoptimized
                 />
               </div>
@@ -132,6 +137,27 @@ export default function Profissionais() {
                 <p className="text-base text-text">Nutricionista</p>
               </div>
             </div>
+
+            <div className="w-fit h-[10.5rem] flex flex-row flex-wrap justify-center gap-x-5">
+              <div className="h-32 w-32 lg:w-40 lg:h-40 rounded-[84px] relative">
+                <Image
+                  src={Paula}
+                  alt="Enfermeira Paula"
+                  className="rounded-[84px] object-cover"
+                  fill
+                  unoptimized
+                />
+              </div>
+
+              <div className="">
+                <p className="w-40 lg:w-[216px] font-semibold text-lg lg:text-2xl text-magenta">
+                  Paula Maria de Pascali
+                </p>
+                <p className="text-base text-text">Enfermeira</p>
+                <p className="text-base text-text">Educadora em Diabetes</p>
+              </div>
+            </div>
+
           </div>
         </section>
         <section className="flex flex-col gap-y-[1.5rem] w-full max-w-6xl px-4">
