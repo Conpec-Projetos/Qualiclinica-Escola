@@ -22,7 +22,9 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData
+);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
@@ -32,52 +34,70 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setLoading(true);
       if (user) {
         const userRef = doc(db, "users", user.uid);
         const userSnapshot = await getDoc(userRef);
         if (userSnapshot.exists()) {
           setCurrentUser(userSnapshot.data() as User);
+          setError(null);
+        } else {
+          setError("Dados do usuário não encontrados");
+          setCurrentUser(undefined);
         }
       } else {
         setCurrentUser(undefined);
+        setError(null);
       }
+
+      setLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
   const logout = async () => {
-    await signOut(auth);
-    setCurrentUser(undefined);
+    try {
+      setError(null);
+      await signOut(auth);
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+      setError("Erro ao fazer logout");
+    }
   };
 
   const login = async (email: string, password: string) => {
     setError(null);
-    setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setError(null);
-      const userRef = doc(db, "users", auth.currentUser?.uid || "");
-      const userSnapshot = await getDoc(userRef);
-      const userData = userSnapshot.data() as User;
-      setCurrentUser(userData);
     } catch (err: unknown) {
       if (err instanceof FirebaseError) {
-        if (err.code === "auth/user-not-found") {
-          setError("Usuário não encontrado");
-        } else if (
-          err.code === "auth/invalid-password" ||
-          err.code === "auth/invalid-email"
-        ) {
-          setError("Email ou senha inválidos");
-        } else {
-          console.error(err.message);
+        switch (err.code) {
+          case "auth/user-not-found":
+            setError("Usuário não encontrado");
+            break;
+          case "auth/wrong-password":
+          case "auth/invalid-password":
+          case "auth/invalid-credential":
+            setError("Email ou senha inválidos");
+            break;
+          case "auth/invalid-email":
+            setError("Email inválido");
+            break;
+          case "auth/user-disabled":
+            setError("Usuário desabilitado");
+            break;
+          case "auth/too-many-requests":
+            setError("Muitas tentativas de login. Tente novamente mais tarde");
+            break;
+          default:
+            setError("Erro ao fazer login: " + err.message);
+            break;
         }
       } else {
         setError("Ocorreu um erro inesperado");
       }
     }
-    setLoading(false);
   };
 
   return (
