@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="font-poppins flex flex-col items-center gap-[2.625rem] pt-[1.5rem] pb-[2.625rem]">
-        <section className="flex flex-col sm:flex-row justify-center items-center bg-rosa-claro w-[90%] h-[318px] sm:w-full md:h-[370px] sm:h-[300px] sm:py-2 gap-y-2 gap-x-[4rem]">
+        <section className="flex flex-col sm:flex-row justify-center items-center bg-rosa-claro w-[90%] h-[318px] sm:w-full md:h-[370px] sm:h-[300px] sm:py-2 gap-y-2 sm:gap-x-[2rem] md:gap-x-[4rem] lg:gap-x-[10rem]">
           <div className="flex flex-col items-center w-fit gap-x-[1rem] gap-y-[1.5rem]">
             <h1 className="!text-2xl text-center sm:!text-3xl md:!text-4xl h-fit text-magenta font-semibold w-64 sm:w-[24rem] inline-block">
               Conhecimento que promove bem-estar
@@ -38,7 +38,7 @@ export default function Home() {
           <Image
             alt="logo principal"
             src={LogoPrincipalAdaptada}
-            className="inline-block w-[186px] h-[155px] md:w-72 sm:h-auto"
+            className="inline-block w-[186px] h-[155px] md:w-72 lg:w-96 sm:h-auto"
             priority
             unoptimized
           />
