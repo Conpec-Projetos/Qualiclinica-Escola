@@ -161,7 +161,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
-        <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
+        <div className="h-[12.5rem] overflow-y-auto hover:bg-white rounded-xl">
           {isLoading ? (
             <SkeletonList />
           ) : (
@@ -186,7 +186,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
-        <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
+        <div className="h-[12.5rem] overflow-y-auto hover:bg-white rounded-xl">
           {isLoading ? (
             <SkeletonList />
           ) : (
@@ -211,7 +211,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
-        <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
+        <div className="h-[12.5rem] overflow-y-auto hover:bg-white rounded-xl">
           {isLoading ? (
             <SkeletonList />
           ) : (
@@ -236,7 +236,7 @@ export function AreaCursoHome({ courseArea }: { courseArea: string }) {
         <h2 className="text-center font-semibold text-[1.7rem] text-verde-petroleo">
           {courseArea}
         </h2>
-        <div className="h-[12.5rem] overflow-y-auto hover:bg-white">
+        <div className="h-[12.5rem] overflow-y-auto hover:bg-white rounded-xl">
           {isLoading ? (
             <SkeletonList />
           ) : (
