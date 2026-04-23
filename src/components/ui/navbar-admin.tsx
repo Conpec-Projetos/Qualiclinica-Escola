@@ -38,6 +38,9 @@ export default function NavbarAdmin() {
         <Link href="/admin/blog/view" className="hover:text-gray-700">
           Blog
         </Link>
+        <Link href="/admin/carrossel/view" className="hover:text-gray-700">
+          Carrossel
+        </Link>
         <Link href="/admin/diferenciais/edit" className="hover:text-gray-700">
           Diferenciais
         </Link>

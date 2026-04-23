@@ -16,6 +16,7 @@ export default function HomeAdmin() {
           <Link href="/admin/cursos/view">Cursos</Link>
           <Link href="/admin/profissionais/view">Profissionais</Link>
           <Link href="/admin/blog/view">Blog</Link>
+          <Link href="/admin/carrossel/view">Carrossel</Link>
           <Link href="/admin/diferenciais/edit">Diferenciais</Link>
         </div>
         <div
