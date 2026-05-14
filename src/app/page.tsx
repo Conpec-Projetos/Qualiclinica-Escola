@@ -48,6 +48,7 @@ export default function Home() {
           <h1 className="text-center font-semibold text-[3rem] text-verde-petroleo pb-[21px]">
             Nossos cursos
           </h1>
+          <HomeCarousel />
           <div className="w-full flex flex-row justify-center">
             <div className="flex flex-col md:flex-row justify-center items-center w-[90%] h-fit md:h-[75.15rem] gap-y-[2rem] gap-x-[5rem]">
               <div className="flex flex-col items-center">
@@ -100,7 +101,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <HomeCarousel />
         <section className="flex flex-col items-center w-full bg-rosa-claro">
           <div className="flex flex-col md:flex-row w-full lg:max-w-[52rem] h-fit justify-center items-center py-[3.75rem] gap-x-[3.19rem]">
             <div className="hidden w-[300px] md:flex justify-center h-fit">

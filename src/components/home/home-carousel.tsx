@@ -70,15 +70,22 @@ export default function HomeCarousel() {
     <section className="w-full bg-menta-claro2 py-[3.75rem] px-4">
       <div className="max-w-6xl mx-auto">
         <Carousel
-          opts={{ loop: true, align: "start" }}
+          opts={{ loop: true, align: "center" }}
           plugins={[autoplay.current]}
           setApi={setApi}
           className="px-6"
         >
-          <CarouselContent>
-            {images.map((image) => {
+          <CarouselContent className="items-center">
+            {images.map((image, idx) => {
+              const isCenter = idx === selectedIndex;
               const slide = (
-                <div className="relative w-full aspect-[16/10] overflow-hidden rounded-lg bg-ciano-escuro/30 shadow-md">
+                <div
+                  className={`relative w-full overflow-hidden rounded-lg bg-ciano-escuro/30 shadow-md transition-all duration-300 ${
+                    isCenter
+                      ? "aspect-[16/10] scale-105 shadow-xl z-10"
+                      : "aspect-[16/10] scale-90 opacity-70"
+                  }`}
+                >
                   <Image
                     src={image.imageUrl}
                     alt={image.alt}
