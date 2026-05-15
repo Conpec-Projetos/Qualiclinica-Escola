@@ -1,5 +1,6 @@
 "use client";
 import ArrowLeft from "@/assets/arrow-left.svg";
+import CropModal from "@/components/carrossel/crop-modal";
 import ButtonQuali from "@/components/ui/button-quali";
 import Footer from "@/components/ui/footer";
 import {
@@ -81,6 +82,11 @@ function Editor() {
   const [existingStoragePath, setExistingStoragePath] = useState<string | null>(
     null
   );
+  const [rawSrc, setRawSrc] = useState<string | null>(null);
+  const [rawFileName, setRawFileName] = useState("");
+  const [rawMimeType, setRawMimeType] = useState("image/jpeg");
+  const [cropOpen, setCropOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<CarouselImageFormData>({
@@ -114,12 +120,58 @@ function Editor() {
     fetchImage();
   }, [imageId, reset]);
 
+  const startCropFromFile = (file: File) => {
+    if (!file.type.startsWith("image/")) {
+      toast.warning("Selecione um arquivo de imagem.");
+      return;
+    }
+    if (rawSrc) URL.revokeObjectURL(rawSrc);
+    setRawSrc(URL.createObjectURL(file));
+    setRawFileName(file.name);
+    setRawMimeType(file.type);
+    setCropOpen(true);
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      setImageFile(file);
-      setImageUrl(URL.createObjectURL(file));
+    if (file) startCropFromFile(file);
+    e.target.value = "";
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (!isDragging) setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) startCropFromFile(file);
+  };
+
+  const handleCropConfirm = (file: File) => {
+    if (imageUrl.startsWith("blob:")) URL.revokeObjectURL(imageUrl);
+    setImageFile(file);
+    setImageUrl(URL.createObjectURL(file));
+    if (rawSrc) {
+      URL.revokeObjectURL(rawSrc);
+      setRawSrc(null);
     }
+    setCropOpen(false);
+  };
+
+  const handleCropCancel = () => {
+    if (rawSrc) {
+      URL.revokeObjectURL(rawSrc);
+      setRawSrc(null);
+    }
+    setCropOpen(false);
   };
 
   const onSubmit = async (data: CarouselImageFormData) => {
@@ -201,7 +253,14 @@ function Editor() {
             </h1>
 
             <div
-              className="relative w-full h-[280px] bg-ciano-escuro/30 rounded-[10px] overflow-hidden mb-5 flex items-center justify-center text-menta-claro1"
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+              className={`relative w-full h-[280px] rounded-[10px] overflow-hidden mb-5 flex items-center justify-center text-menta-claro1 transition-all ${
+                isDragging
+                  ? "bg-ciano-escuro/50 ring-2 ring-magenta"
+                  : "bg-ciano-escuro/30"
+              }`}
             >
               {imageUrl ? (
                 <Image
@@ -209,11 +268,13 @@ function Editor() {
                   src={imageUrl}
                   fill
                   sizes="100%"
-                  className="object-cover select-none"
+                  className="object-cover select-none pointer-events-none"
                   unoptimized
                 />
               ) : (
-                <p className="text-verde-petroleo">Selecione uma imagem</p>
+                <p className="text-verde-petroleo text-center px-4 pointer-events-none">
+                  Arraste uma imagem aqui ou clique no botão
+                </p>
               )}
               <button
                 type="button"
@@ -312,6 +373,14 @@ function Editor() {
         </Form>
       </main>
       <Footer />
+      <CropModal
+        open={cropOpen}
+        imageSrc={rawSrc}
+        fileName={rawFileName}
+        mimeType={rawMimeType}
+        onCancel={handleCropCancel}
+        onConfirm={handleCropConfirm}
+      />
     </div>
   );
 }
